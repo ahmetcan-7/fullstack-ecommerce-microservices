@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e11488a-5285-4330-851a-e2464b08619a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +19,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -52,11 +50,18 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "11",
-    "last_opened_file_path": "C:/Users/gener/Desktop/bilgisayar-aglari/chatApp/backend",
+    "last_opened_file_path": "C:/Users/gener/Desktop/microservices/ecommerce-microservice",
     "nodejs_package_manager_path": "npm",
-    "spring.configuration.checksum": "f52c512c7179db88d39e9dcaf69e621e"
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "a3afb59b416b97de4905e4dfd6ac3e8a"
   },
   "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ],
     "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
       "Properties",
       "PLAIN_TEXT"
@@ -65,6 +70,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.orderservice.service" />
+      <recent name="com.orderservice.model" />
       <recent name="dto.brand" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -75,7 +82,7 @@
       <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\product-service\src\main\java" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ProductApplication (1)">
+  <component name="RunManager" selected="Spring Boot.OrderApplication">
     <configuration name="ProductApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ProductApplication" />
       <module name="product-service" />
@@ -96,9 +103,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CommonApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="common" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="CommonApplication" />
+    <configuration name="OrderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="order-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.orderservice.OrderApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.orderservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -125,11 +138,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.OrderApplication" />
         <item itemvalue="Spring Boot.ProductApplication (1)" />
         <item itemvalue="Spring Boot.CommonApplication (1)" />
         <item itemvalue="Spring Boot.ProductApplication" />
         <item itemvalue="Application.ProductApplication" />
-        <item itemvalue="Spring Boot.CommonApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -147,6 +160,8 @@
       <workItem from="1661537103458" duration="3407000" />
       <workItem from="1661544223643" duration="3996000" />
       <workItem from="1661589397057" duration="12946000" />
+      <workItem from="1661675360212" duration="15412000" />
+      <workItem from="1661788786273" duration="7750000" />
     </task>
     <servers />
   </component>
