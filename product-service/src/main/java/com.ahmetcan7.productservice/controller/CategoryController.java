@@ -1,7 +1,7 @@
 package com.ahmetcan7.productservice.controller;
 
 import com.ahmetcan7.productservice.dto.category.CategoryDto;
-import com.ahmetcan7.productservice.dto.category.CategoryRequest;
+import com.ahmetcan7.productservice.dto.category.CreateCategoryRequest;
 import com.ahmetcan7.productservice.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,7 +19,7 @@ import javax.validation.Valid;
 public class CategoryController {
     private final CategoryService categoryService;
     @PostMapping
-    public ResponseEntity<CategoryDto> createCategory(@Valid @RequestBody CategoryRequest categoryRequest){
-        return new ResponseEntity<>(categoryService.createCategory(categoryRequest), HttpStatus.CREATED);
+    public ResponseEntity<CategoryDto> createCategory(@Valid @RequestBody CreateCategoryRequest createCategoryRequest){
+        return new ResponseEntity<>(categoryService.createCategory(createCategoryRequest), HttpStatus.CREATED);
     }
 }

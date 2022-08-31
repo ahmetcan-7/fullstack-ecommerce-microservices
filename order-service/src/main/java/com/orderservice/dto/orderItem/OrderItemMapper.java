@@ -15,11 +15,11 @@ public class OrderItemMapper {
                 .build();
     }
 
-    public OrderItem orderItemRequestToOrderItem(OrderItemRequest orderItemRequest){
+    public OrderItem orderItemRequestToOrderItem(CreateOrderItemRequest createOrderItemRequest){
         return OrderItem.builder()
-                .productId(orderItemRequest.getProductId())
-                .price(orderItemRequest.getPrice())
-                .quantity(orderItemRequest.getQuantity())
+                .productId(createOrderItemRequest.getProductId())
+                .price(createOrderItemRequest.getPrice())
+                .quantity(createOrderItemRequest.getQuantity())
                 .build();
     }
 

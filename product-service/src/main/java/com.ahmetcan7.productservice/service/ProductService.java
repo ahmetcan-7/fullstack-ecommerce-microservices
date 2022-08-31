@@ -1,10 +1,9 @@
 package com.ahmetcan7.productservice.service;
 
-import com.ahmetcan7.common.exception.DomainException;
 import com.ahmetcan7.common.exception.NotFoundException;
 import com.ahmetcan7.productservice.dto.product.ProductDto;
 import com.ahmetcan7.productservice.dto.product.ProductMapper;
-import com.ahmetcan7.productservice.dto.product.ProductRequest;
+import com.ahmetcan7.productservice.dto.product.CreateProductRequest;
 import com.ahmetcan7.productservice.model.Category;
 import com.ahmetcan7.productservice.model.Product;
 import com.ahmetcan7.productservice.repository.ProductRepository;
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -31,40 +29,27 @@ public class ProductService {
     }
 
     public ProductDto getProductById(UUID id) {
-        Optional<Product> product = productRepository.findById(id);
-
-        if(product.isEmpty()){
-            log.error("Product with id: {} could not be found!", id);
-            throw new NotFoundException("Product with id " + id + " could not be found!");
-        }
-
-        return productMapper.productToProductDto(product.get());
+        return productMapper.productToProductDto(productRepository.findById(id)
+                .orElseThrow(()->{
+                    log.error("Product with id: {} could not be found!", id);
+                    throw new NotFoundException("Product with id " + id + " could not be found!");
+                }));
     }
 
-    public ProductDto createProduct(ProductRequest productRequest) {
+    public ProductDto createProduct(CreateProductRequest createProductRequest) {
 
-        Category category = categoryService.getCategoryById(productRequest.getCategoryId());
+        Category category = categoryService.getCategoryById(createProductRequest.getCategoryId());
 
         Product product =  Product.builder()
-                .name(productRequest.getName())
-                .price(productRequest.getPrice())
-                .description(productRequest.getDescription())
+                .name(createProductRequest.getName())
+                .price(createProductRequest.getPrice())
+                .description(createProductRequest.getDescription())
                 .category(category)
                 .createdAt(LocalDateTime.now())
                 .updatedAt(LocalDateTime.now())
                 .build();
 
-        Product savedProduct = productRepository.save(product);
-
-        if(savedProduct.getId() == null){
-            log.error("Product could not be created with id: {}",savedProduct.getId());
-            throw new DomainException("Product could not be created with id: "+
-                    savedProduct.getId());
-        }
-
-        log.info("Product is created with id: {}", savedProduct.getId());
-
-        return productMapper.productToProductDto(savedProduct);
+        return productMapper.productToProductDto(productRepository.save(product));
     }
 }
 

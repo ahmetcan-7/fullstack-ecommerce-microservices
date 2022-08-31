@@ -32,13 +32,13 @@ public class OrderMapper {
                 .build();
     }
 
-    public Order orderRequestToOrder(OrderRequest orderRequest, BigDecimal totalPrice){
+    public Order orderRequestToOrder(CreateOrderRequest createOrderRequest, BigDecimal totalPrice){
         return Order.builder()
-                .customerId(orderRequest.getCustomerId())
+                .customerId(createOrderRequest.getCustomerId())
                 .price(totalPrice)
                 .orderStatus(OrderStatus.PENDING)
-                .address(orderAddressMapper.orderAddressRequestToOrderAddress(orderRequest.getAddress()))
-                .items(orderRequest.getItems()
+                .address(orderAddressMapper.orderAddressRequestToOrderAddress(createOrderRequest.getAddress()))
+                .items(createOrderRequest.getItems()
                         .stream()
                         .map(orderItemMapper::orderItemRequestToOrderItem)
                         .collect(Collectors.toList()))

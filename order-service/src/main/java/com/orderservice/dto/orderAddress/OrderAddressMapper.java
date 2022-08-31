@@ -14,11 +14,11 @@ public class OrderAddressMapper {
                 .build();
     }
 
-    public OrderAddress orderAddressRequestToOrderAddress(OrderAddressRequest orderAddressRequest){
+    public OrderAddress orderAddressRequestToOrderAddress(CreateOrderAddressRequest createOrderAddressRequest){
         return OrderAddress.builder()
-                .street(orderAddressRequest.getStreet())
-                .postalCode(orderAddressRequest.getPostalCode())
-                .city(orderAddressRequest.getCity())
+                .street(createOrderAddressRequest.getStreet())
+                .postalCode(createOrderAddressRequest.getPostalCode())
+                .city(createOrderAddressRequest.getCity())
                 .build();
     }
 }

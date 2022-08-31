@@ -5,7 +5,7 @@ import lombok.Getter;
 import javax.validation.constraints.NotNull;
 
 @Getter
-public class CategoryRequest {
+public class CreateCategoryRequest {
     @NotNull
     private String name;
 }

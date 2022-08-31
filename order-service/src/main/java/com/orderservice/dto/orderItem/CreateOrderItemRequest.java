@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderItemRequest {
+public class CreateOrderItemRequest {
     @NotNull
     private String productId;
     @NotNull

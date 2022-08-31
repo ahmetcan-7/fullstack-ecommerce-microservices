@@ -5,28 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e11488a-5285-4330-851a-e2464b08619a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/inventory-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/ahmetcan7/common/model/AdvanceBaseModal.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/ahmetcan7/common/model/AdvanceBaseModal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/ahmetcan7/common/model/BaseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/ahmetcan7/common/model/BaseModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/dto/order/OrderDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/dto/order/OrderDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/dto/order/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/dto/order/OrderMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/dto/orderAddress/OrderAddressMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/dto/orderAddress/OrderAddressMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/model/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/model/OrderAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/model/OrderAddress.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/model/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/model/OrderItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/repository/OrderAddressRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/repository/OrderItemRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/repository/OrderRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/ProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/ProductDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/service/CategoryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +81,7 @@
       <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\product-service\src\main\java" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.OrderApplication">
+  <component name="RunManager" selected="Spring Boot.ProductApplication (1)">
     <configuration name="ProductApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ProductApplication" />
       <module name="product-service" />
@@ -155,8 +137,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.OrderApplication" />
         <item itemvalue="Spring Boot.ProductApplication (1)" />
+        <item itemvalue="Spring Boot.OrderApplication" />
         <item itemvalue="Spring Boot.CommonApplication (1)" />
         <item itemvalue="Spring Boot.ProductApplication" />
         <item itemvalue="Application.ProductApplication" />
@@ -180,7 +162,7 @@
       <workItem from="1661675360212" duration="15412000" />
       <workItem from="1661788786273" duration="7936000" />
       <workItem from="1661861545620" duration="7419000" />
-      <workItem from="1661938195454" duration="4996000" />
+      <workItem from="1661938195454" duration="6728000" />
     </task>
     <servers />
   </component>

@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class OrderAddressRequest {
+public class CreateOrderAddressRequest {
     @NotNull
     private String street;
     @NotNull

@@ -2,7 +2,7 @@ package com.ahmetcan7.productservice.controller;
 
 
 import com.ahmetcan7.productservice.dto.product.ProductDto;
-import com.ahmetcan7.productservice.dto.product.ProductRequest;
+import com.ahmetcan7.productservice.dto.product.CreateProductRequest;
 import com.ahmetcan7.productservice.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -30,8 +30,8 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<ProductDto> saveProduct(@Valid @RequestBody ProductRequest productRequest){
-        return new ResponseEntity<>(productService.createProduct(productRequest),HttpStatus.CREATED);
+    public ResponseEntity<ProductDto> saveProduct(@Valid @RequestBody CreateProductRequest createProductRequest){
+        return new ResponseEntity<>(productService.createProduct(createProductRequest),HttpStatus.CREATED);
     }
 
 }

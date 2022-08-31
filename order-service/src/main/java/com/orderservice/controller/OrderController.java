@@ -1,7 +1,7 @@
 package com.orderservice.controller;
 
 import com.orderservice.dto.order.OrderDto;
-import com.orderservice.dto.order.OrderRequest;
+import com.orderservice.dto.order.CreateOrderRequest;
 import com.orderservice.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -20,7 +20,7 @@ public class OrderController {
     private final OrderService orderService;
 
     @PostMapping
-    public ResponseEntity<OrderDto> createOrder(@Valid @RequestBody OrderRequest orderRequest){
-        return new ResponseEntity<>(orderService.createOrder(orderRequest),HttpStatus.CREATED);
+    public ResponseEntity<OrderDto> createOrder(@Valid @RequestBody CreateOrderRequest createOrderRequest){
+        return new ResponseEntity<>(orderService.createOrder(createOrderRequest),HttpStatus.CREATED);
     }
 }
