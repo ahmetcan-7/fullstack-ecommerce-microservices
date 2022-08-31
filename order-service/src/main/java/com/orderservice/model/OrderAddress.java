@@ -1,21 +1,28 @@
 package com.orderservice.model;
 
+import com.ahmetcan7.common.model.BaseModel;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.UUID;
 
+@Entity(name = "orderAddresses")
+@Table
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table
-@Entity(name = "orderAddresses")
-public class OrderAddress {
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name="UUID",strategy = "org.hibernate.id.UUIDGenerator")
+@SuperBuilder
+public class OrderAddress  {
+
     @Id
-    private String id;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
+    private UUID id;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "order_id")

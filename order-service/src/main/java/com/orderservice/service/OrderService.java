@@ -23,6 +23,9 @@ public class OrderService {
     public OrderDto createOrder(OrderRequest orderRequest){
 
         Order order = orderMapper.orderRequestToOrder(orderRequest,getTotalPrice(orderRequest));
+        order.getAddress().setOrder(order);
+        order.getItems().forEach(item -> item.setOrder(order));
+
         orderRepository.save(order);
 
         if(order.getId() == null){
@@ -40,7 +43,10 @@ public class OrderService {
         BigDecimal totalPrice = BigDecimal.ZERO;
 
         for (OrderItemRequest orderItemRequest : orderRequest.getItems()) {
-            totalPrice = totalPrice.add(orderItemRequest.getPrice());
+            BigDecimal subtotal = orderItemRequest.getPrice()
+                    .multiply(BigDecimal.valueOf(orderItemRequest.getQuantity()));
+
+            totalPrice = totalPrice.add(subtotal);
         }
 
         return totalPrice;

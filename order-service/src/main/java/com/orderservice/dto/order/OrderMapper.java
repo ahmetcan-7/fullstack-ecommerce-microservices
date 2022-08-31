@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.stream.Collectors;
 
 @Component
@@ -41,6 +42,8 @@ public class OrderMapper {
                         .stream()
                         .map(orderItemMapper::orderItemRequestToOrderItem)
                         .collect(Collectors.toList()))
+                .createdAt(LocalDateTime.now())
+                .updatedAt(LocalDateTime.now())
                 .build();
     }
 

@@ -10,13 +10,14 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class OrderDto {
-    private String id;
+    private UUID id;
     private String customerId;
     private BigDecimal price;
     private OrderAddressDto address;

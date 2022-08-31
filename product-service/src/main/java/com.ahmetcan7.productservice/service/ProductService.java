@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -29,7 +30,7 @@ public class ProductService {
         return products.stream().map(productMapper::productToProductDto).collect(Collectors.toList());
     }
 
-    public ProductDto getProductById(String id) {
+    public ProductDto getProductById(UUID id) {
         Optional<Product> product = productRepository.findById(id);
 
         if(product.isEmpty()){
