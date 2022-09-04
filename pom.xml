@@ -14,6 +14,7 @@
         <module>product-service</module>
         <module>order-service</module>
         <module>inventory-service</module>
+        <module>amqp</module>
     </modules>
 
 
@@ -38,6 +39,21 @@
             <dependency>
                 <groupId>com.ahmetcan7</groupId>
                 <artifactId>product-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ahmetcan7</groupId>
+                <artifactId>amqp</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ahmetcan7</groupId>
+                <artifactId>order-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ahmetcan7</groupId>
+                <artifactId>inventory-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

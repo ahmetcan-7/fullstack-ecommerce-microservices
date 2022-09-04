@@ -1,5 +1,6 @@
 package com.inventoryservice.dto;
 
+import com.ahmetcan7.amqp.InventoryRequest;
 import com.inventoryservice.model.Inventory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -7,10 +8,10 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class InventoryMapper {
-    public Inventory createInventoryRequestToInventory(CreateInventoryRequest createInventoryRequest){
+    public Inventory createInventoryRequestToInventory(InventoryRequest inventoryRequest){
         return Inventory.builder()
-                .productId(createInventoryRequest.getProductId())
-                .quantity(createInventoryRequest.getQuantity())
+                .productId(inventoryRequest.getProductId())
+                .quantity(inventoryRequest.getQuantity())
                 .build();
     }
 

@@ -1,14 +1,15 @@
 package com.inventoryservice.dto;
 
-import lombok.Getter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
-@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class CreateInventoryRequest {
-    @NotNull
     private UUID productId;
-    @NotNull
     private Integer quantity;
 }

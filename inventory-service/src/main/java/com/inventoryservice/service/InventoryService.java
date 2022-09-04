@@ -1,13 +1,12 @@
 package com.inventoryservice.service;
 
-import com.inventoryservice.dto.CreateInventoryRequest;
+import com.ahmetcan7.amqp.InventoryRequest;
 import com.inventoryservice.dto.InventoryMapper;
 import com.inventoryservice.model.Inventory;
 import com.inventoryservice.repository.InventoryRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -15,9 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 public class InventoryService {
     private final InventoryRepository inventoryRepository;
     private final InventoryMapper inventoryMapper;
-    @Transactional
-    public String addProductToInventory(CreateInventoryRequest createInventoryRequest){
-        Inventory inventory = inventoryRepository.save(inventoryMapper.createInventoryRequestToInventory(createInventoryRequest));
+    public String addProductToInventory(InventoryRequest inventoryRequest){
+        Inventory inventory = inventoryRepository.save(inventoryMapper.createInventoryRequestToInventory(inventoryRequest));
         return "Successful added to inventory";
     }
 }
