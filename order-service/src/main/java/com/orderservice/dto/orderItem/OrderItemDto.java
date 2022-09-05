@@ -8,13 +8,14 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class OrderItemDto {
-    private String productId;
+    private UUID productId;
     private BigDecimal price;
     private Integer quantity;
 }

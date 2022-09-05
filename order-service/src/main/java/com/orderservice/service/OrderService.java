@@ -1,5 +1,8 @@
 package com.orderservice.service;
 
+import com.ahmetcan7.clients.inventory.InventoryCheckRequest;
+import com.ahmetcan7.clients.inventory.InventoryCheckResponse;
+import com.ahmetcan7.clients.inventory.InventoryClient;
 import com.orderservice.dto.order.OrderDto;
 import com.orderservice.dto.order.OrderMapper;
 import com.orderservice.dto.order.CreateOrderRequest;
@@ -7,21 +10,36 @@ import com.orderservice.dto.orderItem.CreateOrderItemRequest;
 import com.orderservice.model.Order;
 import com.orderservice.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class OrderService {
     private final OrderRepository orderRepository;
     private final OrderMapper orderMapper;
+
+    private final InventoryClient inventoryClient;
     public OrderDto createOrder(CreateOrderRequest createOrderRequest){
 
         Order order = orderMapper.orderRequestToOrder(createOrderRequest,getTotalPrice(createOrderRequest));
         order.getAddress().setOrder(order);
         order.getItems().forEach(item -> item.setOrder(order));
 
+        List<InventoryCheckRequest> inventoryCheckRequests = order.getItems().stream()
+                .map(item -> new InventoryCheckRequest(item.getProductId(),item.getQuantity()))
+                .collect(Collectors.toList());
+
+        InventoryCheckResponse inventoryCheckResponse = inventoryClient.isInStock(inventoryCheckRequests);
+
+        if(!inventoryCheckResponse.getIsInStock()){
+          throw new IllegalArgumentException("Product is not in stock, please try again later");
+        }
         return orderMapper.orderToOrderDto(orderRepository.save(order));
     }
 

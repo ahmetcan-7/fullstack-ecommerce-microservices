@@ -6,13 +6,14 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.util.UUID;
 
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreateOrderItemRequest {
     @NotNull
-    private String productId;
+    private UUID productId;
     @NotNull
     private BigDecimal price;
     @NotNull

@@ -6,6 +6,7 @@ import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.UUID;
 
 @Entity(name = "orderItems")
 @Table
@@ -19,7 +20,7 @@ public class OrderItem extends BaseModel  {
     @JoinColumn(name = "order_id")
     private Order order;
 
-    private String productId;
+    private UUID productId;
     private BigDecimal price;
     private Integer quantity;
 
