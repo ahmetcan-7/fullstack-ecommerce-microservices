@@ -19,7 +19,7 @@ import java.util.UUID;
 @SuperBuilder
 public class Order extends AdvanceBaseModal {
 
-    private String customerId;
+    private UUID customerId;
     private BigDecimal price;
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;

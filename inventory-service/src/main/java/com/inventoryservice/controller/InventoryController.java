@@ -18,11 +18,6 @@ public class InventoryController {
 
     private final InventoryService inventoryService;
 
-//    @PostMapping
-//    public ResponseEntity<String> addToInventory(@RequestBody InventoryRequest inventoryRequest){
-//        return new ResponseEntity<>(inventoryService.addProductToInventory(inventoryRequest), HttpStatus.CREATED);
-//    }
-
     @PostMapping
     public ResponseEntity<InventoryCheckResponse> isInStock(@RequestBody List<InventoryCheckRequest> inventoryCheckRequests){
         return ResponseEntity.ok(inventoryService.isInStock(inventoryCheckRequests));

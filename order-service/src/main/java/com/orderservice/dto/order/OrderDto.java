@@ -18,7 +18,7 @@ import java.util.UUID;
 @Builder
 public class OrderDto {
     private UUID id;
-    private String customerId;
+    private UUID customerId;
     private BigDecimal price;
     private OrderAddressDto address;
     private List<OrderItemDto> items;

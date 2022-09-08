@@ -25,7 +25,6 @@ public class InventoryService {
     public void addProductToInventory(InventoryRequest inventoryRequest){
         Inventory inventory = inventoryRepository
                 .save(inventoryMapper.createInventoryRequestToInventory(inventoryRequest));
-        //return "Successful added to inventory";
     }
 
     public InventoryCheckResponse isInStock(List<InventoryCheckRequest> inventoryCheckRequests) {

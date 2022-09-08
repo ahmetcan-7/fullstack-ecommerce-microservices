@@ -6,11 +6,12 @@ import lombok.Getter;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 public class CreateOrderRequest {
     @NotNull
-    private String customerId;
+    private UUID customerId;
     @NotNull
     private CreateOrderAddressRequest address;
     @NotNull
