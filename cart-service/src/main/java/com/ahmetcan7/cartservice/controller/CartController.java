@@ -1,5 +1,7 @@
 package com.ahmetcan7.cartservice.controller;
 
+import com.ahmetcan7.cartservice.dto.cartItem.CartItemDto;
+import com.ahmetcan7.cartservice.dto.cartItem.CreateCartItemRequest;
 import com.ahmetcan7.cartservice.model.Cart;
 import com.ahmetcan7.cartservice.service.CartService;
 import lombok.RequiredArgsConstructor;
@@ -9,18 +11,20 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/v1/carts")
 @RequiredArgsConstructor
-@Slf4j
 public class CartController {
     private final CartService cartService;
 
     @PostMapping
-    public ResponseEntity<Cart> saveProductToCart(@RequestBody Cart cart){
-        log.info("gelen cart{}",cart);
-        return new ResponseEntity<>(cartService.save(cart), HttpStatus.CREATED);
+    public ResponseEntity<String> addProductToCart(@RequestParam UUID customerId,
+                                                        @RequestBody CreateCartItemRequest createCartItemRequest){
+
+        cartService.save(customerId,createCartItemRequest);
+        return new ResponseEntity<>("Product is added", HttpStatus.CREATED);
     }
 
     @GetMapping

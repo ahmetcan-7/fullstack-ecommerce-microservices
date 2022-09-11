@@ -1,5 +1,6 @@
-package com.ahmetcan7.cartservice.dto;
+package com.ahmetcan7.cartservice.dto.cart;
 
+import com.ahmetcan7.cartservice.dto.cartItem.CartItemDto;
 import com.ahmetcan7.cartservice.model.CartItem;
 import lombok.Builder;
 import lombok.Data;
@@ -11,8 +12,7 @@ import java.util.UUID;
 @Data
 @Builder
 public class CartDto {
-    private Long id;
     private UUID customerId;
-    private List<CartItem> cartItems;
+    private List<CartItemDto> cartItems;
     private BigDecimal totalPrice;
 }

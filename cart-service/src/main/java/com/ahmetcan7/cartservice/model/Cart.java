@@ -2,6 +2,7 @@ package com.ahmetcan7.cartservice.model;
 
 import com.ahmetcan7.common.model.BaseModel;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.redis.core.RedisHash;
@@ -18,11 +19,11 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Cart implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     private UUID customerId;
     private List<CartItem> cartItems;
     private BigDecimal totalPrice;
