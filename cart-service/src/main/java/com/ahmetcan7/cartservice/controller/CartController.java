@@ -1,11 +1,10 @@
 package com.ahmetcan7.cartservice.controller;
 
-import com.ahmetcan7.cartservice.dto.cartItem.CartItemDto;
 import com.ahmetcan7.cartservice.dto.cartItem.CreateCartItemRequest;
+import com.ahmetcan7.cartservice.dto.cartItem.UpdateCartItemRequest;
 import com.ahmetcan7.cartservice.model.Cart;
 import com.ahmetcan7.cartservice.service.CartService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +24,14 @@ public class CartController {
 
         cartService.save(customerId,createCartItemRequest);
         return new ResponseEntity<>("Product is added", HttpStatus.CREATED);
+    }
+
+    @PutMapping
+    public ResponseEntity<String> updateQuantity(@RequestParam UUID customerId,
+                                                   @RequestBody UpdateCartItemRequest updateCartItemRequest){
+
+        cartService.updateQuantity(customerId,updateCartItemRequest);
+        return new ResponseEntity<>("Product is updated with id", HttpStatus.CREATED);
     }
 
     @GetMapping

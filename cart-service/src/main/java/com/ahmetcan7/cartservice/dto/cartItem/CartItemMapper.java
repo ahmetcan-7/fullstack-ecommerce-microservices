@@ -4,6 +4,8 @@ import com.ahmetcan7.cartservice.model.CartItem;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.UUID;
+
 @Component
 @RequiredArgsConstructor
 public class CartItemMapper {

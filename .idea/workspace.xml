@@ -6,13 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="5e11488a-5285-4330-851a-e2464b08619a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart-service/src/main/java/com/ahmetcan7/cartservice/CartApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/com/ahmetcan7/cartservice/CartApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart-service/src/main/java/com/ahmetcan7/cartservice/config/RedisConfiguration.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cart-service/src/main/java/com/ahmetcan7/cartservice/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/com/ahmetcan7/cartservice/controller/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart-service/src/main/java/com/ahmetcan7/cartservice/dto/CartDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/com/ahmetcan7/cartservice/dto/cart/CartDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart-service/src/main/java/com/ahmetcan7/cartservice/dto/CartItemDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/com/ahmetcan7/cartservice/dto/cartItem/CartItemDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart-service/src/main/java/com/ahmetcan7/cartservice/dto/cartItem/CartItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/com/ahmetcan7/cartservice/dto/cartItem/CartItemMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart-service/src/main/java/com/ahmetcan7/cartservice/dto/cartItem/UpdateCartItemRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/com/ahmetcan7/cartservice/dto/cartItem/UpdateCartItemRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart-service/src/main/java/com/ahmetcan7/cartservice/model/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/com/ahmetcan7/cartservice/model/Cart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart-service/src/main/java/com/ahmetcan7/cartservice/model/CartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/com/ahmetcan7/cartservice/model/CartItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart-service/src/main/java/com/ahmetcan7/cartservice/repository/CartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/com/ahmetcan7/cartservice/repository/CartRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart-service/src/main/java/com/ahmetcan7/cartservice/service/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/com/ahmetcan7/cartservice/service/CartService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +198,7 @@
       <workItem from="1662660155810" duration="8070000" />
       <workItem from="1662712948358" duration="4857000" />
       <workItem from="1662739607717" duration="7580000" />
-      <workItem from="1662890378910" duration="1315000" />
+      <workItem from="1662890378910" duration="17809000" />
     </task>
     <servers />
   </component>

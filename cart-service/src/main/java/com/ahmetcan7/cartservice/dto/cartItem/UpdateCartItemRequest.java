@@ -1,5 +1,6 @@
 package com.ahmetcan7.cartservice.dto.cartItem;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.util.UUID;

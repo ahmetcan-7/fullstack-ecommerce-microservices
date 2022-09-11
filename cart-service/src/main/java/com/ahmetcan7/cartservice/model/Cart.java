@@ -1,29 +1,23 @@
 package com.ahmetcan7.cartservice.model;
 
-import com.ahmetcan7.common.model.BaseModel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.redis.core.RedisHash;
+import lombok.*;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
-@RedisHash("carts")
+@Document("carts")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Cart implements Serializable {
+public class Cart {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
+    @Indexed(unique = true)
     private UUID customerId;
     private List<CartItem> cartItems;
     private BigDecimal totalPrice;
