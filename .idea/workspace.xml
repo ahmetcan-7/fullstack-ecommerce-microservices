@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e11488a-5285-4330-851a-e2464b08619a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/user-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/UserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/UserApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,13 +48,13 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "11",
-    "last_opened_file_path": "C:/Users/gener/Desktop/microservices/supportportal",
+    "last_opened_file_path": "C:/Users/gener/Desktop/microservices/ecommerce-microservice",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "dded19a67a82d0cf4cbeecd919801dbe"
+    "spring.configuration.checksum": "a6856610afa04182e81c4381f537b4dc"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -192,6 +189,8 @@
       <workItem from="1662712948358" duration="4857000" />
       <workItem from="1662739607717" duration="7580000" />
       <workItem from="1662890378910" duration="17809000" />
+      <workItem from="1666002724215" duration="2456000" />
+      <workItem from="1666035721104" duration="4813000" />
     </task>
     <servers />
   </component>
