@@ -1,8 +1,8 @@
 package com.ahmetcan7.productservice.service;
 
 import com.ahmetcan7.amqp.RabbitMQMessageProducer;
-import com.ahmetcan7.common.exception.NotFoundException;
 import com.ahmetcan7.amqp.InventoryRequest;
+import com.ahmetcan7.common.exception.NotFoundException;
 import com.ahmetcan7.productservice.dto.product.ProductDto;
 import com.ahmetcan7.productservice.dto.product.ProductMapper;
 import com.ahmetcan7.productservice.dto.product.CreateProductRequest;

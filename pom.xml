@@ -17,6 +17,7 @@
         <module>amqp</module>
         <module>clients</module>
         <module>cart-service</module>
+        <module>user-service</module>
     </modules>
 
 
@@ -66,6 +67,11 @@
             <dependency>
                 <groupId>com.ahmetcan7</groupId>
                 <artifactId>clients</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ahmetcan7</groupId>
+                <artifactId>user-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
