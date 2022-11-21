@@ -40,6 +40,7 @@ public class OrderService {
         if(!inventoryCheckResponse.getIsInStock()){
           throw new IllegalArgumentException("Product is not in stock, please try again later");
         }
+        // TODO:urun siparis olusunca stoktan azalt
         return orderMapper.orderToOrderDto(orderRepository.save(order));
     }
 

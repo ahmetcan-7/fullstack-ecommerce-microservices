@@ -11,6 +11,6 @@ import java.util.List;
 )
 public interface InventoryClient {
 
-    @PostMapping("/v1/inventories")
+    @PostMapping("/v1/inventories/isInStock")
     InventoryCheckResponse isInStock(List<InventoryCheckRequest> inventoryCheckRequest);
 }
