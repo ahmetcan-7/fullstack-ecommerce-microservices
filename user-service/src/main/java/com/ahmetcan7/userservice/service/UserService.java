@@ -30,20 +30,22 @@ import static com.ahmetcan7.userservice.enumeration.Role.ROLE_USER;
 @Slf4j
 public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
-
     private final BCryptPasswordEncoder passwordEncoder;
+
+    private final LoginAttemptService loginAttemptService;
     @Override
-    public UserDetails loadUserByUsername(String username)  {
+    public UserDetails loadUserByUsername(String username) {
         User user = userRepository.findUserByUsername(username);
         if (user == null) {
-            log.error("User not found by username:" + username);
-            throw new UsernameNotFoundException("User not found by username:" + username);
+            log.error(NO_USER_FOUND_BY_USERNAME + username);
+            throw new UsernameNotFoundException(NO_USER_FOUND_BY_USERNAME + username);
         } else {
+            validateLoginAttempt(user);
             user.setLastLoginDateDisplay(user.getLastLoginDate());
             user.setLastLoginDate(new Date());
             userRepository.save(user);
             UserPrincipal userPrincipal = new UserPrincipal(user);
-            log.info("Found user by username:" + username);
+            log.info(FOUND_USER_BY_USERNAME + username);
             return userPrincipal;
         }
     }
@@ -95,6 +97,18 @@ public class UserService implements UserDetailsService {
             throw new EmailExistException(EMAIL_ALREADY_EXISTS);
         }
         return null;
+    }
+
+    private void validateLoginAttempt(User user) {
+        if(user.isNotLocked()) {
+            if(loginAttemptService.hasExceededMaxAttempts(user.getUsername())) {
+                user.setNotLocked(false);
+            } else {
+                user.setNotLocked(true);
+            }
+        } else {
+            loginAttemptService.evictUserFromLoginAttemptCache(user.getUsername());
+        }
     }
 
     private String getTemporaryProfileImageUrl(String username) {

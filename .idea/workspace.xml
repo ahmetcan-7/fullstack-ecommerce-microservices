@@ -6,13 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5e11488a-5285-4330-851a-e2464b08619a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/exception/EmailExistException.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/exception/EmailExistException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/exception/EmailNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/exception/EmailNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/exception/GeneralExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/exception/GeneralExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/exception/NotAnImageFileException.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/exception/NotAnImageFileException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/exception/UserNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/exception/UserNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/exception/UsernameExistException.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/exception/UsernameExistException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +50,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "11",
-    "last_opened_file_path": "C:/Users/gener/Desktop/microservices/ecommerce-microservice",
+    "last_opened_file_path": "C:/Users/gener/Desktop/microservices/ecommerce-microservice/user-service/src/main/java/com/ahmetcan7/userservice",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
@@ -85,6 +80,7 @@
       <recent name="dto.brand" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\user-service\src\main\java\com\ahmetcan7\userservice" />
       <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\user-service\src\main\java\com\ahmetcan7\userservice\exception" />
       <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\common\src\main\java\com\ahmetcan7\common" />
       <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\product-service\src\main\java\com.ahmetcan7.productservice" />
@@ -93,6 +89,7 @@
       <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\product-service\src\main\java" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ahmetcan7.userservice.service" />
       <recent name="com.ahmetcan7.userservice.constant" />
       <recent name="com.ahmetcan7.userservice.enumeration" />
     </key>
@@ -207,7 +204,7 @@
       <workItem from="1666358692997" duration="1184000" />
       <workItem from="1669033469370" duration="3457000" />
       <workItem from="1669229714405" duration="8823000" />
-      <workItem from="1669289320877" duration="536000" />
+      <workItem from="1669289320877" duration="6462000" />
     </task>
     <servers />
   </component>
