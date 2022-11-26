@@ -93,6 +93,11 @@ public class GeneralExceptionHandler   {
         log.error(exception.getMessage());
         return createHttpResponse(BAD_REQUEST, exception.getMessage());
     }
+    @ExceptionHandler(EmailSendingException.class)
+    public ResponseEntity<HttpResponse> emailMessagingException(EmailSendingException exception) {
+        log.error(exception.getMessage());
+        return createHttpResponse(BAD_REQUEST, exception.getMessage());
+    }
 
     @ExceptionHandler(NoResultException.class)
     public ResponseEntity<HttpResponse> notFoundException(NoResultException exception) {

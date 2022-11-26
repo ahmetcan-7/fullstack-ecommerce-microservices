@@ -17,6 +17,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.mail.MessagingException;
 import javax.transaction.Transactional;
 import java.util.Date;
 
@@ -31,8 +32,9 @@ import static com.ahmetcan7.userservice.enumeration.Role.ROLE_USER;
 public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
-
     private final LoginAttemptService loginAttemptService;
+
+    private final EmailService emailService;
     @Override
     public UserDetails loadUserByUsername(String username) {
         User user = userRepository.findUserByUsername(username);
@@ -50,7 +52,7 @@ public class UserService implements UserDetailsService {
         }
     }
 
-    public User register(User user) {
+    public User register(User user)  {
         validateNewUsernameAndEmail(user.getUsername(), user.getEmail());
         User newUser = new User();
         newUser.setUserId(generateUserId());
@@ -66,7 +68,7 @@ public class UserService implements UserDetailsService {
         newUser.setAuthorities(ROLE_USER.getAuthorities());
         newUser.setProfileImageUrl(getTemporaryProfileImageUrl(user.getUsername()));
         userRepository.save(newUser);
-        log.info("New user password: " + user.getPassword());
+        emailService.sendNewPasswordEmail(user.getFirstName(), user.getPassword(), user.getEmail());
         return newUser;
     }
 

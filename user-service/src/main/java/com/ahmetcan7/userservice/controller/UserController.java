@@ -9,6 +9,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
+
 import static org.springframework.http.HttpStatus.OK;
 
 @RestController
@@ -19,7 +21,7 @@ public class UserController {
     private final UserService userService;
     private final AuthenticationHelper authenticationHelper;
     @PostMapping("/register")
-    public ResponseEntity<User> register(@RequestBody User user) {
+    public ResponseEntity<User> register(@RequestBody User user)  {
         return ResponseEntity.ok(userService.register(user));
     }
 
