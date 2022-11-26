@@ -98,6 +98,17 @@ public class GeneralExceptionHandler   {
         log.error(exception.getMessage());
         return createHttpResponse(BAD_REQUEST, exception.getMessage());
     }
+    @ExceptionHandler(FileUploadException.class)
+    public ResponseEntity<HttpResponse> fileUploadException(FileUploadException exception) {
+        log.error(exception.getMessage());
+        return createHttpResponse(BAD_REQUEST, exception.getMessage());
+    }
+
+    @ExceptionHandler(FileDeleteException.class)
+    public ResponseEntity<HttpResponse> fileDeleteException(FileDeleteException exception) {
+        log.error(exception.getMessage());
+        return createHttpResponse(BAD_REQUEST, exception.getMessage());
+    }
 
     @ExceptionHandler(NoResultException.class)
     public ResponseEntity<HttpResponse> notFoundException(NoResultException exception) {
