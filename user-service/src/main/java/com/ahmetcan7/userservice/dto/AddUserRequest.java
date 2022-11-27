@@ -16,12 +16,8 @@ public class AddUserRequest {
     private String lastName;
     @NotNull
     private String password;
-    @NotNull
     private String role;
-    @NotNull
     private boolean isNonLocked;
-    @NotNull
     private boolean isActive;
-    @NotNull
     private MultipartFile profileImage;
 }

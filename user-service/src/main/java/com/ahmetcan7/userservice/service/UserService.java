@@ -2,7 +2,6 @@ package com.ahmetcan7.userservice.service;
 
 import com.ahmetcan7.userservice.dto.AddUserRequest;
 import com.ahmetcan7.userservice.dto.RegisterUserRequest;
-import com.ahmetcan7.userservice.dto.UpdateProfileImageRequest;
 import com.ahmetcan7.userservice.dto.UpdateUserRequest;
 import com.ahmetcan7.userservice.enumeration.Role;
 import com.ahmetcan7.userservice.exception.*;
@@ -22,7 +21,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import javax.mail.MessagingException;
 import javax.transaction.Transactional;
 import java.io.File;
 import java.io.IOException;
@@ -81,7 +79,6 @@ public class UserService implements UserDetailsService {
         newUser.setAuthorities(ROLE_USER.getAuthorities());
         newUser.setProfileImageUrl(getTemporaryProfileImageUrl(user.getUsername()));
         userRepository.save(newUser);
-        // emailService.sendNewPasswordEmail(user.getFirstName(), user.getPassword(), user.getEmail());
         return newUser;
     }
 
@@ -101,7 +98,6 @@ public class UserService implements UserDetailsService {
         newUser.setAuthorities(getRoleEnumName(user.getRole()).getAuthorities());
         newUser.setProfileImageUrl(getTemporaryProfileImageUrl(user.getUsername()));
         userRepository.save(newUser);
-        // emailService.sendNewPasswordEmail(user.getFirstName(), user.getPassword(), user.getEmail());
         return newUser;
     }
 
@@ -131,7 +127,7 @@ public class UserService implements UserDetailsService {
         userRepository.deleteById(user.getId());
     }
 
-    public void resetPassword(String email) throws MessagingException, EmailNotFoundException {
+    public void resetPassword(String email){
         User user = userRepository.findUserByEmail(email);
         if (user == null) {
             throw new EmailNotFoundException(NO_USER_FOUND_BY_EMAIL + email);
@@ -140,12 +136,12 @@ public class UserService implements UserDetailsService {
         user.setPassword(encodePassword(password));
         userRepository.save(user);
         log.info("New user password: " + password);
-        // emailService.sendNewPasswordEmail(user.getFirstName(), password, user.getEmail());
+        emailService.sendNewPasswordEmail(user.getFirstName(), password, user.getEmail());
     }
 
-    public User updateProfileImage(UpdateProfileImageRequest updateProfileImageRequest){
-        User user = validateNewUsernameAndEmail(updateProfileImageRequest.getUsername(), null, null);
-        saveProfileImage(user, updateProfileImageRequest.getProfileImage());
+    public User updateProfileImage(String username,MultipartFile profileImage){
+        User user = validateNewUsernameAndEmail(username, null, null);
+        saveProfileImage(user, profileImage);
         return user;
     }
 
