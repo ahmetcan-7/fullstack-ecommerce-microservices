@@ -1,8 +1,8 @@
 package com.orderservice.service;
 
-import com.ahmetcan7.clients.inventory.InventoryCheckRequest;
-import com.ahmetcan7.clients.inventory.InventoryCheckResponse;
-import com.ahmetcan7.clients.inventory.InventoryClient;
+import com.orderservice.client.InventoryServiceClient;
+import com.orderservice.dto.inventory.InventoryCheckRequest;
+import com.orderservice.dto.inventory.InventoryCheckResponse;
 import com.orderservice.dto.order.OrderDto;
 import com.orderservice.dto.order.OrderMapper;
 import com.orderservice.dto.order.CreateOrderRequest;
@@ -24,7 +24,7 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final OrderMapper orderMapper;
 
-    private final InventoryClient inventoryClient;
+    private final InventoryServiceClient inventoryServiceClient;
     public OrderDto createOrder(CreateOrderRequest createOrderRequest){
 
         Order order = orderMapper.orderRequestToOrder(createOrderRequest,getTotalPrice(createOrderRequest));
@@ -35,7 +35,7 @@ public class OrderService {
                 .map(item -> new InventoryCheckRequest(item.getProductId(),item.getQuantity()))
                 .collect(Collectors.toList());
 
-        InventoryCheckResponse inventoryCheckResponse = inventoryClient.isInStock(inventoryCheckRequests);
+        InventoryCheckResponse inventoryCheckResponse = inventoryServiceClient.isInStock(inventoryCheckRequests);
 
         if(!inventoryCheckResponse.getIsInStock()){
           throw new IllegalArgumentException("Product is not in stock, please try again later");

@@ -15,9 +15,9 @@
         <module>order-service</module>
         <module>inventory-service</module>
         <module>amqp</module>
-        <module>clients</module>
         <module>cart-service</module>
         <module>user-service</module>
+        <module>eureka-server</module>
     </modules>
 
 
@@ -66,12 +66,12 @@
             </dependency>
             <dependency>
                 <groupId>com.ahmetcan7</groupId>
-                <artifactId>clients</artifactId>
+                <artifactId>user-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.ahmetcan7</groupId>
-                <artifactId>user-service</artifactId>
+                <artifactId>eureka-server</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

@@ -1,12 +1,9 @@
 package com.inventoryservice.controller;
 
-import com.ahmetcan7.amqp.InventoryRequest;
-import com.ahmetcan7.clients.inventory.InventoryCheckRequest;
-import com.ahmetcan7.clients.inventory.InventoryCheckResponse;
-import com.inventoryservice.dto.CreateInventoryRequest;
+import com.inventoryservice.dto.InventoryCheckRequest;
+import com.inventoryservice.dto.InventoryCheckResponse;
 import com.inventoryservice.service.InventoryService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-package com.ahmetcan7.clients.inventory;
+package com.orderservice.dto.inventory;
 
 import lombok.Builder;
 import lombok.Getter;

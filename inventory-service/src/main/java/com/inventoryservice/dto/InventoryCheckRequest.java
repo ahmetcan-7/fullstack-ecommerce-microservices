@@ -1,8 +1,7 @@
-package com.ahmetcan7.clients.inventory;
+package com.inventoryservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 

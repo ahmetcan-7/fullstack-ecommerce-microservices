@@ -1,9 +1,8 @@
 package com.inventoryservice.service;
 
 import com.ahmetcan7.amqp.InventoryRequest;
-import com.ahmetcan7.clients.inventory.InventoryCheckRequest;
-import com.ahmetcan7.clients.inventory.InventoryCheckResponse;
-import com.inventoryservice.dto.CreateInventoryRequest;
+import com.inventoryservice.dto.InventoryCheckRequest;
+import com.inventoryservice.dto.InventoryCheckResponse;
 import com.inventoryservice.dto.InventoryMapper;
 import com.inventoryservice.model.Inventory;
 import com.inventoryservice.repository.InventoryRepository;
@@ -13,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 

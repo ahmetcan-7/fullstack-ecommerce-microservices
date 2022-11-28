@@ -6,6 +6,9 @@ spring:
     url: jdbc:postgresql://localhost:5432/order
     username: ahmetcan7
     password: ahmetcan123
+  application:
+    name: order-service
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -14,3 +17,10 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: false
     generate-ddl: true
+
+eureka:
+  client:
+    service-url:
+      default-zone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    prefer-ip-address: 'true'
