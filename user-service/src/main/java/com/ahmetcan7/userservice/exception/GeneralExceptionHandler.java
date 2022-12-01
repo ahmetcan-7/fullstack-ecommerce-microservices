@@ -1,6 +1,5 @@
 package com.ahmetcan7.userservice.exception;
 
-import com.ahmetcan7.userservice.model.HttpResponse;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpMethod;

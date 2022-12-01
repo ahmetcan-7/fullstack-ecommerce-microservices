@@ -4,7 +4,7 @@ import static com.ahmetcan7.userservice.constant.FileConstant.*;
 import static com.ahmetcan7.userservice.constant.RequestConstant.*;
 
 import com.ahmetcan7.userservice.dto.*;
-import com.ahmetcan7.userservice.model.HttpResponse;
+import com.ahmetcan7.userservice.exception.HttpResponse;
 import com.ahmetcan7.userservice.model.User;
 import com.ahmetcan7.userservice.model.UserPrincipal;
 import com.ahmetcan7.userservice.service.UserService;

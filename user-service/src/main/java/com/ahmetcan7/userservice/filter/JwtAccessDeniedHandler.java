@@ -1,6 +1,6 @@
 package com.ahmetcan7.userservice.filter;
 
-import com.ahmetcan7.userservice.model.HttpResponse;
+import com.ahmetcan7.userservice.exception.HttpResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
