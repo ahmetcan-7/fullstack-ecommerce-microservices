@@ -1,6 +1,7 @@
 package com.ahmetcan7.userservice.service;
 
 import com.ahmetcan7.userservice.dto.AddUserRequest;
+import com.ahmetcan7.userservice.dto.Deneme;
 import com.ahmetcan7.userservice.dto.RegisterUserRequest;
 import com.ahmetcan7.userservice.dto.UpdateUserRequest;
 import com.ahmetcan7.userservice.enumeration.Role;
@@ -8,11 +9,13 @@ import com.ahmetcan7.userservice.exception.*;
 import com.ahmetcan7.userservice.model.User;
 import com.ahmetcan7.userservice.model.UserPrincipal;
 import com.ahmetcan7.userservice.repository.UserRepository;
+import com.ahmetcan7.userservice.util.JWTTokenProvider;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -46,6 +49,8 @@ public class UserService implements UserDetailsService {
     private final BCryptPasswordEncoder passwordEncoder;
     private final LoginAttemptService loginAttemptService;
     private final EmailService emailService;
+
+    private final JWTTokenProvider jwtTokenProvider;
     @Override
     public UserDetails loadUserByUsername(String username) {
         User user = userRepository.findUserByUsername(username);
@@ -99,6 +104,19 @@ public class UserService implements UserDetailsService {
         newUser.setProfileImageUrl(getTemporaryProfileImageUrl(user.getUsername()));
         userRepository.save(newUser);
         return newUser;
+    }
+
+    public Deneme validateToken(String token) {
+        String username = jwtTokenProvider.getSubject(token);
+
+        boolean isValid=jwtTokenProvider.isTokenValid(username, token);
+
+        if(!isValid){
+            throw new TokenNotValidException("Token is not valid!");
+        }
+
+        return new Deneme("adam");
+
     }
 
     public User updateUser(UpdateUserRequest user){

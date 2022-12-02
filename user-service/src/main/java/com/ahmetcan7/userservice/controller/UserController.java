@@ -48,6 +48,11 @@ public class UserController {
         return new ResponseEntity<>(loginUser, jwtHeader, OK);
     }
 
+    @PostMapping("/validateToken")
+    public ResponseEntity<Deneme> signIn(@RequestParam String token) {
+        return ResponseEntity.ok(userService.validateToken(token));
+    }
+
     @PostMapping("/add")
     public ResponseEntity<String> addUser(@RequestBody AddUserRequest user)  {
         userService.addNewUser(user);

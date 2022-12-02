@@ -1,5 +1,6 @@
 package com.ahmetcan7.userservice.util;
 
+import com.ahmetcan7.userservice.exception.UserNotFoundException;
 import com.ahmetcan7.userservice.model.UserPrincipal;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -61,6 +62,12 @@ public class JWTTokenProvider {
 
     public String getSubject(String token) {
         JWTVerifier verifier = getJWTVerifier();
+        try {
+            verifier.verify(token).getSubject();
+        }catch (Exception e){
+            throw new UserNotFoundException("user not found !!");
+        }
+
         return verifier.verify(token).getSubject();
     }
 

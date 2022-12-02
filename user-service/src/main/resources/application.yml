@@ -6,6 +6,8 @@ spring:
     url: jdbc:postgresql://localhost:5432/user
     username: ahmetcan7
     password: ahmetcan123
+  application:
+    name: user-service
   jpa:
     hibernate:
       ddl-auto: update
@@ -17,3 +19,10 @@ spring:
 
 jwt:
   secret: '[a-zA-Z0-9._]^+$Guidelines89797987forAlphabeticalArraNumeralsandOtherSymbo$'
+
+eureka:
+  client:
+    service-url:
+      default-zone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    prefer-ip-address: 'true'
