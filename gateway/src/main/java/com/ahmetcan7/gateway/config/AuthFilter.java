@@ -1,5 +1,6 @@
 package com.ahmetcan7.gateway.config;
 
+import com.ahmetcan7.gateway.dto.AuthorityDto;
 import com.ahmetcan7.gateway.dto.UserDto;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
@@ -40,7 +41,13 @@ public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config> 
                     .map(userDto -> {
                         exchange.getRequest()
                                 .mutate()
-                                .header("X-auth-user-id", userDto.getMessage());
+                                .header("username", userDto.getUsername());
+
+                        exchange.getRequest()
+                                .mutate()
+                                .header("authorities",userDto.getAuthorities().stream()
+                                        .map(AuthorityDto::getAuthority).reduce("", (a, b) -> a + "," + b));
+
                         return exchange;
                     }).flatMap(chain::filter);
         };

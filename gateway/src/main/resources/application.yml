@@ -11,14 +11,18 @@ spring:
           uri: lb://inventory-service
           predicates:
             - Path=/v1/inventories/**
-          filters:
-            - AuthFilter
         - id: order-service
           uri: lb://order-service
           predicates:
             - Path=/v1/orders/**
+#            - Method=POST
           filters:
             - AuthFilter
+#        - id: order-service
+#          uri: lb://order-service
+#          predicates:
+#            - Path=/v1/orders/**
+#            - Method=GET
         - id: user-service
           uri: lb://user-service
           predicates:

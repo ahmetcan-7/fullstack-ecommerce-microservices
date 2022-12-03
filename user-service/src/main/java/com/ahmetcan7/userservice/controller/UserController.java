@@ -49,7 +49,7 @@ public class UserController {
     }
 
     @PostMapping("/validateToken")
-    public ResponseEntity<Deneme> signIn(@RequestParam String token) {
+    public ResponseEntity<UserDto> validateToken(@RequestParam String token) {
         return ResponseEntity.ok(userService.validateToken(token));
     }
 

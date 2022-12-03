@@ -6,15 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="5e11488a-5285-4330-851a-e2464b08619a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/ahmetcan7/gateway/config/AuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/com/ahmetcan7/gateway/config/AuthFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/ahmetcan7/gateway/dto/UserDto.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/constant/SecurityConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/constant/SecurityConstant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/exception/GeneralExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/exception/GeneralExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/dto/Deneme.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/dto/UserDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/util/JWTTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/util/JWTTokenProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +34,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/gateway/src/main/resources/application.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/order-service/src/main/java/com/orderservice/controller/OrderController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/constant/SecurityConstant.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/controller/UserController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/exception/UserNotFoundException.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/util/JWTTokenProvider.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -58,7 +66,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/gener/Desktop/microservices/ecommerce-microservice/inventory-service/src/main/java/com/inventoryservice/exception&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gener/Desktop/microservices/security/Authentication-Service&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
@@ -98,6 +106,7 @@
       <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\product-service\src\main\java" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ahmetcan7.gateway.dto" />
       <recent name="com.orderservice.exception" />
       <recent name="com.ahmetcan7.userservice.constant" />
       <recent name="com.ahmetcan7.userservice.service" />
@@ -223,7 +232,9 @@
       <workItem from="1669805363252" duration="2709000" />
       <workItem from="1669889396756" duration="9052000" />
       <workItem from="1669993488393" duration="1623000" />
-      <workItem from="1669996380318" duration="1005000" />
+      <workItem from="1669996380318" duration="3982000" />
+      <workItem from="1670006163572" duration="11536000" />
+      <workItem from="1670063295252" duration="1051000" />
     </task>
     <servers />
   </component>
@@ -247,7 +258,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/order-service/src/main/java/com/orderservice/annotation/Adam.java</url>
           <line>3</line>
-          <properties class="com.orderservice.annotation.Adam" method="adamdeneme">
+          <properties class="com.orderservice.annotation.Adam">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>

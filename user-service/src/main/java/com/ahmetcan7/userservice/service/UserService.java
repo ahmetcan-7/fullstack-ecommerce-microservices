@@ -1,7 +1,7 @@
 package com.ahmetcan7.userservice.service;
 
 import com.ahmetcan7.userservice.dto.AddUserRequest;
-import com.ahmetcan7.userservice.dto.Deneme;
+import com.ahmetcan7.userservice.dto.UserDto;
 import com.ahmetcan7.userservice.dto.RegisterUserRequest;
 import com.ahmetcan7.userservice.dto.UpdateUserRequest;
 import com.ahmetcan7.userservice.enumeration.Role;
@@ -15,7 +15,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -32,7 +31,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
+import org.springframework.security.core.GrantedAuthority;
 import static com.ahmetcan7.userservice.constant.FileConstant.*;
 import static com.ahmetcan7.userservice.constant.UserConstant.*;
 import static com.ahmetcan7.userservice.enumeration.Role.ROLE_USER;
@@ -106,16 +107,16 @@ public class UserService implements UserDetailsService {
         return newUser;
     }
 
-    public Deneme validateToken(String token) {
+    public UserDto validateToken(String token) {
         String username = jwtTokenProvider.getSubject(token);
-
+        List<GrantedAuthority> authorities = jwtTokenProvider.getAuthorities(token);
         boolean isValid=jwtTokenProvider.isTokenValid(username, token);
 
         if(!isValid){
             throw new TokenNotValidException("Token is not valid!");
         }
 
-        return new Deneme("adam");
+        return new UserDto(username,authorities);
 
     }
 
