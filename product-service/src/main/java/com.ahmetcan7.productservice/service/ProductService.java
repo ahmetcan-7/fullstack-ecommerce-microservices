@@ -2,10 +2,11 @@ package com.ahmetcan7.productservice.service;
 
 import com.ahmetcan7.amqp.RabbitMQMessageProducer;
 import com.ahmetcan7.amqp.InventoryRequest;
-import com.ahmetcan7.common.exception.NotFoundException;
 import com.ahmetcan7.productservice.dto.product.ProductDto;
 import com.ahmetcan7.productservice.dto.product.ProductMapper;
 import com.ahmetcan7.productservice.dto.product.CreateProductRequest;
+import com.ahmetcan7.productservice.dto.product.UpdateProductRequest;
+import com.ahmetcan7.productservice.exception.ProductNotFoundException;
 import com.ahmetcan7.productservice.model.Category;
 import com.ahmetcan7.productservice.model.Product;
 import com.ahmetcan7.productservice.repository.ProductRepository;
@@ -36,7 +37,7 @@ public class ProductService {
         return productMapper.productToProductDto(productRepository.findById(id)
                 .orElseThrow(()->{
                     log.error("Product with id: {} could not be found!", id);
-                    throw new NotFoundException("Product with id " + id + " could not be found!");
+                    throw new ProductNotFoundException("Product with id " + id + " could not be found!");
                 }));
     }
 
@@ -46,16 +47,14 @@ public class ProductService {
 
         Product product =  Product.builder()
                 .name(createProductRequest.getName())
-                .price(createProductRequest.getPrice())
+                .unitPrice(createProductRequest.getUnitPrice())
                 .description(createProductRequest.getDescription())
                 .category(category)
-                .createdAt(LocalDateTime.now())
-                .updatedAt(LocalDateTime.now())
                 .build();
 
         Product savedProduct = productRepository.save(product);
 
-        InventoryRequest inventoryRequest = new InventoryRequest(savedProduct.getId(),createProductRequest.getQuantity());
+        InventoryRequest inventoryRequest = new InventoryRequest(savedProduct.getId(),createProductRequest.getQuantityInStock());
         rabbitMQMessageProducer.publish(
                 inventoryRequest,
                 "inventory.exchange",
@@ -63,6 +62,31 @@ public class ProductService {
         );
 
         return productMapper.productToProductDto(savedProduct);
+    }
+
+    public ProductDto updateProduct(UpdateProductRequest updateProductRequest,UUID productId) {
+        Product product = productRepository.findById(productId)
+                .orElseThrow(()->{
+                    log.error("Product with id: {} could not be found!", productId);
+                    throw new ProductNotFoundException("Product with id " + productId + " could not be found!");
+                });
+
+        Category category = categoryService.getCategoryById(updateProductRequest.getCategoryId());
+
+        product.setCategory(category);
+        product.setDescription(updateProductRequest.getDescription());
+        product.setName(updateProductRequest.getName());
+        product.setUnitPrice(updateProductRequest.getUnitPrice());
+
+        // todo:inventoryde quantityi guncelle -> circuit breaker kullanilabilir
+
+        return productMapper.productToProductDto(product);
+    }
+
+    public UUID deleteProduct(UUID id) {
+        productRepository.deleteById(id);
+        // todo: urunu inventory servistende kaldir.
+        return id;
     }
 }
 

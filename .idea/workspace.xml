@@ -6,10 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="5e11488a-5285-4330-851a-e2464b08619a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/ahmetcan7/common/exception/BadRequestException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/ahmetcan7/common/exception/ErrorDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/ahmetcan7/common/exception/GlobalExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/ahmetcan7/common/exception/NotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/ahmetcan7/common/model/AdvanceBaseModal.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/ahmetcan7/common/model/AdvanceBaseModal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/ahmetcan7/gateway/config/AuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/com/ahmetcan7/gateway/config/AuthFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/dto/order/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/dto/order/OrderMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/exception/GeneralExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/exception/GeneralExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/CreateProductRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/CreateProductRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/ProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/ProductDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/ProductMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,13 +75,13 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/gener/Desktop/microservices/security/Authentication-Service&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gener/Desktop/microservices/ecommerce-microservice/gateway/src/main/java/com/ahmetcan7/gateway&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;e849394a613fe3f365d95163ef94ff38&quot;
+    &quot;spring.configuration.checksum&quot;: &quot;ee20f944f659000af1788f9f50d4a01f&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
@@ -91,24 +105,24 @@
       <recent name="dto.brand" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\gateway\src\main\java\com\ahmetcan7\gateway" />
+      <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\product-service\src\main\java\com.ahmetcan7.productservice" />
       <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\inventory-service\src\main\java\com\inventoryservice\exception" />
       <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\inventory-service\src\main\java\com\inventoryservice\dto" />
       <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\order-service\src\main\java\com\orderservice\dto\inventory" />
-      <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\user-service\src\main\java\com\ahmetcan7\userservice" />
-      <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\user-service\src\main\java\com\ahmetcan7\userservice\exception" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\product-service\src\main\java" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ahmetcan7.productservice.exception" />
       <recent name="com.ahmetcan7.gateway.dto" />
       <recent name="com.orderservice.exception" />
       <recent name="com.ahmetcan7.userservice.constant" />
       <recent name="com.ahmetcan7.userservice.service" />
-      <recent name="com.ahmetcan7.userservice.enumeration" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.OrderApplication">
+  <component name="RunManager" selected="Spring Boot.ProductApplication">
     <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="eureka-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ahmetcan7.eurekaserver.EurekaServerApplication" />
@@ -135,12 +149,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InventoryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="inventory-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.inventoryservice.InventoryApplication" />
+    <configuration name="OrderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="order-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.orderservice.OrderApplication" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.inventoryservice.*" />
+          <option name="PATTERN" value="com.orderservice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -148,12 +162,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="order-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.orderservice.OrderApplication" />
+    <configuration name="ProductApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="product-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ahmetcan7.productservice.ProductApplication" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.orderservice.*" />
+          <option name="PATTERN" value="com.ahmetcan7.productservice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -176,11 +190,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.OrderApplication" />
-        <item itemvalue="Spring Boot.UserApplication" />
-        <item itemvalue="Spring Boot.InventoryApplication" />
+        <item itemvalue="Spring Boot.ProductApplication" />
         <item itemvalue="Spring Boot.GatewayApplication" />
         <item itemvalue="Spring Boot.EurekaServerApplication" />
+        <item itemvalue="Spring Boot.UserApplication" />
+        <item itemvalue="Spring Boot.OrderApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -232,7 +246,9 @@
       <workItem from="1670063295252" duration="1051000" />
       <workItem from="1670067715744" duration="73000" />
       <workItem from="1670074579755" duration="168000" />
-      <workItem from="1670160319623" duration="1818000" />
+      <workItem from="1670160319623" duration="4053000" />
+      <workItem from="1670173726709" duration="6936000" />
+      <workItem from="1670233932356" duration="9060000" />
     </task>
     <servers />
   </component>

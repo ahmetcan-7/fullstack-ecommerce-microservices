@@ -27,6 +27,12 @@ spring:
           uri: lb://user-service
           predicates:
             - Path=/user/**
+        - id: product-service
+          uri: lb://product-service
+          predicates:
+            - Path=/products/**
+          filters:
+            - AuthFilter
       discovery:
         locator:
           enabled: true

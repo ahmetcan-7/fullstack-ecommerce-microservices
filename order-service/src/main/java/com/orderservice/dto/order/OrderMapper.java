@@ -42,8 +42,6 @@ public class OrderMapper {
                         .stream()
                         .map(orderItemMapper::orderItemRequestToOrderItem)
                         .collect(Collectors.toList()))
-                .createdAt(LocalDateTime.now())
-                .updatedAt(LocalDateTime.now())
                 .build();
     }
 

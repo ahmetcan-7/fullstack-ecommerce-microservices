@@ -16,7 +16,7 @@ import java.util.UUID;
 public class ProductDto {
     private UUID id;
     private String name;
-    private BigDecimal price;
+    private BigDecimal unitPrice;
     private CategoryDto category;
     private String description;
 }

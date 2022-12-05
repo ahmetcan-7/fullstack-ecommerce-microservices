@@ -1,4 +1,4 @@
-package com.orderservice.exception;
+package com.ahmetcan7.productservice.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
@@ -15,8 +15,7 @@ import javax.validation.constraints.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.springframework.http.HttpStatus.BAD_REQUEST;
-import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
+import static org.springframework.http.HttpStatus.*;
 
 
 @RestControllerAdvice
@@ -44,10 +43,16 @@ public class GeneralExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(exception.getMessage(), INTERNAL_SERVER_ERROR);
     }
 
-    @ExceptionHandler(ProductNotInStockException.class)
-    public ResponseEntity<?> ProductNotInStockExceptionHandler(ProductNotInStockException exception)  {
+    @ExceptionHandler(ProductNotFoundException.class)
+    public ResponseEntity<?> ProductNotFoundExceptionHandler(ProductNotFoundException exception)  {
         log.error(exception.getMessage());
-        return createHttpResponse(BAD_REQUEST, exception.getMessage());
+        return createHttpResponse(NOT_FOUND, exception.getMessage());
+    }
+
+    @ExceptionHandler(CategoryNotFoundException.class)
+    public ResponseEntity<?> CategoryNotFoundExceptionHandler(CategoryNotFoundException exception)  {
+        log.error(exception.getMessage());
+        return createHttpResponse(NOT_FOUND, exception.getMessage());
     }
 
     private ResponseEntity<HttpResponse> createHttpResponse(HttpStatus httpStatus, String message) {

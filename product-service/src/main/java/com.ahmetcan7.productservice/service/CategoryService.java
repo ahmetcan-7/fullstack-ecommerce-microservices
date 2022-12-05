@@ -1,9 +1,9 @@
 package com.ahmetcan7.productservice.service;
 
-import com.ahmetcan7.common.exception.NotFoundException;
 import com.ahmetcan7.productservice.dto.category.CategoryDto;
 import com.ahmetcan7.productservice.dto.category.CategoryMapper;
 import com.ahmetcan7.productservice.dto.category.CreateCategoryRequest;
+import com.ahmetcan7.productservice.exception.CategoryNotFoundException;
 import com.ahmetcan7.productservice.model.Category;
 import com.ahmetcan7.productservice.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +20,7 @@ public class CategoryService {
         return categoryRepository.findById(id)
                 .orElseThrow(()->{
                     log.error("Category with id: {} could not be found!",id);
-                    throw new NotFoundException("Category with id " + id + "could not be found!");
+                    throw new CategoryNotFoundException("Category with id " + id + "could not be found!");
                 });
     }
 

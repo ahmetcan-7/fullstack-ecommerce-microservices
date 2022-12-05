@@ -4,7 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedBy;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -26,6 +29,9 @@ public abstract class AdvanceBaseModal {
     )
     private UUID id;
 
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    @UpdateTimestamp
+    private LocalDateTime updateDate;
+
+    @CreationTimestamp
+    private LocalDateTime createDate;
 }

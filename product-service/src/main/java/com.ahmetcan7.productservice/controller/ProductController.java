@@ -3,6 +3,7 @@ package com.ahmetcan7.productservice.controller;
 
 import com.ahmetcan7.productservice.dto.product.ProductDto;
 import com.ahmetcan7.productservice.dto.product.CreateProductRequest;
+import com.ahmetcan7.productservice.dto.product.UpdateProductRequest;
 import com.ahmetcan7.productservice.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -33,5 +34,18 @@ public class ProductController {
     public ResponseEntity<ProductDto> saveProduct(@Valid @RequestBody CreateProductRequest createProductRequest){
         return new ResponseEntity<>(productService.createProduct(createProductRequest),HttpStatus.CREATED);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ProductDto> updateProduct(@Valid @RequestBody UpdateProductRequest updateProductRequest,
+                                                    @PathVariable UUID id){
+        return ResponseEntity.ok(productService.updateProduct(updateProductRequest,id));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<UUID> deleteProduct(@PathVariable UUID id){
+        return ResponseEntity.ok(productService.deleteProduct(id));
+    }
+
+
 
 }

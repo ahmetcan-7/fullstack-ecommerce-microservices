@@ -5,8 +5,10 @@ import com.ahmetcan7.gateway.dto.UserDto;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 
 @Component
@@ -37,7 +39,9 @@ public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config> 
             return webClientBuilder.build()
                     .post()
                     .uri("http://user-service/user/validateToken?token=" + parts[1])
-                    .retrieve().bodyToMono(UserDto.class)
+                    .retrieve()
+                    .onStatus(HttpStatus::is4xxClientError,response->Mono.error(new RuntimeException("Token is not valid")))
+                    .bodyToMono(UserDto.class)
                     .map(userDto -> {
                         exchange.getRequest()
                                 .mutate()
