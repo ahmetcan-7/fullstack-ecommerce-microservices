@@ -20,7 +20,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @MappedSuperclass
 @SuperBuilder
-public abstract class AdvanceBaseModal {
+public abstract class AdvanceBaseModal extends Auditable<String> {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
@@ -28,10 +28,4 @@ public abstract class AdvanceBaseModal {
             strategy = "org.hibernate.id.UUIDGenerator"
     )
     private UUID id;
-
-    @UpdateTimestamp
-    private LocalDateTime updateDate;
-
-    @CreationTimestamp
-    private LocalDateTime createDate;
 }

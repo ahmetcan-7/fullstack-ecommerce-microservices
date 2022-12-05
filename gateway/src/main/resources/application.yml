@@ -30,7 +30,7 @@ spring:
         - id: product-service
           uri: lb://product-service
           predicates:
-            - Path=/products/**
+            - Path=/v1/products/**
           filters:
             - AuthFilter
       discovery:

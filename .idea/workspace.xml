@@ -6,24 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="5e11488a-5285-4330-851a-e2464b08619a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/ahmetcan7/common/exception/BadRequestException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/ahmetcan7/common/exception/ErrorDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/ahmetcan7/common/exception/GlobalExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/ahmetcan7/common/exception/NotFoundException.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/com/ahmetcan7/common/model/AdvanceBaseModal.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/ahmetcan7/common/model/AdvanceBaseModal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/ahmetcan7/gateway/config/AuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/com/ahmetcan7/gateway/config/AuthFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/dto/order/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/dto/order/OrderMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/exception/GeneralExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/exception/GeneralExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/CreateProductRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/CreateProductRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/ProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/ProductDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/ProductMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/model/Auditable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/model/AuditorAwareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/security/AuditorAwareImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/service/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/security/SecurityConfiguration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,11 +103,11 @@
       <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\product-service\src\main\java" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ahmetcan7.common.model" />
       <recent name="com.ahmetcan7.productservice.exception" />
       <recent name="com.ahmetcan7.gateway.dto" />
       <recent name="com.orderservice.exception" />
       <recent name="com.ahmetcan7.userservice.constant" />
-      <recent name="com.ahmetcan7.userservice.service" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.ProductApplication">
@@ -149,12 +137,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="order-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.orderservice.OrderApplication" />
+    <configuration name="InventoryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="inventory-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.inventoryservice.InventoryApplication" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.orderservice.*" />
+          <option name="PATTERN" value="com.inventoryservice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -192,9 +180,9 @@
       <list>
         <item itemvalue="Spring Boot.ProductApplication" />
         <item itemvalue="Spring Boot.GatewayApplication" />
-        <item itemvalue="Spring Boot.EurekaServerApplication" />
+        <item itemvalue="Spring Boot.InventoryApplication" />
         <item itemvalue="Spring Boot.UserApplication" />
-        <item itemvalue="Spring Boot.OrderApplication" />
+        <item itemvalue="Spring Boot.EurekaServerApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -248,7 +236,8 @@
       <workItem from="1670074579755" duration="168000" />
       <workItem from="1670160319623" duration="4053000" />
       <workItem from="1670173726709" duration="6936000" />
-      <workItem from="1670233932356" duration="9060000" />
+      <workItem from="1670233932356" duration="9226000" />
+      <workItem from="1670259922420" duration="2856000" />
     </task>
     <servers />
   </component>

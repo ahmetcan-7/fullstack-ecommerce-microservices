@@ -1,4 +1,4 @@
-package com.ahmetcan7.productservice.model;
+package com.ahmetcan7.productservice.security;
 
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.core.context.SecurityContextHolder;
