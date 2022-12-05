@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -18,6 +20,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @Data
 @SuperBuilder
+@SQLDelete(sql = "UPDATE products SET deleted = true WHERE id=?")
+@Where(clause = "deleted=false")
 public class Product extends AdvanceBaseModal{
     @Id
     @GeneratedValue(generator = "UUID")
@@ -37,5 +41,7 @@ public class Product extends AdvanceBaseModal{
     @JoinColumn(name = "category_id")
     private Category category;
 
-    // todo:delted at,,deletedby, soft delete
+    @Column(nullable=false, columnDefinition = "BOOLEAN DEFAULT FALSE")
+    private boolean deleted;
+    // todo:delted at,,deletedby
 }

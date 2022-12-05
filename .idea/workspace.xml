@@ -7,11 +7,7 @@
     <list default="true" id="5e11488a-5285-4330-851a-e2464b08619a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/com/ahmetcan7/common/model/AdvanceBaseModal.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/ahmetcan7/common/model/AdvanceBaseModal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/model/Auditable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/model/AuditorAwareImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/security/AuditorAwareImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/security/SecurityConfiguration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +233,7 @@
       <workItem from="1670160319623" duration="4053000" />
       <workItem from="1670173726709" duration="6936000" />
       <workItem from="1670233932356" duration="9226000" />
-      <workItem from="1670259922420" duration="2856000" />
+      <workItem from="1670259922420" duration="4176000" />
     </task>
     <servers />
   </component>
