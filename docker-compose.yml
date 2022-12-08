@@ -13,6 +13,7 @@ services:
     networks:
       - postgres
     restart: unless-stopped
+
   pgadmin:
     container_name: pgadmin
     image: dpage/pgadmin4
@@ -27,6 +28,7 @@ services:
     networks:
       - postgres
     restart: unless-stopped
+
   zipkin:
     image: openzipkin/zipkin
     container_name: zipkin
@@ -34,6 +36,7 @@ services:
       - "9411:9411"
     networks:
       - spring
+
   rabbitmq:
     image: rabbitmq:3.9.11-management-alpine
     container_name: rabbitmq
@@ -42,6 +45,7 @@ services:
       - "15672:15672"
     networks:
       - spring
+
   mongodb:
     image: mongo
     container_name: mongodb
@@ -52,6 +56,7 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=rootuser
       - MONGO_INITDB_ROOT_PASSWORD=rootpass
+
   mongo-express:
     image: mongo-express
     container_name: mongo-express
@@ -62,6 +67,14 @@ services:
       - ME_CONFIG_MONGODB_ADMINUSERNAME=rootuser
       - ME_CONFIG_MONGODB_ADMINPASSWORD=rootpass
       - ME_CONFIG_MONGODB_SERVER=mongodb
+
+  elasticsearch:
+    image: elasticsearch:7.17.7
+    ports:
+      - '9200:9200'
+      - '9300:9300'
+    environment:
+      - discovery.type=single-node
 
 networks:
   postgres:

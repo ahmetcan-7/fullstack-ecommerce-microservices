@@ -3,9 +3,14 @@ package com.ahmetcan7.productservice.controller;
 
 import com.ahmetcan7.productservice.dto.product.ProductDto;
 import com.ahmetcan7.productservice.dto.product.CreateProductRequest;
+import com.ahmetcan7.productservice.dto.product.ProductSearchDto;
 import com.ahmetcan7.productservice.dto.product.UpdateProductRequest;
+import com.ahmetcan7.productservice.model.Product;
+import com.ahmetcan7.productservice.model.ProductModel;
 import com.ahmetcan7.productservice.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -44,6 +49,11 @@ public class ProductController {
     @DeleteMapping("/{id}")
     public ResponseEntity<UUID> deleteProduct(@PathVariable UUID id){
         return ResponseEntity.ok(productService.deleteProduct(id));
+    }
+
+    @GetMapping("/search")
+    public List<ProductSearchDto> getProductBySearch(@RequestParam String search){
+        return productService.searchProduct(search);
     }
 
 

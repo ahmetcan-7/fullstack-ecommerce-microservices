@@ -3,7 +3,9 @@ package com.ahmetcan7.productservice.dto.product;
 
 import com.ahmetcan7.productservice.dto.category.CategoryMapper;
 import com.ahmetcan7.productservice.model.Product;
+import com.ahmetcan7.productservice.model.ProductModel;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -20,4 +22,15 @@ public class ProductMapper {
                 .category(categoryMapper.categoryToCategoryDto(product.getCategory()))
                 .build();
     }
+
+    public ProductSearchDto productSearchDtoMapper(SearchHit<ProductModel> productModel){
+        return ProductSearchDto.builder()
+                .name(productModel.getContent().getName())
+                .id(productModel.getContent().getId())
+                .unitPrice(productModel.getContent().getUnitPrice())
+                .description(productModel.getContent().getDescription())
+                .categoryName(productModel.getContent().getCategoryName())
+                .build();
+    }
+
 }

@@ -43,5 +43,4 @@ public class Product extends AdvanceBaseModal{
 
     @Column(nullable=false, columnDefinition = "BOOLEAN DEFAULT FALSE")
     private boolean deleted;
-    // todo:delted at,,deletedby
 }
