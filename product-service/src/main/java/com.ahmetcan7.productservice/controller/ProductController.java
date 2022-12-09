@@ -5,6 +5,7 @@ import com.ahmetcan7.productservice.dto.product.ProductDto;
 import com.ahmetcan7.productservice.dto.product.CreateProductRequest;
 import com.ahmetcan7.productservice.dto.product.ProductSearchDto;
 import com.ahmetcan7.productservice.dto.product.UpdateProductRequest;
+import com.ahmetcan7.productservice.enumeration.Sort;
 import com.ahmetcan7.productservice.model.Product;
 import com.ahmetcan7.productservice.model.ProductModel;
 import com.ahmetcan7.productservice.service.ProductService;
@@ -52,10 +53,11 @@ public class ProductController {
     }
 
     @GetMapping("/search")
-    public List<ProductSearchDto> getProductBySearch(@RequestParam String search){
-        return productService.searchProduct(search);
+    public List<ProductSearchDto> getProductBySearch(@RequestParam String searchTerm,
+                                                     @RequestParam(required = false, defaultValue = "0") int page,
+                                                     @RequestParam(required = false, defaultValue = "10") int size,
+                                                     @RequestParam("sort") Sort sort){
+        return productService.searchProduct(searchTerm,page,size,sort);
     }
-
-
 
 }

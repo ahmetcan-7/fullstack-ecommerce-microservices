@@ -1,6 +1,7 @@
 package com.ahmetcan7.productservice.exception;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.convert.ConversionFailedException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -53,6 +54,10 @@ public class GeneralExceptionHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<?> CategoryNotFoundExceptionHandler(CategoryNotFoundException exception)  {
         log.error(exception.getMessage());
         return createHttpResponse(NOT_FOUND, exception.getMessage());
+    }
+    @ExceptionHandler(ConversionFailedException.class)
+    public ResponseEntity<String> handleConflict(ConversionFailedException exception) {
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
     private ResponseEntity<HttpResponse> createHttpResponse(HttpStatus httpStatus, String message) {

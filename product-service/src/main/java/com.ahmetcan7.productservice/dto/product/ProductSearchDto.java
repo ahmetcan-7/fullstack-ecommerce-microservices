@@ -2,8 +2,8 @@ package com.ahmetcan7.productservice.dto.product;
 
 import lombok.*;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Builder
@@ -15,4 +15,5 @@ public class ProductSearchDto{
     private BigDecimal unitPrice;
     private String categoryName;
     private String description;
+    private LocalDate createdDate;
 }

@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 @RequiredArgsConstructor
 public class ProductMapper {
@@ -30,6 +32,7 @@ public class ProductMapper {
                 .unitPrice(productModel.getContent().getUnitPrice())
                 .description(productModel.getContent().getDescription())
                 .categoryName(productModel.getContent().getCategoryName())
+                .createdDate(productModel.getContent().getCreatedDate())
                 .build();
     }
 

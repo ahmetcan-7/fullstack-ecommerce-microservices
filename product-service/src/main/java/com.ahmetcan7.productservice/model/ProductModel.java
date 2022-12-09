@@ -4,11 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.*;
 
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Data
@@ -16,6 +17,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Document(indexName = "product")
 @Builder
+@Setting(settingPath = "/es-settings.json")
 public class ProductModel implements Serializable {
     @Id
     private UUID id;
@@ -23,4 +25,6 @@ public class ProductModel implements Serializable {
     private BigDecimal unitPrice;
     private String description;
     private String categoryName;
+    @Field(type = FieldType.Date, format = DateFormat.date)
+    private LocalDate createdDate= LocalDate.now();
 }
