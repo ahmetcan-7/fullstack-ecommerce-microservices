@@ -26,11 +26,6 @@ import java.util.UUID;
 public class ProductController {
     private final ProductService productService;
 
-    @GetMapping
-    public ResponseEntity<List<ProductDto>> getAllProducts(){
-        return ResponseEntity.ok(productService.getAllProducts());
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<ProductDto> getProductById(@PathVariable UUID id){
         return ResponseEntity.ok(productService.getProductById(id));
@@ -52,12 +47,13 @@ public class ProductController {
         return ResponseEntity.ok(productService.deleteProduct(id));
     }
 
-    @GetMapping("/search")
-    public List<ProductSearchDto> getProductBySearch(@RequestParam String searchTerm,
+    @GetMapping
+    public List<ProductSearchDto> getProductBySearch(@RequestParam(required = false, defaultValue = "") String searchTerm,
                                                      @RequestParam(required = false, defaultValue = "0") int page,
                                                      @RequestParam(required = false, defaultValue = "10") int size,
-                                                     @RequestParam("sort") Sort sort){
-        return productService.searchProduct(searchTerm,page,size,sort);
+                                                     @RequestParam(required = false, defaultValue = "dateAsc") Sort sort,
+                                                     @RequestParam(required = false, defaultValue = "") String filter){
+        return productService.searchProduct(searchTerm,page,size,sort,filter);
     }
 
 }

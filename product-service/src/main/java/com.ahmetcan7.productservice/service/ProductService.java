@@ -13,10 +13,12 @@ import com.ahmetcan7.productservice.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.common.unit.Fuzziness;
+import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.Operator;
 
+import org.elasticsearch.index.query.QueryBuilder;
+import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.sort.SortBuilders;
-import org.elasticsearch.search.sort.SortOrder;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 
@@ -27,12 +29,11 @@ import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilde
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import static org.elasticsearch.index.query.QueryBuilders.multiMatchQuery;
+import static org.elasticsearch.index.query.QueryBuilders.*;
 
 @Service
 @Slf4j
@@ -124,21 +125,34 @@ public class ProductService {
         return id;
     }
 
-    public List<ProductSearchDto> searchProduct(String searchTerm, int page, int size, Sort sort) {
-        NativeSearchQuery searchQuery = new NativeSearchQueryBuilder()
+    public List<ProductSearchDto> searchProduct(String searchTerm, int page, int size, Sort sort,String filter) {
+        QueryBuilder queryBuilder;
+        if(searchTerm == null || searchTerm.length() ==0 ) {
+            queryBuilder = QueryBuilders.matchAllQuery();
+        } else {
+            queryBuilder = QueryBuilders.multiMatchQuery(searchTerm)
+                    .field("name")
+                    .field("categoryName")
+                    .field("description")
+                    .operator(Operator.AND)
+                    .fuzziness(Fuzziness.AUTO)
+                    .prefixLength(3);
+        }
+
+        BoolQueryBuilder filterBuilder = boolQuery();
+        if(filter != null && filter.length() != 0){
+            filterBuilder.filter(matchQuery("categoryName",filter));
+        }
+
+        NativeSearchQuery query = new NativeSearchQueryBuilder()
+                .withQuery(queryBuilder)
                 .withSorts(SortBuilders.fieldSort(sort.getField()).order(sort.getOrder()))
                 .withPageable(PageRequest.of(page, size))
-                .withQuery(multiMatchQuery(searchTerm)
-                        .field("name")
-                        .field("categoryName")
-                        .field("description")
-                        .operator(Operator.AND)
-                        .fuzziness(Fuzziness.AUTO)
-                        .prefixLength(3)
-                ).build();
+                .withFilter(filterBuilder)
+                .build();
 
-        List<SearchHit<ProductModel>> productModels = elasticsearchOperations.search(searchQuery, ProductModel.class,
-                IndexCoordinates.of("product")).getSearchHits();
+        List<SearchHit<ProductModel>> productModels = elasticsearchOperations.search(query, ProductModel.class,
+              IndexCoordinates.of("product")).getSearchHits();
 
         return productModels.stream().map(productMapper::productSearchDtoMapper).collect(Collectors.toList());
     }
