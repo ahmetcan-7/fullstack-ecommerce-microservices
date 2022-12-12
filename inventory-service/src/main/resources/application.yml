@@ -26,9 +26,13 @@ rabbitmq:
   exchanges:
     internal: inventory.exchange
   queues:
-    inventory: notification.queue
+    create-inventory: create.inventory.queue
+    delete-inventory: delete.inventory.queue
+    update-inventory: update.inventory.queue
   routing-keys:
-    internal-inventory: internal.inventory.routing-key
+    create-inventory: create.inventory.routing-key
+    delete-inventory: delete.inventory.routing-key
+    update-inventory: update.inventory.routing-key
 
 eureka:
   instance:

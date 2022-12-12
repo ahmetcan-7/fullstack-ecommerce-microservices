@@ -1,6 +1,6 @@
 package com.inventoryservice.dto;
 
-import com.ahmetcan7.amqp.InventoryRequest;
+import com.ahmetcan7.amqp.dto.InventoryRequest;
 import com.inventoryservice.model.Inventory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

@@ -15,11 +15,23 @@ public class RabbitMQInventoryConfig {
     @Value("${rabbitmq.exchanges.internal}")
     private String internalExchange;
 
-    @Value("${rabbitmq.queues.inventory}")
-    private String inventoryQueue;
+    @Value("${rabbitmq.queues.create-inventory}")
+    private String createInventoryQueue;
 
-    @Value("${rabbitmq.routing-keys.internal-inventory}")
-    private String internalInventoryRoutingKey;
+    @Value("${rabbitmq.routing-keys.create-inventory}")
+    private String createInventoryRoutingKey;
+
+    @Value("${rabbitmq.queues.delete-inventory}")
+    private String deleteInventoryQueue;
+
+    @Value("${rabbitmq.routing-keys.delete-inventory}")
+    private String deleteInventoryRoutingKey;
+
+    @Value("${rabbitmq.queues.update-inventory}")
+    private String updateInventoryQueue;
+
+    @Value("${rabbitmq.routing-keys.update-inventory}")
+    private String updateInventoryRoutingKey;
 
     @Bean
     public TopicExchange internalTopicExchange() {
@@ -27,27 +39,42 @@ public class RabbitMQInventoryConfig {
     }
 
     @Bean
-    public Queue notificationQueue() {
-        return new Queue(this.inventoryQueue);
+    public Queue createInventoryQueue() {
+        return new Queue(this.createInventoryQueue);
     }
 
     @Bean
-    public Binding internalToNotificationBinding() {
+    public Queue deleteInventoryQueue() {
+        return new Queue(this.deleteInventoryQueue);
+    }
+
+    @Bean
+    public Queue updateInventoryQueue() {
+        return new Queue(this.updateInventoryQueue);
+    }
+
+    @Bean
+    public Binding createInventoryBinding() {
         return BindingBuilder
-                .bind(notificationQueue())
+                .bind(createInventoryQueue())
                 .to(internalTopicExchange())
-                .with(this.internalInventoryRoutingKey);
+                .with(this.createInventoryRoutingKey);
     }
 
-    public String getInternalExchange() {
-        return internalExchange;
+    @Bean
+    public Binding deleteInventoryBinding() {
+        return BindingBuilder
+                .bind(deleteInventoryQueue())
+                .to(internalTopicExchange())
+                .with(this.deleteInventoryRoutingKey);
     }
 
-    public String getInventoryQueue() {
-        return inventoryQueue;
+    @Bean
+    public Binding updateInventoryBinding() {
+        return BindingBuilder
+                .bind(updateInventoryQueue())
+                .to(internalTopicExchange())
+                .with(this.updateInventoryRoutingKey);
     }
 
-    public String getInternalInventoryRoutingKey() {
-        return internalInventoryRoutingKey;
-    }
 }

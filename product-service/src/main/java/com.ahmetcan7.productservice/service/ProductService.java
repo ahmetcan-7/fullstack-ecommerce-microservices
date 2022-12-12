@@ -1,7 +1,8 @@
 package com.ahmetcan7.productservice.service;
 
 import com.ahmetcan7.amqp.RabbitMQMessageProducer;
-import com.ahmetcan7.amqp.InventoryRequest;
+import com.ahmetcan7.amqp.dto.DeleteInventoryRequest;
+import com.ahmetcan7.amqp.dto.InventoryRequest;
 import com.ahmetcan7.productservice.dto.product.*;
 import com.ahmetcan7.productservice.enumeration.Sort;
 import com.ahmetcan7.productservice.exception.ProductNotFoundException;
@@ -73,28 +74,18 @@ public class ProductService {
 
         Product savedProduct = productRepository.save(product);
 
-        InventoryRequest inventoryRequest = new InventoryRequest(savedProduct.getId(),createProductRequest.getQuantityInStock());
+        // create to inventory service
+        InventoryRequest inventoryRequest = new InventoryRequest(savedProduct.getId()
+                ,createProductRequest.getQuantityInStock());
         rabbitMQMessageProducer.publish(
                 inventoryRequest,
                 "inventory.exchange",
-                "internal.inventory.routing-key"
+                "create.inventory.routing-key"
         );
 
         saveProductToElastic(savedProduct);
 
         return productMapper.productToProductDto(savedProduct);
-    }
-
-    private void saveProductToElastic(Product product) {
-        ProductModel productModel = ProductModel.builder()
-                .categoryName(product.getCategory().getName())
-                .description(product.getDescription())
-                .id(product.getId())
-                .name(product.getName())
-                .unitPrice(product.getUnitPrice())
-                .build();
-
-        productElasticRepository.save(productModel);
     }
 
     public ProductDto updateProduct(UpdateProductRequest updateProductRequest,UUID productId) {
@@ -111,9 +102,15 @@ public class ProductService {
         product.setName(updateProductRequest.getName());
         product.setUnitPrice(updateProductRequest.getUnitPrice());
 
-        // todo:inventoryde quantityi guncelle
-        // todo:elastic update
+        // update from inventory service
+        InventoryRequest inventoryRequest = new InventoryRequest(productId,updateProductRequest.getQuantityInStock());
+        rabbitMQMessageProducer.publish(
+                inventoryRequest,
+                "inventory.exchange",
+                "update.inventory.routing-key"
+        );
 
+        updateProductFromElastic(product);
         return productMapper.productToProductDto(product);
     }
 
@@ -121,7 +118,14 @@ public class ProductService {
     public UUID deleteProduct(UUID id) {
         productRepository.deleteById(id);
         productElasticRepository.deleteById(id);
-        // todo: urunu inventory servistende kaldir.
+
+        // delete from inventory service
+        DeleteInventoryRequest deleteInventoryRequest = new DeleteInventoryRequest(id);
+        rabbitMQMessageProducer.publish(
+                deleteInventoryRequest,
+                "inventory.exchange",
+                "delete.inventory.routing-key"
+        );
         return id;
     }
 
@@ -155,6 +159,30 @@ public class ProductService {
               IndexCoordinates.of("product")).getSearchHits();
 
         return productModels.stream().map(productMapper::productSearchDtoMapper).collect(Collectors.toList());
+    }
+
+    private void saveProductToElastic(Product product) {
+        ProductModel productModel = ProductModel.builder()
+                .categoryName(product.getCategory().getName())
+                .description(product.getDescription())
+                .id(product.getId())
+                .name(product.getName())
+                .unitPrice(product.getUnitPrice())
+                .build();
+
+        productElasticRepository.save(productModel);
+    }
+
+    private void updateProductFromElastic(Product product) {
+        ProductModel productModel = ProductModel.builder()
+                .categoryName(product.getCategory().getName())
+                .description(product.getDescription())
+                .id(product.getId())
+                .name(product.getName())
+                .unitPrice(product.getUnitPrice())
+                .build();
+
+        productElasticRepository.save(productModel);
     }
 
 }

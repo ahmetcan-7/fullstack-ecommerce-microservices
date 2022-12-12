@@ -1,6 +1,7 @@
 package com.inventoryservice.service;
 
-import com.ahmetcan7.amqp.InventoryRequest;
+import com.ahmetcan7.amqp.dto.DeleteInventoryRequest;
+import com.ahmetcan7.amqp.dto.InventoryRequest;
 import com.inventoryservice.dto.InventoryCheckRequest;
 import com.inventoryservice.dto.InventoryCheckResponse;
 import com.inventoryservice.dto.InventoryMapper;
@@ -9,6 +10,7 @@ import com.inventoryservice.repository.InventoryRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Objects;
@@ -22,8 +24,18 @@ public class InventoryService {
     private final InventoryRepository inventoryRepository;
     private final InventoryMapper inventoryMapper;
     public void addProductToInventory(InventoryRequest inventoryRequest){
-        Inventory inventory = inventoryRepository
-                .save(inventoryMapper.createInventoryRequestToInventory(inventoryRequest));
+        inventoryRepository.save(inventoryMapper.createInventoryRequestToInventory(inventoryRequest));
+    }
+
+    @Transactional
+    public void deleteProductFromInventory(DeleteInventoryRequest deleteInventoryRequest){
+        inventoryRepository.deleteByProductId(deleteInventoryRequest.getProductId());
+    }
+
+    public void updateProductFromInventory(InventoryRequest inventoryRequest){
+        Inventory inventory = inventoryRepository.getByProductId(inventoryRequest.getProductId());
+        inventory.setQuantity(inventoryRequest.getQuantity());
+        inventoryRepository.save(inventory);
     }
 
     public InventoryCheckResponse isInStock(List<InventoryCheckRequest> inventoryCheckRequests) {

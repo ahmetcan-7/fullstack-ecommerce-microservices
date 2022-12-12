@@ -9,4 +9,6 @@ import java.util.UUID;
 
 public interface InventoryRepository extends JpaRepository<Inventory, UUID> {
     Inventory findByProductIdAndQuantityLessThan(UUID productId, Integer quantity);
+    Inventory getByProductId(UUID productId);
+    Long  deleteByProductId(UUID productId);
 }
