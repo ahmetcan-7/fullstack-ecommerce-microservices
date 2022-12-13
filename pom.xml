@@ -19,6 +19,7 @@
         <module>user-service</module>
         <module>eureka-server</module>
         <module>gateway</module>
+        <module>notification-service</module>
     </modules>
 
 
@@ -78,6 +79,11 @@
             <dependency>
                 <groupId>com.ahmetcan7</groupId>
                 <artifactId>gateway</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ahmetcan7</groupId>
+                <artifactId>notification-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

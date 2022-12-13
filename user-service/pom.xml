@@ -67,9 +67,13 @@
         </dependency>
 
         <dependency>
-            <groupId>com.sun.mail</groupId>
-            <artifactId>javax.mail</artifactId>
-            <version>1.6.2</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ahmetcan7</groupId>
+            <artifactId>amqp</artifactId>
+            <scope>compile</scope>
         </dependency>
 
     </dependencies>

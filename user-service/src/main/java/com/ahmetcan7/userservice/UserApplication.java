@@ -9,7 +9,12 @@ import java.io.File;
 
 import static com.ahmetcan7.userservice.constant.FileConstant.USER_FOLDER;
 
-@SpringBootApplication
+@SpringBootApplication(
+        scanBasePackages = {
+                "com.ahmetcan7.userservice",
+                "com.ahmetcan7.amqp"
+        }
+)
 public class UserApplication {
     public static void main(String[] args) {
         SpringApplication.run(UserApplication.class,args);

@@ -1,5 +1,7 @@
 package com.ahmetcan7.userservice.service;
 
+import com.ahmetcan7.amqp.RabbitMQMessageProducer;
+import com.ahmetcan7.amqp.dto.EmailRequest;
 import com.ahmetcan7.userservice.dto.AddUserRequest;
 import com.ahmetcan7.userservice.dto.UserDto;
 import com.ahmetcan7.userservice.dto.RegisterUserRequest;
@@ -49,7 +51,7 @@ public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
     private final LoginAttemptService loginAttemptService;
-    private final EmailService emailService;
+    private final RabbitMQMessageProducer rabbitMQMessageProducer;
 
     private final JWTTokenProvider jwtTokenProvider;
     @Override
@@ -155,7 +157,18 @@ public class UserService implements UserDetailsService {
         user.setPassword(encodePassword(password));
         userRepository.save(user);
         log.info("New user password: " + password);
-        emailService.sendNewPasswordEmail(user.getFirstName(), password, user.getEmail());
+        sendEmail(user, password);
+    }
+
+    private void sendEmail(User user, String password) {
+        String text = "Hello " + user.getFirstName() + ", \n \n Your new account password is: " + password + "\n \n The Support Team";
+        String subject = "Ahmet Can, AC - New Password";
+        EmailRequest emailRequest = new EmailRequest(text, user.getEmail(),subject);
+        rabbitMQMessageProducer.publish(
+                emailRequest,
+                "notification.exchange",
+                "send.email.routing-key"
+        );
     }
 
     public User updateProfileImage(String username,MultipartFile profileImage){
