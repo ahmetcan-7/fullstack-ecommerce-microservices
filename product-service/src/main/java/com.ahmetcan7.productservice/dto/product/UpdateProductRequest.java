@@ -18,4 +18,6 @@ public class UpdateProductRequest {
     private Integer quantityInStock;
     @NotNull
     private Long categoryId;
+    @NotNull
+    private String imageUrl;
 }

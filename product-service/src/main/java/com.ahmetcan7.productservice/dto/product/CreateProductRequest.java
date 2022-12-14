@@ -18,4 +18,6 @@ public class CreateProductRequest {
     private String description;
     @NotNull
     private Integer quantityInStock;
+    @NotNull
+    private String imageUrl;
 }

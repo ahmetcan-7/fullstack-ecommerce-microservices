@@ -37,6 +37,11 @@ spring:
           predicates:
             - Path=/v1/products/**
             - Method=GET
+
+        - id: file-service
+          uri: lb://file-service
+          predicates:
+            - Path=/file/**
       discovery:
         locator:
           enabled: true

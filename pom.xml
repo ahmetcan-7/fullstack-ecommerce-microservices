@@ -20,6 +20,7 @@
         <module>eureka-server</module>
         <module>gateway</module>
         <module>notification-service</module>
+        <module>file-service</module>
     </modules>
 
 
@@ -84,6 +85,11 @@
             <dependency>
                 <groupId>com.ahmetcan7</groupId>
                 <artifactId>notification-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ahmetcan7</groupId>
+                <artifactId>file-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
