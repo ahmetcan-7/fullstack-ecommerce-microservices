@@ -41,8 +41,8 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<User> login(@RequestBody LoginUserRequest user) {
-        authenticationHelper.authenticate(user.getUsername(), user.getPassword());
-        User loginUser = userService.findUserByUsername(user.getUsername());
+        authenticationHelper.authenticate(user.getEmail(), user.getPassword());
+        User loginUser = userService.findUserByEmail(user.getEmail());
         UserPrincipal userPrincipal = new UserPrincipal(loginUser);
         HttpHeaders jwtHeader = authenticationHelper.getJwtHeader(userPrincipal);
         return new ResponseEntity<>(loginUser, jwtHeader, OK);
@@ -65,40 +65,40 @@ public class UserController {
         return ResponseEntity.ok(UPDATE_USER_RES);
     }
 
-    @GetMapping("/find/{username}")
-    public ResponseEntity<User> getUser(@PathVariable("username") String username) {
-        return ResponseEntity.ok(userService.findUserByUsername(username));
+    @GetMapping("/find/{email}")
+    public ResponseEntity<User> getUser(@PathVariable String email) {
+        return ResponseEntity.ok(userService.findUserByEmail(email));
     }
 
     @GetMapping("/resetpassword/{email}")
-    public ResponseEntity<HttpResponse> resetPassword(@PathVariable("email") String email) {
+    public ResponseEntity<HttpResponse> resetPassword(@PathVariable String email) {
         userService.resetPassword(email);
         return new ResponseEntity<>(new HttpResponse(OK.value(), OK, OK.getReasonPhrase().toUpperCase(),
                 RESET_PASSWORD_RES + email), OK);
     }
 
-    @DeleteMapping("/delete/{username}")
+    @DeleteMapping("/delete/{email}")
     @PreAuthorize("hasAnyAuthority('user:delete')")
-    public ResponseEntity<HttpResponse> deleteUser(@PathVariable("username") String username) throws IOException {
-        userService.deleteUser(username);
+    public ResponseEntity<HttpResponse> deleteUser(@PathVariable String email) throws IOException {
+        userService.deleteUser(email);
         return new ResponseEntity<>(new HttpResponse(OK.value(), OK, OK.getReasonPhrase().toUpperCase(),
                 DELETE_USER_RES), OK);
     }
 
     @PostMapping("/updateProfileImage")
-    public ResponseEntity<User> updateProfileImage(@RequestParam("username") String username,
-                                                   @RequestParam(value = "profileImage") MultipartFile profileImage) {
-        return ResponseEntity.ok(userService.updateProfileImage(username,profileImage));
+    public ResponseEntity<User> updateProfileImage(@RequestParam String email,
+                                                   @RequestParam MultipartFile profileImage) {
+        return ResponseEntity.ok(userService.updateProfileImage(email,profileImage));
     }
 
-    @GetMapping(path = "/image/{username}/{fileName}", produces = IMAGE_JPEG_VALUE)
-    public byte[] getProfileImage(@PathVariable("username") String username, @PathVariable("fileName") String fileName) throws IOException {
-        return Files.readAllBytes(Paths.get(USER_FOLDER + username + FORWARD_SLASH + fileName));
+    @GetMapping(path = "/image/{email}/{fileName}", produces = IMAGE_JPEG_VALUE)
+    public byte[] getProfileImage(@PathVariable String email, @PathVariable String fileName) throws IOException {
+        return Files.readAllBytes(Paths.get(USER_FOLDER + email + FORWARD_SLASH + fileName));
     }
 
-    @GetMapping(path = "/image/profile/{username}", produces = IMAGE_JPEG_VALUE)
-    public byte[] getTempProfileImage(@PathVariable("username") String username) throws IOException {
-        URL url = new URL(TEMP_PROFILE_IMAGE_BASE_URL + username);
+    @GetMapping(path = "/image/profile/{email}", produces = IMAGE_JPEG_VALUE)
+    public byte[] getTempProfileImage(@PathVariable String email) throws IOException {
+        URL url = new URL(TEMP_PROFILE_IMAGE_BASE_URL + email);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try (InputStream inputStream = url.openStream()) {
             int bytesRead;

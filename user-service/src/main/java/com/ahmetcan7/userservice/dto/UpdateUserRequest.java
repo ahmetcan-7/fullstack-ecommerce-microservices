@@ -5,8 +5,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 public class UpdateUserRequest {
-    private String currentUsername;
-    private String username;
     private String email;
     private String firstName;
     private String lastName;

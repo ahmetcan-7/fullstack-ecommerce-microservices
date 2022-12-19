@@ -39,13 +39,14 @@ public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config> 
             return webClientBuilder.build()
                     .post()
                     .uri("http://user-service/user/validateToken?token=" + parts[1])
+                    .header("Authorization",authHeader)
                     .retrieve()
                     .onStatus(HttpStatus::is4xxClientError,response->Mono.error(new RuntimeException("Token is not valid")))
                     .bodyToMono(UserDto.class)
                     .map(userDto -> {
                         exchange.getRequest()
                                 .mutate()
-                                .header("username", userDto.getUsername());
+                                .header("userId", userDto.getUserId());
 
                         exchange.getRequest()
                                 .mutate()

@@ -20,7 +20,7 @@ public class AuthenticationHelper {
         return headers;
     }
 
-    public void authenticate(String username, String password) {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
+    public void authenticate(String email, String password) {
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
     }
 }

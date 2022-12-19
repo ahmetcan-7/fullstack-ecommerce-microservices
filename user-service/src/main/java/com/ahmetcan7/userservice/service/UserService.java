@@ -34,6 +34,7 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.security.core.GrantedAuthority;
 import static com.ahmetcan7.userservice.constant.FileConstant.*;
@@ -52,32 +53,25 @@ public class UserService implements UserDetailsService {
     private final BCryptPasswordEncoder passwordEncoder;
     private final LoginAttemptService loginAttemptService;
     private final RabbitMQMessageProducer rabbitMQMessageProducer;
-
     private final JWTTokenProvider jwtTokenProvider;
     @Override
-    public UserDetails loadUserByUsername(String username) {
-        User user = userRepository.findUserByUsername(username);
-        if (user == null) {
-            log.error(NO_USER_FOUND_BY_USERNAME + username);
-            throw new UsernameNotFoundException(NO_USER_FOUND_BY_USERNAME + username);
-        } else {
-            validateLoginAttempt(user);
-            user.setLastLoginDateDisplay(user.getLastLoginDate());
-            user.setLastLoginDate(new Date());
-            userRepository.save(user);
-            UserPrincipal userPrincipal = new UserPrincipal(user);
-            log.info(FOUND_USER_BY_USERNAME + username);
-            return userPrincipal;
-        }
+    public UserDetails loadUserByUsername(String email) {
+        User user = findUserByEmail(email);
+        validateLoginAttempt(user);
+        user.setLastLoginDateDisplay(user.getLastLoginDate());
+        user.setLastLoginDate(new Date());
+        userRepository.save(user);
+        UserPrincipal userPrincipal = new UserPrincipal(user);
+        log.info(FOUND_USER_BY_EMAIL + email);
+        return userPrincipal;
     }
 
     public User register(RegisterUserRequest user)  {
-        validateNewUsernameAndEmail(user.getUsername(), user.getEmail());
+        validateEmail( user.getEmail());
         User newUser = new User();
         newUser.setUserId(generateUserId());
         newUser.setFirstName(user.getFirstName());
         newUser.setLastName(user.getLastName());
-        newUser.setUsername(user.getUsername());
         newUser.setEmail(user.getEmail());
         newUser.setJoinDate(new Date());
         newUser.setPassword(encodePassword(user.getPassword()));
@@ -85,18 +79,17 @@ public class UserService implements UserDetailsService {
         newUser.setNotLocked(true);
         newUser.setRole(ROLE_USER.name());
         newUser.setAuthorities(ROLE_USER.getAuthorities());
-        newUser.setProfileImageUrl(getTemporaryProfileImageUrl(user.getUsername()));
+        newUser.setProfileImageUrl(getTemporaryProfileImageUrl(user.getEmail()));
         userRepository.save(newUser);
         return newUser;
     }
 
     public User addNewUser(AddUserRequest user)  {
-        validateNewUsernameAndEmail(user.getUsername(), user.getEmail());
+        validateEmail( user.getEmail());
         User newUser = new User();
         newUser.setUserId(generateUserId());
         newUser.setFirstName(user.getFirstName());
         newUser.setLastName(user.getLastName());
-        newUser.setUsername(user.getUsername());
         newUser.setEmail(user.getEmail());
         newUser.setJoinDate(new Date());
         newUser.setPassword(encodePassword(user.getPassword()));
@@ -104,30 +97,23 @@ public class UserService implements UserDetailsService {
         newUser.setNotLocked(user.isNonLocked());
         newUser.setRole(getRoleEnumName(user.getRole()).name());
         newUser.setAuthorities(getRoleEnumName(user.getRole()).getAuthorities());
-        newUser.setProfileImageUrl(getTemporaryProfileImageUrl(user.getUsername()));
+        newUser.setProfileImageUrl(getTemporaryProfileImageUrl(user.getEmail()));
         userRepository.save(newUser);
         return newUser;
     }
 
     public UserDto validateToken(String token) {
-        String username = jwtTokenProvider.getSubject(token);
+        String userId = jwtTokenProvider.getSubject(token);
         List<GrantedAuthority> authorities = jwtTokenProvider.getAuthorities(token);
-        boolean isValid=jwtTokenProvider.isTokenValid(username, token);
 
-        if(!isValid){
-            throw new TokenNotValidException("Token is not valid!");
-        }
-
-        return new UserDto(username,authorities);
+        return new UserDto(userId,authorities);
 
     }
 
     public User updateUser(UpdateUserRequest user){
-        User currentUser = validateNewUsernameAndEmail(user.getCurrentUsername(), user.getUsername(), user.getEmail());
+        User currentUser = findUserByEmail(user.getEmail());
         currentUser.setFirstName(user.getFirstName());
         currentUser.setLastName(user.getLastName());
-        currentUser.setUsername(user.getUsername());
-        currentUser.setEmail(user.getEmail());
         currentUser.setActive(user.isActive());
         currentUser.setNotLocked(user.isNonLocked());
         currentUser.setRole(getRoleEnumName(user.getRole()).name());
@@ -137,9 +123,9 @@ public class UserService implements UserDetailsService {
         return currentUser;
     }
 
-    public void deleteUser(String username) {
-        User user = userRepository.findUserByUsername(username);
-        Path userFolder = Paths.get(USER_FOLDER + user.getUsername()).toAbsolutePath().normalize();
+    public void deleteUser(String email) {
+        User user = findUserByEmail(email);
+        Path userFolder = Paths.get(USER_FOLDER + user.getEmail()).toAbsolutePath().normalize();
         try {
             FileUtils.deleteDirectory(new File(userFolder.toString()));
         } catch (IOException e) {
@@ -149,7 +135,7 @@ public class UserService implements UserDetailsService {
     }
 
     public void resetPassword(String email){
-        User user = userRepository.findUserByEmail(email);
+        User user = findUserByEmail(email);
         if (user == null) {
             throw new EmailNotFoundException(NO_USER_FOUND_BY_EMAIL + email);
         }
@@ -171,50 +157,29 @@ public class UserService implements UserDetailsService {
         );
     }
 
-    public User updateProfileImage(String username,MultipartFile profileImage){
-        User user = validateNewUsernameAndEmail(username, null, null);
+    public User updateProfileImage(String email,MultipartFile profileImage){
+        User user = findUserByEmail(email);
         saveProfileImage(user, profileImage);
         return user;
     }
 
-    private User validateNewUsernameAndEmail(String currentUsername, String newUsername, String newEmail) {
-        User userByNewUsername = findUserByUsername(newUsername);
-        User userByNewEmail = findUserByEmail(newEmail);
+    private void validateEmail(String email) {
+        Optional<User> userByNewEmail = userRepository.findUserByEmail(email);
 
-        User currentUser = findUserByUsername(currentUsername);
-        if (currentUser == null) {
-          throw new UserNotFoundException(NO_USER_FOUND_BY_USERNAME + currentUsername);
-        }
-        if (userByNewUsername != null && !currentUser.getId().equals(userByNewUsername.getId())) {
-          throw new UsernameExistException(USERNAME_ALREADY_EXISTS);
-        }
-        if (userByNewEmail != null && !currentUser.getId().equals(userByNewEmail.getId())) {
-          throw new EmailExistException(EMAIL_ALREADY_EXISTS);
-        }
-        return currentUser;
-    }
-
-    private User validateNewUsernameAndEmail(String newUsername, String newEmail) {
-        User userByNewUsername = findUserByUsername(newUsername);
-        User userByNewEmail = findUserByEmail(newEmail);
-        if (userByNewUsername != null) {
-            throw new UsernameExistException(USERNAME_ALREADY_EXISTS);
-        }
-        if (userByNewEmail != null) {
+        if (userByNewEmail.isPresent()) {
             throw new EmailExistException(EMAIL_ALREADY_EXISTS);
         }
-        return null;
     }
 
     private void validateLoginAttempt(User user) {
         if(user.isNotLocked()) {
-            if(loginAttemptService.hasExceededMaxAttempts(user.getUsername())) {
+            if(loginAttemptService.hasExceededMaxAttempts(user.getEmail())) {
                 user.setNotLocked(false);
             } else {
                 user.setNotLocked(true);
             }
         } else {
-            loginAttemptService.evictUserFromLoginAttemptCache(user.getUsername());
+            loginAttemptService.evictUserFromLoginAttemptCache(user.getEmail());
         }
     }
 
@@ -223,14 +188,14 @@ public class UserService implements UserDetailsService {
             throw new NotAnImageFileException(profileImage.getOriginalFilename() + NOT_AN_IMAGE_FILE);
         }
         try {
-            Path userFolder = Paths.get(USER_FOLDER + user.getUsername()).toAbsolutePath().normalize();
+            Path userFolder = Paths.get(USER_FOLDER + user.getEmail()).toAbsolutePath().normalize();
             if(!Files.exists(userFolder)) {
                 Files.createDirectories(userFolder);
                 log.info(DIRECTORY_CREATED + userFolder);
             }
-            Files.deleteIfExists(Paths.get(userFolder + user.getUsername() + DOT + JPG_EXTENSION));
-            Files.copy(profileImage.getInputStream(), userFolder.resolve(user.getUsername() + DOT + JPG_EXTENSION), REPLACE_EXISTING);
-            user.setProfileImageUrl(setProfileImageUrl(user.getUsername()));
+            Files.deleteIfExists(Paths.get(userFolder + user.getEmail() + DOT + JPG_EXTENSION));
+            Files.copy(profileImage.getInputStream(), userFolder.resolve(user.getEmail() + DOT + JPG_EXTENSION), REPLACE_EXISTING);
+            user.setProfileImageUrl(setProfileImageUrl(user.getEmail()));
             userRepository.save(user);
             log.info(FILE_SAVED_IN_FILE_SYSTEM + profileImage.getOriginalFilename());
         }catch (IOException e){
@@ -244,15 +209,12 @@ public class UserService implements UserDetailsService {
                 + username + DOT + JPG_EXTENSION).toUriString();
     }
 
-    private String getTemporaryProfileImageUrl(String username) {
-        return ServletUriComponentsBuilder.fromCurrentContextPath().path(DEFAULT_USER_IMAGE_PATH + username).toUriString();
+    private String getTemporaryProfileImageUrl(String email) {
+        return ServletUriComponentsBuilder.fromCurrentContextPath().path(DEFAULT_USER_IMAGE_PATH + email).toUriString();
     }
-    public User findUserByUsername(String username) {
-        return userRepository.findUserByUsername(username);
-    }
-
     public User findUserByEmail(String email) {
-        return userRepository.findUserByEmail(email);
+        return userRepository.findUserByEmail(email)
+                .orElseThrow(()-> new EmailNotFoundException(NO_USER_FOUND_BY_EMAIL));
     }
     private String encodePassword(String password) {
         return passwordEncoder.encode(password);

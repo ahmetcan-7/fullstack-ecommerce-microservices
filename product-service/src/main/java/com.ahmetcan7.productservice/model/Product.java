@@ -44,5 +44,5 @@ public class Product extends AdvanceBaseModal{
     @Column(nullable=false, columnDefinition = "BOOLEAN DEFAULT FALSE")
     private boolean deleted;
 
-    private String imageUrl;
+    // private String imageUrl;
 }

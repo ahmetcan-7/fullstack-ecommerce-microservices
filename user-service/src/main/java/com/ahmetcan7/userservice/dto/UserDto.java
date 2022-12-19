@@ -13,6 +13,6 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 public class UserDto {
-    private String username;
+    private String userId;
     private List<GrantedAuthority> authorities;
 }

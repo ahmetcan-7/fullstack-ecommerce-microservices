@@ -26,7 +26,7 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
         }
 
         logHeaders(httpServletRequest);
-        String username=httpServletRequest.getHeader("username");
+        String userId=httpServletRequest.getHeader("userId");
         List<Map<String, String>> authorities = new ArrayList<>();
         String authoritiesStr = httpServletRequest.getHeader("authorities");
         Set<SimpleGrantedAuthority> simpleGrantedAuthorities = new HashSet<>();
@@ -34,7 +34,7 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
             simpleGrantedAuthorities=Arrays.stream(authoritiesStr.split(",")).distinct()
                     .filter(this::validString).map(SimpleGrantedAuthority::new).collect(Collectors.toSet());;
         }
-        Authentication authentication = new UsernamePasswordAuthenticationToken(username, null, simpleGrantedAuthorities);
+        Authentication authentication = new UsernamePasswordAuthenticationToken(userId, null, simpleGrantedAuthorities);
         SecurityContextHolder.getContext().setAuthentication(authentication);
         filterChain.doFilter(httpServletRequest, httpServletResponse);
 

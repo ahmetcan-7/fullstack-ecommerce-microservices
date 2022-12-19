@@ -37,7 +37,7 @@ public class JWTTokenProvider {
                 .withIssuer(Company_LLC)
                 .withAudience(Company_ADMINISTRATION)
                 .withIssuedAt(new Date())
-                .withSubject(userPrincipal.getUsername())
+                .withSubject(userPrincipal.getUserId())
                 .withArrayClaim(AUTHORITIES, claims)
                 .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .sign(HMAC512(secret.getBytes()));
@@ -48,16 +48,16 @@ public class JWTTokenProvider {
         return stream(claims).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
     }
 
-    public Authentication getAuthentication(String username, List<GrantedAuthority> authorities, HttpServletRequest request) {
+    public Authentication getAuthentication(String email, List<GrantedAuthority> authorities, HttpServletRequest request) {
         UsernamePasswordAuthenticationToken userPasswordAuthToken = new
-                UsernamePasswordAuthenticationToken(username, null, authorities);
+                UsernamePasswordAuthenticationToken(email, null, authorities);
         userPasswordAuthToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
         return userPasswordAuthToken;
     }
 
-    public boolean isTokenValid(String username, String token) {
+    public boolean isTokenValid(String email, String token) {
         JWTVerifier verifier = getJWTVerifier();
-        return StringUtils.isNotEmpty(username) && !isTokenExpired(verifier, token);
+        return StringUtils.isNotEmpty(email) && !isTokenExpired(verifier, token);
     }
 
     public String getSubject(String token) {

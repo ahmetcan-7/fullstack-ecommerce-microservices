@@ -7,8 +7,6 @@ import javax.validation.constraints.NotNull;
 @Getter
 public class RegisterUserRequest {
     @NotNull
-    private String username;
-    @NotNull
     private String email;
     @NotNull
     private String firstName;

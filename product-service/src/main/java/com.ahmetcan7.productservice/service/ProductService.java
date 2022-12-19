@@ -70,7 +70,7 @@ public class ProductService {
                 .unitPrice(createProductRequest.getUnitPrice())
                 .description(createProductRequest.getDescription())
                 .category(category)
-                .imageUrl(createProductRequest.getImageUrl())
+                //.imageUrl(createProductRequest.getImageUrl())
                 .build();
 
         Product savedProduct = productRepository.save(product);
@@ -102,7 +102,7 @@ public class ProductService {
         product.setDescription(updateProductRequest.getDescription());
         product.setName(updateProductRequest.getName());
         product.setUnitPrice(updateProductRequest.getUnitPrice());
-        product.setImageUrl(updateProductRequest.getImageUrl());
+        //product.setImageUrl(updateProductRequest.getImageUrl());
 
         // update from inventory service
         InventoryRequest inventoryRequest = new InventoryRequest(productId,updateProductRequest.getQuantityInStock());

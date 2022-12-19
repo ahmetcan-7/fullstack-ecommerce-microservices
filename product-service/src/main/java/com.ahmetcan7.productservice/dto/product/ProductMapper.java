@@ -22,7 +22,7 @@ public class ProductMapper {
                 .unitPrice(product.getUnitPrice())
                 .description(product.getDescription())
                 .category(categoryMapper.categoryToCategoryDto(product.getCategory()))
-                .imageUrl(product.getImageUrl())
+                // .imageUrl(product.getImageUrl())
                 .build();
     }
 
