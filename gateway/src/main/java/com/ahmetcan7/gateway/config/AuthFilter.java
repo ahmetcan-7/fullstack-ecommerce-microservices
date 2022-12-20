@@ -1,6 +1,7 @@
 package com.ahmetcan7.gateway.config;
 
 import com.ahmetcan7.gateway.dto.AuthorityDto;
+import com.ahmetcan7.gateway.dto.ErrorDto;
 import com.ahmetcan7.gateway.dto.UserDto;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
@@ -36,25 +37,27 @@ public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config> 
                 throw new RuntimeException("Incorrect authorization structure");
             }
 
-            return webClientBuilder.build()
-                    .post()
-                    .uri("http://user-service/user/validateToken?token=" + parts[1])
-                    .header("Authorization",authHeader)
-                    .retrieve()
-                    .onStatus(HttpStatus::is4xxClientError,response->Mono.error(new RuntimeException("Token is not valid")))
-                    .bodyToMono(UserDto.class)
-                    .map(userDto -> {
-                        exchange.getRequest()
-                                .mutate()
-                                .header("userId", userDto.getUserId());
+    return webClientBuilder.build()
+            .post()
+            .uri("http://user-service/user/validateToken?token=" + parts[1])
+            .header("Authorization", authHeader)
+            .retrieve()
+            .onStatus(HttpStatus::is4xxClientError,response->response.bodyToMono(ErrorDto.class)
+                    .flatMap(error -> Mono.error(new RuntimeException(error.getError_message()))))
+            .bodyToMono(UserDto.class)
+            .map(userDto -> {
+                exchange.getRequest()
+                        .mutate()
+                        .header("userId", userDto.getUserId());
 
-                        exchange.getRequest()
-                                .mutate()
-                                .header("authorities",userDto.getAuthorities().stream()
-                                        .map(AuthorityDto::getAuthority).reduce("", (a, b) -> a + "," + b));
+                exchange.getRequest()
+                        .mutate()
+                        .header("authorities", userDto.getAuthorities().stream()
+                                .map(AuthorityDto::getAuthority).reduce("", (a, b) -> a + "," + b));
 
-                        return exchange;
-                    }).flatMap(chain::filter);
+                return exchange;
+            }).flatMap(chain::filter);
+
         };
     }
 

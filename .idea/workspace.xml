@@ -6,59 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="5e11488a-5285-4330-851a-e2464b08619a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2l.cfe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2l.cfs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2l.si" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2m.cfe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2m.cfs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2m.si" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2n.cfe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2n.cfs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2n.si" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2o.cfe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2o.cfs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2o.si" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2p.cfe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2p.cfs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2p.si" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/manifest-5.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/node-5.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/segments_38" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/SlTkwxJlQMGrlPajrDQXxQ/0/_state/retention-leases-10.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/SlTkwxJlQMGrlPajrDQXxQ/0/_state/state-5.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/SlTkwxJlQMGrlPajrDQXxQ/0/translog/translog-8.tlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/SlTkwxJlQMGrlPajrDQXxQ/0/translog/translog.ckp" beforeDir="false" afterPath="$PROJECT_DIR$/esdata/nodes/0/indices/SlTkwxJlQMGrlPajrDQXxQ/0/translog/translog.ckp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/SlTkwxJlQMGrlPajrDQXxQ/_state/state-15.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/_state/retention-leases-27.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/_state/state-5.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/index/segments_a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/translog/translog-14.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/_state/retention-leases-32.st" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/index/segments_b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/translog/translog-17.tlog" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/translog/translog.ckp" beforeDir="false" afterPath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/translog/translog.ckp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/_state/state-12.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/YlxOSHcjQOGGMg2TTl2Cnw/0/_state/retention-leases-10.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/YlxOSHcjQOGGMg2TTl2Cnw/0/_state/state-5.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/YlxOSHcjQOGGMg2TTl2Cnw/0/translog/translog-10.tlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/YlxOSHcjQOGGMg2TTl2Cnw/0/translog/translog.ckp" beforeDir="false" afterPath="$PROJECT_DIR$/esdata/nodes/0/indices/YlxOSHcjQOGGMg2TTl2Cnw/0/translog/translog.ckp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/YlxOSHcjQOGGMg2TTl2Cnw/_state/state-11.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/_state/retention-leases-9.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/_state/state-5.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/index/segments_a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/translog/translog-14.tlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/translog/translog.ckp" beforeDir="false" afterPath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/translog/translog.ckp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/_state/state-16.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/snapshot_cache/segments_6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/security/JwtAuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/security/JwtAuthorizationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/config/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/constant/Authority.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/constant/Authority.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/constant/SecurityConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/constant/SecurityConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/exception/GeneralExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/exception/GeneralExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/filter/JwtAuthenticationEntryPoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/filter/JwtAuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/filter/JwtAuthorizationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/model/UserPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/model/UserPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/util/AuthenticationHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/util/AuthenticationHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/util/JWTTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/util/JWTTokenProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/ahmetcan7/gateway/config/AuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/com/ahmetcan7/gateway/config/AuthFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,36 +51,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/gener/Desktop/microservices/ecommerce-microservice/file-service/src/main/java/com/ahmetcan7/fileservice/exception&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;e3d747c72663cd4bf12768e615cce65e&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
+    "jdk.selected.JAVA_MODULE": "11",
+    "last_opened_file_path": "C:/Users/gener/Desktop/microservices/ecommerce-microservice/gateway/src/main/java/com/ahmetcan7/gateway",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "e3d747c72663cd4bf12768e615cce65e"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ],
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;Properties&quot;,
-      &quot;PLAIN_TEXT&quot;
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "Properties",
+      "PLAIN_TEXT"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -140,10 +93,10 @@
       <recent name="dto.brand" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\gateway\src\main\java\com\ahmetcan7\gateway" />
       <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\file-service\src\main\java\com\ahmetcan7\fileservice\exception" />
       <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\file-service\src\main\resources" />
       <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\notification-service\src\main\java\com\ahmetcan7\notificationservice\exception" />
-      <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\gateway\src\main\java\com\ahmetcan7\gateway" />
       <recent name="C:\Users\gener\Desktop\microservices\ecommerce-microservice\product-service\src\main\java\com.ahmetcan7.productservice" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -160,7 +113,7 @@
       <recent name="com.ahmetcan7.notificationservice.constant" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.UserApplication">
+  <component name="RunManager" selected="Spring Boot.GatewayApplication">
     <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="eureka-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ahmetcan7.eurekaserver.EurekaServerApplication" />
@@ -228,10 +181,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.GatewayApplication" />
         <item itemvalue="Spring Boot.UserApplication" />
         <item itemvalue="Spring Boot.InventoryApplication" />
         <item itemvalue="Spring Boot.ProductApplication" />
-        <item itemvalue="Spring Boot.GatewayApplication" />
         <item itemvalue="Spring Boot.EurekaServerApplication" />
       </list>
     </recent_temporary>
@@ -301,7 +254,7 @@
       <workItem from="1671370653463" duration="614000" />
       <workItem from="1671393527811" duration="1441000" />
       <workItem from="1671452880235" duration="28918000" />
-      <workItem from="1671554713078" duration="5542000" />
+      <workItem from="1671554713078" duration="10013000" />
     </task>
     <servers />
   </component>
@@ -333,5 +286,10 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="webClientBuilder" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
