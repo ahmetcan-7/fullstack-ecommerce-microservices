@@ -1,5 +1,6 @@
 package com.ahmetcan7.userservice.model;
 
+import com.ahmetcan7.userservice.enumeration.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -31,6 +32,10 @@ public class UserPrincipal implements UserDetails {
 
     public String getUserId(){
         return user.getUserId();
+    }
+
+    public String getRole(){
+        return user.getRole();
     }
 
     @Override

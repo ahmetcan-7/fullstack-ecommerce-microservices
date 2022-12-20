@@ -1,5 +1,6 @@
 package com.ahmetcan7.userservice.util;
 
+import com.ahmetcan7.userservice.dto.LoginResponse;
 import com.ahmetcan7.userservice.model.UserPrincipal;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
@@ -14,10 +15,8 @@ import static com.ahmetcan7.userservice.constant.SecurityConstant.JWT_TOKEN_HEAD
 public class AuthenticationHelper {
     private final JWTTokenProvider jwtTokenProvider;
     private final AuthenticationManager authenticationManager;
-    public HttpHeaders getJwtHeader(UserPrincipal user) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add(JWT_TOKEN_HEADER, jwtTokenProvider.generateJwtToken(user));
-        return headers;
+    public LoginResponse getLoginResponse(UserPrincipal user) {
+        return new LoginResponse(jwtTokenProvider.generateJwtToken(user),user.getRole());
     }
 
     public void authenticate(String email, String password) {

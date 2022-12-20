@@ -1,11 +1,16 @@
 package com.ahmetcan7.userservice.util;
 
+import com.ahmetcan7.userservice.exception.TokenNotValidException;
 import com.ahmetcan7.userservice.exception.UserNotFoundException;
 import com.ahmetcan7.userservice.model.UserPrincipal;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.exceptions.SignatureVerificationException;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.auth0.jwt.interfaces.JWTVerifier;
+import com.google.common.base.Preconditions;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -14,9 +19,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
-
 import static com.ahmetcan7.userservice.constant.SecurityConstant.*;
 import javax.servlet.http.HttpServletRequest;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -24,8 +29,10 @@ import java.util.stream.Collectors;
 
 import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
 import static java.util.Arrays.stream;
+import static java.util.Objects.isNull;
 
 @Component
+@Slf4j
 public class JWTTokenProvider {
 
     @Value("${jwt.secret}")
@@ -37,14 +44,15 @@ public class JWTTokenProvider {
                 .withIssuer(Company_LLC)
                 .withAudience(Company_ADMINISTRATION)
                 .withIssuedAt(new Date())
-                .withSubject(userPrincipal.getUserId())
+                .withSubject(userPrincipal.getUsername())
                 .withArrayClaim(AUTHORITIES, claims)
+                .withClaim("userId",userPrincipal.getUserId())
                 .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .sign(HMAC512(secret.getBytes()));
     }
 
-    public List<GrantedAuthority> getAuthorities(String token) {
-        String[] claims = getClaimsFromToken(token);
+    public List<GrantedAuthority> getAuthorities(DecodedJWT decodedJWT) {
+        String[] claims = decodedJWT.getClaim(AUTHORITIES).asArray(String.class);
         return stream(claims).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
     }
 
@@ -55,42 +63,17 @@ public class JWTTokenProvider {
         return userPasswordAuthToken;
     }
 
-    public boolean isTokenValid(String email, String token) {
-        JWTVerifier verifier = getJWTVerifier();
-        return StringUtils.isNotEmpty(email) && !isTokenExpired(verifier, token);
-    }
 
-    public String getSubject(String token) {
-        JWTVerifier verifier = getJWTVerifier();
-        try {
-            verifier.verify(token).getSubject();
-        }catch (Exception e){
-            throw new UserNotFoundException("user not found !!");
+    public DecodedJWT decodeToken(String value) {
+        if (isNull(value)){
+            throw new TokenNotValidException("Token has not been provided");
         }
 
-        return verifier.verify(token).getSubject();
+        DecodedJWT decodedJWT = JWT.decode(value);
+        log.info("Token decoded successfully");
+        return decodedJWT;
     }
 
-    private boolean isTokenExpired(JWTVerifier verifier, String token) {
-        Date expiration = verifier.verify(token).getExpiresAt();
-        return expiration.before(new Date());
-    }
-
-    private String[] getClaimsFromToken(String token) {
-        JWTVerifier verifier = getJWTVerifier();
-        return verifier.verify(token).getClaim(AUTHORITIES).asArray(String.class);
-    }
-
-    private JWTVerifier getJWTVerifier() {
-        JWTVerifier verifier;
-        try {
-            Algorithm algorithm = HMAC512(secret);
-            verifier = JWT.require(algorithm).withIssuer(Company_LLC).build();
-        }catch (JWTVerificationException exception) {
-            throw new JWTVerificationException(TOKEN_CANNOT_BE_VERIFIED);
-        }
-        return verifier;
-    }
 
     private String[] getClaimsFromUser(UserPrincipal user) {
         List<String> authorities = new ArrayList<>();

@@ -12,6 +12,7 @@ import com.ahmetcan7.userservice.model.User;
 import com.ahmetcan7.userservice.model.UserPrincipal;
 import com.ahmetcan7.userservice.repository.UserRepository;
 import com.ahmetcan7.userservice.util.JWTTokenProvider;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -103,11 +104,11 @@ public class UserService implements UserDetailsService {
     }
 
     public UserDto validateToken(String token) {
-        String userId = jwtTokenProvider.getSubject(token);
-        List<GrantedAuthority> authorities = jwtTokenProvider.getAuthorities(token);
+        DecodedJWT decodedJWT =  jwtTokenProvider.decodeToken(token);
+        String userId = decodedJWT.getClaim("userId").asString();
+        List<GrantedAuthority> authorities = jwtTokenProvider.getAuthorities(decodedJWT);
 
         return new UserDto(userId,authorities);
-
     }
 
     public User updateUser(UpdateUserRequest user){

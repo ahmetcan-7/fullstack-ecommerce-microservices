@@ -40,12 +40,12 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<User> login(@RequestBody LoginUserRequest user) {
+    public ResponseEntity<LoginResponse> login(@RequestBody LoginUserRequest user) {
         authenticationHelper.authenticate(user.getEmail(), user.getPassword());
         User loginUser = userService.findUserByEmail(user.getEmail());
         UserPrincipal userPrincipal = new UserPrincipal(loginUser);
-        HttpHeaders jwtHeader = authenticationHelper.getJwtHeader(userPrincipal);
-        return new ResponseEntity<>(loginUser, jwtHeader, OK);
+        LoginResponse loginResponse = authenticationHelper.getLoginResponse(userPrincipal);
+        return ResponseEntity.ok(loginResponse);
     }
 
     @PostMapping("/validateToken")
@@ -78,8 +78,7 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/{email}")
-    @PreAuthorize("hasAnyAuthority('user:delete')")
-    public ResponseEntity<HttpResponse> deleteUser(@PathVariable String email) throws IOException {
+    public ResponseEntity<HttpResponse> deleteUser(@PathVariable String email){
         userService.deleteUser(email);
         return new ResponseEntity<>(new HttpResponse(OK.value(), OK, OK.getReasonPhrase().toUpperCase(),
                 DELETE_USER_RES), OK);

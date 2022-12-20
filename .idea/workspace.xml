@@ -6,97 +6,56 @@
   <component name="ChangeListManager">
     <list default="true" id="5e11488a-5285-4330-851a-e2464b08619a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_26.cfe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_26.cfs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_26.si" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_27.cfe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_27.cfs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_27.si" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_28.cfe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_28.cfs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_28.si" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_29.cfe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_29.cfs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_29.si" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/manifest-3.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/node-3.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/segments_2m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/SlTkwxJlQMGrlPajrDQXxQ/0/_state/retention-leases-6.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/SlTkwxJlQMGrlPajrDQXxQ/0/_state/state-3.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/SlTkwxJlQMGrlPajrDQXxQ/0/translog/translog-6.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2l.cfe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2l.cfs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2l.si" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2m.cfe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2m.cfs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2m.si" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2n.cfe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2n.cfs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2n.si" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2o.cfe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2o.cfs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2o.si" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2p.cfe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2p.cfs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/_2p.si" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/manifest-5.st" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/node-5.st" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/_state/segments_38" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/SlTkwxJlQMGrlPajrDQXxQ/0/_state/retention-leases-10.st" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/SlTkwxJlQMGrlPajrDQXxQ/0/_state/state-5.st" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/SlTkwxJlQMGrlPajrDQXxQ/0/translog/translog-8.tlog" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/SlTkwxJlQMGrlPajrDQXxQ/0/translog/translog.ckp" beforeDir="false" afterPath="$PROJECT_DIR$/esdata/nodes/0/indices/SlTkwxJlQMGrlPajrDQXxQ/0/translog/translog.ckp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/SlTkwxJlQMGrlPajrDQXxQ/_state/state-11.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/_state/retention-leases-18.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/_state/state-3.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/index/_1.cfe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/index/_1.cfs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/index/_1.si" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/index/_2.cfe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/index/_2.cfs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/index/_2.si" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/index/_c.cfe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/index/_c.cfs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/index/_c.si" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/index/_e.cfe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/index/_e.cfs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/index/_e.si" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/index/segments_8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/translog/translog-10.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/SlTkwxJlQMGrlPajrDQXxQ/_state/state-15.st" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/_state/retention-leases-27.st" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/_state/state-5.st" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/index/segments_a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/translog/translog-14.tlog" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/translog/translog.ckp" beforeDir="false" afterPath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/0/translog/translog.ckp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/_state/state-8.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/YlxOSHcjQOGGMg2TTl2Cnw/0/_state/retention-leases-6.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/YlxOSHcjQOGGMg2TTl2Cnw/0/_state/state-3.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/YlxOSHcjQOGGMg2TTl2Cnw/0/translog/translog-8.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/Xlza9TvuT2aTuQo3GJhefA/_state/state-12.st" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/YlxOSHcjQOGGMg2TTl2Cnw/0/_state/retention-leases-10.st" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/YlxOSHcjQOGGMg2TTl2Cnw/0/_state/state-5.st" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/YlxOSHcjQOGGMg2TTl2Cnw/0/translog/translog-10.tlog" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/YlxOSHcjQOGGMg2TTl2Cnw/0/translog/translog.ckp" beforeDir="false" afterPath="$PROJECT_DIR$/esdata/nodes/0/indices/YlxOSHcjQOGGMg2TTl2Cnw/0/translog/translog.ckp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/YlxOSHcjQOGGMg2TTl2Cnw/_state/state-7.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/_state/retention-leases-5.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/_state/state-3.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/index/_0.cfe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/index/_0.cfs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/index/_0.si" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/index/_2.cfe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/index/_2.cfs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/index/_2.si" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/index/_3.cfe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/index/_3.cfs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/index/_3.si" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/index/_4.cfe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/index/_4.cfs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/index/_4.si" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/index/_5.cfe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/index/_5.cfs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/index/_5.si" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/index/_6.cfe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/index/_6.cfs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/index/_6.si" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/index/segments_6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/translog/translog-9.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/YlxOSHcjQOGGMg2TTl2Cnw/_state/state-11.st" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/_state/retention-leases-9.st" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/_state/state-5.st" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/index/segments_a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/translog/translog-14.tlog" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/translog/translog.ckp" beforeDir="false" afterPath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/0/translog/translog.ckp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/_state/state-12.st" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/snapshot_cache/segments_4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/ahmetcan7/gateway/config/AuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/com/ahmetcan7/gateway/config/AuthFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/ahmetcan7/gateway/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/com/ahmetcan7/gateway/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/security/JwtAuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/orderservice/security/JwtAuthorizationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/CreateProductRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/CreateProductRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/ProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/ProductDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/ProductMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/UpdateProductRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/UpdateProductRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/indices/sW8OXGu6Tn-KOk4Hx-AGJw/_state/state-16.st" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/esdata/nodes/0/snapshot_cache/segments_6" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/security/JwtAuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/security/JwtAuthorizationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/config/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/constant/Authority.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/constant/Authority.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/constant/SecurityConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/constant/SecurityConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/constant/UserConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/constant/UserConstant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/dto/AddUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/dto/AddUserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/dto/LoginUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/dto/LoginUserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/dto/RegisterUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/dto/RegisterUserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/dto/UpdateUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/dto/UpdateUserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/listener/AuthenticationFailureListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/listener/AuthenticationFailureListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/exception/GeneralExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/exception/GeneralExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/filter/JwtAuthenticationEntryPoint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/filter/JwtAuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/filter/JwtAuthorizationFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/model/UserPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/model/UserPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/service/LoginAttemptService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/service/LoginAttemptService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/util/AuthenticationHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/util/AuthenticationHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/util/JWTTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/util/JWTTokenProvider.java" afterDir="false" />
@@ -201,7 +160,7 @@
       <recent name="com.ahmetcan7.notificationservice.constant" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ProductApplication">
+  <component name="RunManager" selected="Spring Boot.UserApplication">
     <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="eureka-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ahmetcan7.eurekaserver.EurekaServerApplication" />
@@ -269,9 +228,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.ProductApplication" />
         <item itemvalue="Spring Boot.UserApplication" />
         <item itemvalue="Spring Boot.InventoryApplication" />
+        <item itemvalue="Spring Boot.ProductApplication" />
         <item itemvalue="Spring Boot.GatewayApplication" />
         <item itemvalue="Spring Boot.EurekaServerApplication" />
       </list>
@@ -341,7 +300,8 @@
       <workItem from="1671053809722" duration="2024000" />
       <workItem from="1671370653463" duration="614000" />
       <workItem from="1671393527811" duration="1441000" />
-      <workItem from="1671452880235" duration="10691000" />
+      <workItem from="1671452880235" duration="28918000" />
+      <workItem from="1671554713078" duration="5542000" />
     </task>
     <servers />
   </component>
@@ -370,11 +330,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/filter/JwtAuthorizationFilter.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

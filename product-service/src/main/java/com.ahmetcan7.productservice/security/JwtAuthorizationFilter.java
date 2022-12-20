@@ -18,7 +18,8 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
 
 
     @Override
-    protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain)
+            throws ServletException, IOException {
         String authHeader = httpServletRequest.getHeader("Authorization");
         if(!validString(authHeader) || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(httpServletRequest, httpServletResponse);
@@ -27,7 +28,6 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
 
         logHeaders(httpServletRequest);
         String userId=httpServletRequest.getHeader("userId");
-        List<Map<String, String>> authorities = new ArrayList<>();
         String authoritiesStr = httpServletRequest.getHeader("authorities");
         Set<SimpleGrantedAuthority> simpleGrantedAuthorities = new HashSet<>();
         if(validString(authoritiesStr)) {
