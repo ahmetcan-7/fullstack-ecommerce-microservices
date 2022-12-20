@@ -22,7 +22,6 @@ public class User {
             strategy = "org.hibernate.id.UUIDGenerator"
     )
     private UUID id;
-    private String userId;
     private String firstName;
     private String lastName;
     private String password;

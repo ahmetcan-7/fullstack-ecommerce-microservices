@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,6 +26,8 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import static com.ahmetcan7.userservice.constant.SecurityConstant.AUTHORITIES;
+import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.IMAGE_JPEG_VALUE;
 
@@ -46,6 +50,13 @@ public class UserController {
         UserPrincipal userPrincipal = new UserPrincipal(loginUser);
         LoginResponse loginResponse = authenticationHelper.getLoginResponse(userPrincipal);
         return ResponseEntity.ok(loginResponse);
+    }
+
+    @GetMapping("/token/refresh")
+    public ResponseEntity<RefreshTokenResponse> refreshToken(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
+        String authorizationHeader = request.getHeader(AUTHORIZATION);
+        return ResponseEntity.ok(authenticationHelper.validateRefreshToken(authorizationHeader,response));
     }
 
     @PostMapping("/validateToken")

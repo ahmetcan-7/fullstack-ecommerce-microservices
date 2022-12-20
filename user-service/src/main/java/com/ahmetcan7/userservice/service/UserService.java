@@ -32,10 +32,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import org.springframework.security.core.GrantedAuthority;
 import static com.ahmetcan7.userservice.constant.FileConstant.*;
@@ -70,7 +67,6 @@ public class UserService implements UserDetailsService {
     public User register(RegisterUserRequest user)  {
         validateEmail( user.getEmail());
         User newUser = new User();
-        newUser.setUserId(generateUserId());
         newUser.setFirstName(user.getFirstName());
         newUser.setLastName(user.getLastName());
         newUser.setEmail(user.getEmail());
@@ -88,7 +84,6 @@ public class UserService implements UserDetailsService {
     public User addNewUser(AddUserRequest user)  {
         validateEmail( user.getEmail());
         User newUser = new User();
-        newUser.setUserId(generateUserId());
         newUser.setFirstName(user.getFirstName());
         newUser.setLastName(user.getLastName());
         newUser.setEmail(user.getEmail());
@@ -221,15 +216,16 @@ public class UserService implements UserDetailsService {
         return passwordEncoder.encode(password);
     }
 
-    private String generateUserId() {
-        return RandomStringUtils.randomNumeric(10);
-    }
     private Role getRoleEnumName(String role) {
         return Role.valueOf(role.toUpperCase());
     }
 
     private String generatePassword() {
         return RandomStringUtils.randomAlphanumeric(10);
+    }
+
+    public User getUserById(UUID id){
+        return userRepository.getById(id);
     }
 
 }

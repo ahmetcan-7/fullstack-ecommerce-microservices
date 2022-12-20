@@ -27,6 +27,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.auth0.jwt.algorithms.Algorithm.HMAC256;
 import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
 import static java.util.Arrays.stream;
 import static java.util.Objects.isNull;
@@ -38,7 +39,7 @@ public class JWTTokenProvider {
     @Value("${jwt.secret}")
     private String secret;
 
-    public String generateJwtToken(UserPrincipal userPrincipal) {
+    public String generateAccessToken(UserPrincipal userPrincipal) {
         String[] claims = getClaimsFromUser(userPrincipal);
         return JWT.create()
                 .withIssuer(Company_LLC)
@@ -46,9 +47,19 @@ public class JWTTokenProvider {
                 .withIssuedAt(new Date())
                 .withSubject(userPrincipal.getUsername())
                 .withArrayClaim(AUTHORITIES, claims)
-                .withClaim("userId",userPrincipal.getUserId())
+                .withClaim("userId",userPrincipal.getUserId().toString())
                 .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .sign(HMAC512(secret.getBytes()));
+    }
+
+    public String generateRefreshToken(UserPrincipal userPrincipal) {
+        return JWT.create()
+                .withIssuer(Company_LLC)
+                .withAudience(Company_ADMINISTRATION)
+                .withIssuedAt(new Date())
+                .withSubject(userPrincipal.getUserId().toString())
+                .withExpiresAt(new Date(System.currentTimeMillis() + REFRESH_TOKEN_EXP))
+                .sign(HMAC256(secret.getBytes()));
     }
 
     public List<GrantedAuthority> getAuthorities(DecodedJWT decodedJWT) {

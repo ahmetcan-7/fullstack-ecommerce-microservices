@@ -7,6 +7,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import static java.util.Arrays.stream;
@@ -30,8 +31,8 @@ public class UserPrincipal implements UserDetails {
         return user.getEmail();
     }
 
-    public String getUserId(){
-        return user.getUserId();
+    public UUID getUserId(){
+        return user.getId();
     }
 
     public String getRole(){
