@@ -2,10 +2,7 @@ package com.ahmetcan7.userservice.service;
 
 import com.ahmetcan7.amqp.RabbitMQMessageProducer;
 import com.ahmetcan7.amqp.dto.EmailRequest;
-import com.ahmetcan7.userservice.dto.AddUserRequest;
-import com.ahmetcan7.userservice.dto.UserDto;
-import com.ahmetcan7.userservice.dto.RegisterUserRequest;
-import com.ahmetcan7.userservice.dto.UpdateUserRequest;
+import com.ahmetcan7.userservice.dto.*;
 import com.ahmetcan7.userservice.enumeration.Role;
 import com.ahmetcan7.userservice.exception.*;
 import com.ahmetcan7.userservice.model.User;
@@ -36,6 +33,7 @@ import java.util.*;
 
 import org.springframework.security.core.GrantedAuthority;
 import static com.ahmetcan7.userservice.constant.FileConstant.*;
+import static com.ahmetcan7.userservice.constant.SecurityConstant.AUTHORITIES;
 import static com.ahmetcan7.userservice.constant.UserConstant.*;
 import static com.ahmetcan7.userservice.enumeration.Role.ROLE_USER;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
@@ -104,6 +102,24 @@ public class UserService implements UserDetailsService {
         List<GrantedAuthority> authorities = jwtTokenProvider.getAuthorities(decodedJWT);
 
         return new UserDto(userId,authorities);
+    }
+
+    public MeDto getMe(String token) {
+        DecodedJWT decodedJWT =  jwtTokenProvider.decodeToken(token);
+        List<String> roles = decodedJWT.getClaim(AUTHORITIES).asList(String.class);
+        String userId = decodedJWT.getClaim("userId").asString();
+        String firstName = decodedJWT.getClaim("firstName").asString();
+        String lastName = decodedJWT.getClaim("lastName").asString();
+        String email = decodedJWT.getClaim("email").asString();
+
+        return MeDto.builder()
+                .firstName(firstName)
+                .lastName(lastName)
+                .email(email)
+                .userId(userId)
+                .roles(roles)
+                .build();
+
     }
 
     public User updateUser(UpdateUserRequest user){

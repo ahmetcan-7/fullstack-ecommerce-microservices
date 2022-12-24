@@ -27,6 +27,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import static com.ahmetcan7.userservice.constant.SecurityConstant.AUTHORITIES;
+import static com.ahmetcan7.userservice.constant.SecurityConstant.TOKEN_PREFIX;
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.IMAGE_JPEG_VALUE;
@@ -62,6 +63,12 @@ public class UserController {
     @PostMapping("/validateToken")
     public ResponseEntity<UserDto> validateToken(@RequestParam String token) {
         return ResponseEntity.ok(userService.validateToken(token));
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<MeDto> getMe(@RequestHeader(AUTHORIZATION) String authorizationHeader) {
+        String token = authorizationHeader.substring(TOKEN_PREFIX.length());
+        return ResponseEntity.ok(userService.getMe(token));
     }
 
     @PostMapping("/add")
