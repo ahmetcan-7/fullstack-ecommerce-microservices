@@ -56,7 +56,7 @@ public class UserController {
     @GetMapping("/token/refresh")
     public ResponseEntity<RefreshTokenResponse> refreshToken(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-        String authorizationHeader = request.getHeader(AUTHORIZATION);
+        String authorizationHeader = request.getHeader("refresh-token");
         return ResponseEntity.ok(authenticationHelper.validateRefreshToken(authorizationHeader,response));
     }
 
