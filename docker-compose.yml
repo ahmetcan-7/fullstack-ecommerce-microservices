@@ -70,11 +70,12 @@ services:
 
   elasticsearch:
     image: elasticsearch:7.17.7
+    container_name: elasticsearch
     ports:
       - '9200:9200'
       - '9300:9300'
     volumes:
-      - ./esdata:/usr/share/elasticsearch/data
+      - esdata:/usr/share/elasticsearch/data
     environment:
       - discovery.type=single-node
 
@@ -90,3 +91,4 @@ volumes:
   postgres:
   pgadmin:
   mongodb:
+  esdata:

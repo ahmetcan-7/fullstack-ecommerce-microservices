@@ -6,7 +6,6 @@ import com.ahmetcan7.cartservice.dto.cartItem.UpdateCartItemRequest;
 import com.ahmetcan7.cartservice.model.Cart;
 import com.ahmetcan7.cartservice.model.CartItem;
 import com.ahmetcan7.cartservice.repository.CartRepository;
-import com.ahmetcan7.common.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -53,7 +52,7 @@ public class CartService {
         Cart cart = cartRepository.findCartByCustomerId(customerId)
                 .orElseThrow(()-> {
                     log.error("Cart with id: {} could not be found!", customerId);
-                    throw new NotFoundException("Cart is not found with id :"+ customerId);
+                    throw new RuntimeException("Cart is not found with id :"+ customerId);
                 });
 
         CartItem cartItem = cart
