@@ -79,6 +79,23 @@ services:
     environment:
       - discovery.type=single-node
 
+  user-service:
+    container_name: user-service
+    image: ahmetcan7/user-service
+    build:
+      context: /user-service
+      dockerfile: Dockerfile
+    environment:
+      - spring.datasource.username=${POSTGRES_USERNAME}
+      - spring.datasource.password=${POSTGRES_PASSWORD}
+      - spring.datasource.url=${POSTGRES_DATASOURCE_URL}
+    depends_on:
+      - postgres
+    ports:
+      - "8084:8084"
+    networks:
+      - postgres
+
 networks:
   postgres:
     driver: bridge
