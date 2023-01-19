@@ -87,15 +87,90 @@ services:
       dockerfile: Dockerfile
     environment:
       - EUREKA_URI= http://eureka-server:8761/eureka
-      - spring.datasource.username=${POSTGRES_USERNAME}
-      - spring.datasource.password=${POSTGRES_PASSWORD}
-      - spring.datasource.url=${POSTGRES_DATASOURCE_URL}
+      - spring.datasource.url=jdbc:postgresql://postgres:5432/user
     depends_on:
       - postgres
       - eureka-server
       - api-gateway
-    ports:
-      - "8084:8084"
+    networks:
+      - postgres
+      - eureka
+
+  product-service:
+    container_name: product-service
+    image: ahmetcan7/product-service
+    build:
+      context: /product-service
+      dockerfile: Dockerfile
+    environment:
+      - EUREKA_URI= http://eureka-server:8761/eureka
+      - spring.datasource.url=jdbc:postgresql://postgres:5432/product
+    depends_on:
+      - postgres
+      - eureka-server
+      - api-gateway
+    networks:
+      - postgres
+      - eureka
+
+  order-service:
+    container_name: order-service
+    image: ahmetcan7/order-service
+    build:
+      context: /order-service
+      dockerfile: Dockerfile
+    environment:
+      - EUREKA_URI= http://eureka-server:8761/eureka
+      - spring.datasource.url=jdbc:postgresql://postgres:5432/order
+    depends_on:
+      - postgres
+      - eureka-server
+      - api-gateway
+    networks:
+      - postgres
+      - eureka
+
+  notification-service:
+    container_name: notification-service
+    image: ahmetcan7/notification-service
+    build:
+      context: /notification-service
+      dockerfile: Dockerfile
+    environment:
+      - EUREKA_URI= http://eureka-server:8761/eureka
+    depends_on:
+      - eureka-server
+      - api-gateway
+    networks:
+      - eureka
+
+  file-service:
+    container_name: file-service
+    image: ahmetcan7/file-service
+    build:
+      context: /file-service
+      dockerfile: Dockerfile
+    environment:
+      - EUREKA_URI= http://eureka-server:8761/eureka
+    depends_on:
+      - eureka-server
+      - api-gateway
+    networks:
+      - eureka
+
+  inventory-service:
+    container_name: inventory-service
+    image: ahmetcan7/inventory-service
+    build:
+      context: /inventory-service
+      dockerfile: Dockerfile
+    environment:
+      - EUREKA_URI= http://eureka-server:8761/eureka
+      - spring.datasource.url=jdbc:postgresql://postgres:5432/inventory
+    depends_on:
+      - postgres
+      - eureka-server
+      - api-gateway
     networks:
       - postgres
       - eureka
@@ -123,28 +198,6 @@ services:
       - eureka
     environment:
       - EUREKA_URI= http://eureka-server:8761/eureka
-#      - SPRING_CLOUD_GATEWAY_ROUTES_0_ID=inventory-service
-#      - SPRING_CLOUD_GATEWAY_ROUTES_0_URI=lb://inventory-service
-#      - SPRING_CLOUD_GATEWAY_ROUTES_0_PREDICATES_0_=Path=/v1/inventories/**
-#      - SPRING_CLOUD_GATEWAY_ROUTES_1_ID=order-service
-#      - SPRING_CLOUD_GATEWAY_ROUTES_1_URI=lb://order-service
-#      - SPRING_CLOUD_GATEWAY_ROUTES_1_PREDICATES_0_=Path=/v1/orders/**
-#      - SPRING_CLOUD_GATEWAY_ROUTES_1_FILTERS_0_=AuthFilter
-#      - SPRING_CLOUD_GATEWAY_ROUTES_2_ID=user-service
-#      - SPRING_CLOUD_GATEWAY_ROUTES_2_URI=lb://user-service
-#      - SPRING_CLOUD_GATEWAY_ROUTES_2_PREDICATES_0_=Path=/user/**
-#      - SPRING_CLOUD_GATEWAY_ROUTES_3_ID=product-service
-#      - SPRING_CLOUD_GATEWAY_ROUTES_3_URI=lb://product-service
-#      - SPRING_CLOUD_GATEWAY_ROUTES_3_PREDICATES_0_=Path=/v1/products/**
-#      - SPRING_CLOUD_GATEWAY_ROUTES_3_PREDICATES_1_=Method=POST,PUT,DELETE
-#      - SPRING_CLOUD_GATEWAY_ROUTES_3_FILTERS_0_=AuthFilter
-#      - SPRING_CLOUD_GATEWAY_ROUTES_4_ID=product-service
-#      - SPRING_CLOUD_GATEWAY_ROUTES_4_URI=lb://product-service
-#      - SPRING_CLOUD_GATEWAY_ROUTES_4_PREDICATES_0_=Path=/v1/products/**
-#      - SPRING_CLOUD_GATEWAY_ROUTES_4_PREDICATES_1_=Method=GET
-#      - SPRING_CLOUD_GATEWAY_ROUTES_5_ID=file-service
-#      - SPRING_CLOUD_GATEWAY_ROUTES_5_URI=lb://file-service
-#      - SPRING_CLOUD_GATEWAY_ROUTES_5_PREDICATES_0_=Path=/file/**
 
 networks:
   postgres:
