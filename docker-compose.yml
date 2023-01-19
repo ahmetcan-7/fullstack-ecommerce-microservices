@@ -46,27 +46,27 @@ services:
     networks:
       - spring
 
-  mongodb:
-    image: mongo
-    container_name: mongodb
-    ports:
-      - 27017:27017
-    volumes:
-      - mongodb:/data/db
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=rootuser
-      - MONGO_INITDB_ROOT_PASSWORD=rootpass
-
-  mongo-express:
-    image: mongo-express
-    container_name: mongo-express
-    restart: always
-    ports:
-      - 9081:8081
-    environment:
-      - ME_CONFIG_MONGODB_ADMINUSERNAME=rootuser
-      - ME_CONFIG_MONGODB_ADMINPASSWORD=rootpass
-      - ME_CONFIG_MONGODB_SERVER=mongodb
+#  mongodb:
+#    image: mongo
+#    container_name: mongodb
+#    ports:
+#      - 27017:27017
+#    volumes:
+#      - mongodb:/data/db
+#    environment:
+#      - MONGO_INITDB_ROOT_USERNAME=rootuser
+#      - MONGO_INITDB_ROOT_PASSWORD=rootpass
+#
+#  mongo-express:
+#    image: mongo-express
+#    container_name: mongo-express
+#    restart: always
+#    ports:
+#      - 9081:8081
+#    environment:
+#      - ME_CONFIG_MONGODB_ADMINUSERNAME=rootuser
+#      - ME_CONFIG_MONGODB_ADMINPASSWORD=rootpass
+#      - ME_CONFIG_MONGODB_SERVER=mongodb
 
   elasticsearch:
     image: elasticsearch:7.17.7
@@ -86,26 +86,79 @@ services:
       context: /user-service
       dockerfile: Dockerfile
     environment:
+      - EUREKA_URI= http://eureka-server:8761/eureka
       - spring.datasource.username=${POSTGRES_USERNAME}
       - spring.datasource.password=${POSTGRES_PASSWORD}
       - spring.datasource.url=${POSTGRES_DATASOURCE_URL}
     depends_on:
       - postgres
+      - eureka-server
+      - api-gateway
     ports:
       - "8084:8084"
     networks:
       - postgres
+      - eureka
+
+  eureka-server:
+    container_name: eureka-server
+    image: ahmetcan7/eureka-server
+    build: ./eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - eureka
+    environment:
+      - EUREKA_URI= http://eureka-server:8761/eureka
+
+  api-gateway:
+    container_name: api-gateway
+    image: ahmetcan7/api-gateway
+    build: ./gateway
+    ports:
+      - "8889:8889"
+    depends_on:
+      - eureka-server
+    networks:
+      - eureka
+    environment:
+      - EUREKA_URI= http://eureka-server:8761/eureka
+#      - SPRING_CLOUD_GATEWAY_ROUTES_0_ID=inventory-service
+#      - SPRING_CLOUD_GATEWAY_ROUTES_0_URI=lb://inventory-service
+#      - SPRING_CLOUD_GATEWAY_ROUTES_0_PREDICATES_0_=Path=/v1/inventories/**
+#      - SPRING_CLOUD_GATEWAY_ROUTES_1_ID=order-service
+#      - SPRING_CLOUD_GATEWAY_ROUTES_1_URI=lb://order-service
+#      - SPRING_CLOUD_GATEWAY_ROUTES_1_PREDICATES_0_=Path=/v1/orders/**
+#      - SPRING_CLOUD_GATEWAY_ROUTES_1_FILTERS_0_=AuthFilter
+#      - SPRING_CLOUD_GATEWAY_ROUTES_2_ID=user-service
+#      - SPRING_CLOUD_GATEWAY_ROUTES_2_URI=lb://user-service
+#      - SPRING_CLOUD_GATEWAY_ROUTES_2_PREDICATES_0_=Path=/user/**
+#      - SPRING_CLOUD_GATEWAY_ROUTES_3_ID=product-service
+#      - SPRING_CLOUD_GATEWAY_ROUTES_3_URI=lb://product-service
+#      - SPRING_CLOUD_GATEWAY_ROUTES_3_PREDICATES_0_=Path=/v1/products/**
+#      - SPRING_CLOUD_GATEWAY_ROUTES_3_PREDICATES_1_=Method=POST,PUT,DELETE
+#      - SPRING_CLOUD_GATEWAY_ROUTES_3_FILTERS_0_=AuthFilter
+#      - SPRING_CLOUD_GATEWAY_ROUTES_4_ID=product-service
+#      - SPRING_CLOUD_GATEWAY_ROUTES_4_URI=lb://product-service
+#      - SPRING_CLOUD_GATEWAY_ROUTES_4_PREDICATES_0_=Path=/v1/products/**
+#      - SPRING_CLOUD_GATEWAY_ROUTES_4_PREDICATES_1_=Method=GET
+#      - SPRING_CLOUD_GATEWAY_ROUTES_5_ID=file-service
+#      - SPRING_CLOUD_GATEWAY_ROUTES_5_URI=lb://file-service
+#      - SPRING_CLOUD_GATEWAY_ROUTES_5_PREDICATES_0_=Path=/file/**
 
 networks:
   postgres:
     driver: bridge
   spring:
     driver: bridge
-  default:
-    name: mongodb_network
+  eureka:
+    driver: bridge
+#  default:
+#    name: mongodb_network
 
 volumes:
   postgres:
   pgadmin:
-  mongodb:
   esdata:
+#  mongodb:
+
