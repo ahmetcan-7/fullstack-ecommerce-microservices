@@ -141,8 +141,8 @@ public class ProductService {
                     .field("categoryName")
                     .field("description")
                     .operator(Operator.AND)
-                    .fuzziness(Fuzziness.AUTO)
-                    .prefixLength(3);
+                    .fuzziness(Fuzziness.TWO)
+                    .prefixLength(0);
         }
 
         BoolQueryBuilder filterBuilder = boolQuery();
