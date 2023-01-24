@@ -30,6 +30,8 @@ import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilde
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -118,8 +120,8 @@ public class ProductService {
 
     @Transactional
     public UUID deleteProduct(UUID id) {
-        productRepository.deleteById(id);
-        productElasticRepository.deleteById(id);
+        productRepository.deleteAll();
+        productElasticRepository.deleteAll();;
 
         // delete from inventory service
         DeleteInventoryRequest deleteInventoryRequest = new DeleteInventoryRequest(id);
@@ -170,8 +172,10 @@ public class ProductService {
                 .id(product.getId())
                 .name(product.getName())
                 .unitPrice(product.getUnitPrice())
+                .createdDate(LocalDate.now())
                 .build();
 
+        System.out.println(productModel);
         productElasticRepository.save(productModel);
     }
 

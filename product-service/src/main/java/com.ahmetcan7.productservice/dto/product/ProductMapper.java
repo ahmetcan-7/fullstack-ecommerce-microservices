@@ -33,6 +33,7 @@ public class ProductMapper {
                 .unitPrice(productModel.getContent().getUnitPrice())
                 .description(productModel.getContent().getDescription())
                 .categoryName(productModel.getContent().getCategoryName())
+                .createdDate(productModel.getContent().getCreatedDate())
                 .build();
     }
 
