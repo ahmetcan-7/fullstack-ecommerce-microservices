@@ -29,7 +29,7 @@ spring:
         - id: product-service
           uri: lb://product-service
           predicates:
-            - Path=/v1/products/**
+            - Path=/v1/products/**,/v1/categories/**
             - Method=POST,PUT,DELETE
           filters:
             - AuthFilter
@@ -37,7 +37,7 @@ spring:
         - id: product-service
           uri: lb://product-service
           predicates:
-            - Path=/v1/products/**
+            - Path=/v1/products/**,/v1/categories/**
             - Method=GET
 
         - id: file-service
