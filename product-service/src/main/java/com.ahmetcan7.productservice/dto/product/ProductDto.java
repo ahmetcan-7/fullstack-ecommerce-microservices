@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
@@ -19,5 +20,6 @@ public class ProductDto {
     private BigDecimal unitPrice;
     private CategoryDto category;
     private String description;
+    private LocalDateTime createdDate;
     // private String imageUrl;
 }

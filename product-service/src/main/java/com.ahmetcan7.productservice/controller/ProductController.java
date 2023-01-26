@@ -48,12 +48,17 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<ProductSearchDto> getProductBySearch(@RequestParam(required = false, defaultValue = "") String searchTerm,
+    public ResponseEntity<List<ProductSearchDto>> getProductBySearch(@RequestParam(required = false, defaultValue = "") String searchTerm,
                                                      @RequestParam(required = false, defaultValue = "0") int page,
                                                      @RequestParam(required = false, defaultValue = "10") int size,
                                                      @RequestParam(required = false, defaultValue = "dateAsc") Sort sort,
                                                      @RequestParam(required = false, defaultValue = "") String filter){
-        return productService.searchProduct(searchTerm,page,size,sort,filter);
+        return ResponseEntity.ok(productService.searchProduct(searchTerm,page,size,sort,filter));
     }
 
+    @GetMapping("/getAll")
+    public ResponseEntity<List<ProductDto>> getProductByPagination(@RequestParam(required = false,defaultValue = "0")  int pageNo,
+                                                   @RequestParam(required = false,defaultValue = "10") int pageSize){
+        return ResponseEntity.ok(productService.getAllProducts(pageNo,pageSize));
+    }
 }

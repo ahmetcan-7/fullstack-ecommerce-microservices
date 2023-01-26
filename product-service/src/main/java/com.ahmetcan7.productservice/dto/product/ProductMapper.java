@@ -22,6 +22,7 @@ public class ProductMapper {
                 .unitPrice(product.getUnitPrice())
                 .description(product.getDescription())
                 .category(categoryMapper.categoryToCategoryDto(product.getCategory()))
+                .createdDate(product.getCreatedDate())
                 // .imageUrl(product.getImageUrl())
                 .build();
     }

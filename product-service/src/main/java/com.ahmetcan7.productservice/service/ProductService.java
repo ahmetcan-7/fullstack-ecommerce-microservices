@@ -20,7 +20,9 @@ import org.elasticsearch.index.query.Operator;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.sort.SortBuilders;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 
 import org.springframework.data.elasticsearch.core.SearchHit;
@@ -49,8 +51,10 @@ public class ProductService {
     private final RabbitMQMessageProducer rabbitMQMessageProducer;
     private final ElasticsearchOperations elasticsearchOperations;
 
-    public List<ProductDto> getAllProducts() {
-        List<Product> products = productRepository.findAll();
+    public List<ProductDto> getAllProducts(int pageNo,int pageSize) {
+        Pageable paging = PageRequest.of(pageNo, pageSize);
+        Page<Product> products = productRepository.findAll(paging);
+
         return products.stream().map(productMapper::productToProductDto).collect(Collectors.toList());
     }
 
