@@ -1,19 +1,17 @@
 package com.ahmetcan7.productservice.controller;
 
 
+import com.ahmetcan7.productservice.dto.Pagination;
 import com.ahmetcan7.productservice.dto.product.ProductDto;
 import com.ahmetcan7.productservice.dto.product.CreateProductRequest;
 import com.ahmetcan7.productservice.dto.product.ProductSearchDto;
 import com.ahmetcan7.productservice.dto.product.UpdateProductRequest;
 import com.ahmetcan7.productservice.enumeration.Sort;
-import com.ahmetcan7.productservice.model.Product;
-import com.ahmetcan7.productservice.model.ProductModel;
 import com.ahmetcan7.productservice.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -32,17 +30,20 @@ public class ProductController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
     public ResponseEntity<ProductDto> saveProduct(@Valid @RequestBody CreateProductRequest createProductRequest){
         return new ResponseEntity<>(productService.createProduct(createProductRequest),HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
     public ResponseEntity<ProductDto> updateProduct(@Valid @RequestBody UpdateProductRequest updateProductRequest,
                                                     @PathVariable UUID id){
         return ResponseEntity.ok(productService.updateProduct(updateProductRequest,id));
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPER_ADMIN')")
     public ResponseEntity<UUID> deleteProduct(@PathVariable UUID id){
         return ResponseEntity.ok(productService.deleteProduct(id));
     }
@@ -57,8 +58,8 @@ public class ProductController {
     }
 
     @GetMapping("/getAll")
-    public ResponseEntity<List<ProductDto>> getProductByPagination(@RequestParam(required = false,defaultValue = "0")  int pageNo,
-                                                   @RequestParam(required = false,defaultValue = "10") int pageSize){
+    public ResponseEntity<Pagination<ProductDto>> getProductByPagination(@RequestParam(required = false,defaultValue = "0")  int pageNo,
+                                                             @RequestParam(required = false,defaultValue = "10") int pageSize){
         return ResponseEntity.ok(productService.getAllProducts(pageNo,pageSize));
     }
 }

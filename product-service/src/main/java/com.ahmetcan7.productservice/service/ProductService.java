@@ -3,6 +3,7 @@ package com.ahmetcan7.productservice.service;
 import com.ahmetcan7.amqp.RabbitMQMessageProducer;
 import com.ahmetcan7.amqp.dto.DeleteInventoryRequest;
 import com.ahmetcan7.amqp.dto.InventoryRequest;
+import com.ahmetcan7.productservice.dto.Pagination;
 import com.ahmetcan7.productservice.dto.product.*;
 import com.ahmetcan7.productservice.enumeration.Sort;
 import com.ahmetcan7.productservice.exception.ProductNotFoundException;
@@ -33,7 +34,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -51,11 +51,12 @@ public class ProductService {
     private final RabbitMQMessageProducer rabbitMQMessageProducer;
     private final ElasticsearchOperations elasticsearchOperations;
 
-    public List<ProductDto> getAllProducts(int pageNo,int pageSize) {
+    public Pagination<ProductDto> getAllProducts(int pageNo, int pageSize) {
         Pageable paging = PageRequest.of(pageNo, pageSize);
         Page<Product> products = productRepository.findAll(paging);
 
-        return products.stream().map(productMapper::productToProductDto).collect(Collectors.toList());
+        return new Pagination<>(products.stream().map(productMapper::productToProductDto).collect(Collectors.toList()),
+                products.getTotalElements());
     }
 
     public ProductDto getProductById(UUID id) {
