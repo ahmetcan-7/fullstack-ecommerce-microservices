@@ -43,7 +43,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPER_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
     public ResponseEntity<UUID> deleteProduct(@PathVariable UUID id){
         return ResponseEntity.ok(productService.deleteProduct(id));
     }

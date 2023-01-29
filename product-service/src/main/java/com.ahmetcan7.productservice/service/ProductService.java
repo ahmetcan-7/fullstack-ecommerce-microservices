@@ -125,8 +125,8 @@ public class ProductService {
 
     @Transactional
     public UUID deleteProduct(UUID id) {
-        productRepository.deleteAll();
-        productElasticRepository.deleteAll();;
+        productRepository.deleteById(id);
+        productElasticRepository.deleteById(id);;
 
         // delete from inventory service
         DeleteInventoryRequest deleteInventoryRequest = new DeleteInventoryRequest(id);
