@@ -30,4 +30,5 @@ public class ProductModel implements Serializable {
     private String categoryName;
     @Field(type=FieldType.Date, format={}, pattern="yyyy-MM-dd")
     private LocalDate createdDate;
+    private String imageUrl;
 }

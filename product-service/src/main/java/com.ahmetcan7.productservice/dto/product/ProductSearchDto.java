@@ -17,4 +17,5 @@ public class ProductSearchDto{
     private String categoryName;
     private String description;
     private LocalDate createdDate;
+    private String imageUrl;
 }

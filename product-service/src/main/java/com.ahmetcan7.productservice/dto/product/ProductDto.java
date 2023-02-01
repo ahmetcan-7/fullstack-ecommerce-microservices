@@ -21,5 +21,5 @@ public class ProductDto {
     private CategoryDto category;
     private String description;
     private LocalDateTime createdDate;
-    // private String imageUrl;
+    private String imageUrl;
 }

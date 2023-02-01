@@ -23,7 +23,7 @@ public class ProductMapper {
                 .description(product.getDescription())
                 .category(categoryMapper.categoryToCategoryDto(product.getCategory()))
                 .createdDate(product.getCreatedDate())
-                // .imageUrl(product.getImageUrl())
+                .imageUrl(product.getImageUrl())
                 .build();
     }
 
@@ -35,6 +35,7 @@ public class ProductMapper {
                 .description(productModel.getContent().getDescription())
                 .categoryName(productModel.getContent().getCategoryName())
                 .createdDate(productModel.getContent().getCreatedDate())
+                .imageUrl(productModel.getContent().getImageUrl())
                 .build();
     }
 

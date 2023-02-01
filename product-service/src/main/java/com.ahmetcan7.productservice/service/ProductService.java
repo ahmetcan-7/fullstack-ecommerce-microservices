@@ -77,7 +77,7 @@ public class ProductService {
                 .unitPrice(createProductRequest.getUnitPrice())
                 .description(createProductRequest.getDescription())
                 .category(category)
-                //.imageUrl(createProductRequest.getImageUrl())
+                .imageUrl(createProductRequest.getImageUrl())
                 .build();
 
         Product savedProduct = productRepository.save(product);
@@ -109,16 +109,17 @@ public class ProductService {
         product.setDescription(updateProductRequest.getDescription());
         product.setName(updateProductRequest.getName());
         product.setUnitPrice(updateProductRequest.getUnitPrice());
-        //product.setImageUrl(updateProductRequest.getImageUrl());
+        product.setImageUrl(updateProductRequest.getImageUrl());
 
         // update from inventory service
-        InventoryRequest inventoryRequest = new InventoryRequest(productId,updateProductRequest.getQuantityInStock());
-        rabbitMQMessageProducer.publish(
-                inventoryRequest,
-                "inventory.exchange",
-                "update.inventory.routing-key"
-        );
+//        InventoryRequest inventoryRequest = new InventoryRequest(productId,updateProductRequest.getQuantityInStock());
+//        rabbitMQMessageProducer.publish(
+//                inventoryRequest,
+//                "inventory.exchange",
+//                "update.inventory.routing-key"
+//        );
 
+        productRepository.save(product);
         updateProductFromElastic(product);
         return productMapper.productToProductDto(product);
     }
@@ -178,6 +179,7 @@ public class ProductService {
                 .name(product.getName())
                 .unitPrice(product.getUnitPrice())
                 .createdDate(LocalDate.now())
+                .imageUrl(product.getImageUrl())
                 .build();
 
         System.out.println(productModel);
@@ -191,6 +193,7 @@ public class ProductService {
                 .id(product.getId())
                 .name(product.getName())
                 .unitPrice(product.getUnitPrice())
+                .imageUrl(product.getImageUrl())
                 .build();
 
         productElasticRepository.save(productModel);

@@ -21,12 +21,17 @@ public class FileController {
 
     private final FileService fileService;
     @PostMapping("/saveImage")
-    public ResponseEntity<String> saveImage(@RequestParam MultipartFile image) {
+    public ResponseEntity<String> saveImage(@RequestParam("file") MultipartFile image) {
         return ResponseEntity.ok(fileService.saveImage(image));
     }
 
     @GetMapping(path = "/image/{imageName}", produces = IMAGE_JPEG_VALUE)
     public byte[] getImage(@PathVariable String imageName) throws IOException {
         return Files.readAllBytes(Paths.get(IMAGE_FOLDER  + FORWARD_SLASH + imageName));
+    }
+
+    @DeleteMapping("/removeImage")
+    public ResponseEntity<String> removeImage(@RequestParam String imagePath) {
+        return ResponseEntity.ok(fileService.removeImage(imagePath));
     }
 }
