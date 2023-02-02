@@ -1,5 +1,6 @@
 package com.orderservice.controller;
 
+import com.orderservice.dto.Pagination;
 import com.orderservice.dto.order.OrderDto;
 import com.orderservice.dto.order.CreateOrderRequest;
 import com.orderservice.service.OrderService;
@@ -27,8 +28,8 @@ public class OrderController {
     }
 
     @GetMapping
-    public ResponseEntity<List<OrderDto>> getAll(@RequestParam(required = false,defaultValue = "0")  int pageNo,
-    @RequestParam(required = false,defaultValue = "10") int pageSize){
+    public ResponseEntity<Pagination<OrderDto>> getAll(@RequestParam(required = false,defaultValue = "0")  int pageNo,
+                                                       @RequestParam(required = false,defaultValue = "10") int pageSize){
         return ResponseEntity.ok(orderService.getAllOrders(pageNo,pageSize));
     }
 

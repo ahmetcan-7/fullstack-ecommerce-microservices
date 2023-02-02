@@ -30,6 +30,7 @@ public class OrderMapper {
                         .stream()
                         .map(orderItemMapper::orderToOrderItemDto)
                         .collect(Collectors.toList()))
+                .createdDate(order.getCreatedDate())
                 .build();
     }
 

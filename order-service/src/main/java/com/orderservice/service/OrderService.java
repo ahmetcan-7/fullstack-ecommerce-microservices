@@ -1,6 +1,7 @@
 package com.orderservice.service;
 
 import com.orderservice.client.InventoryServiceClient;
+import com.orderservice.dto.Pagination;
 import com.orderservice.dto.inventory.InventoryCheckRequest;
 import com.orderservice.dto.inventory.InventoryCheckResponse;
 import com.orderservice.dto.order.OrderDto;
@@ -49,10 +50,11 @@ public class OrderService {
         return orderMapper.orderToOrderDto(orderRepository.save(order));
     }
 
-    public List<OrderDto> getAllOrders(int pageNo, int pageSize){
+    public Pagination<OrderDto> getAllOrders(int pageNo, int pageSize){
         Pageable paging = PageRequest.of(pageNo, pageSize);
         Page<Order> orders = orderRepository.findAll(paging);
-        return orders.stream().map(orderMapper::orderToOrderDto).collect(Collectors.toList());
+        return new Pagination<>(orders.stream().map(orderMapper::orderToOrderDto).collect(Collectors.toList()),
+                orders.getTotalElements());
     }
 
 }

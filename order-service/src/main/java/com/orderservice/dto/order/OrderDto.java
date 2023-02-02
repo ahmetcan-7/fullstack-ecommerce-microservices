@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,4 +23,6 @@ public class OrderDto {
     private OrderAddressDto address;
     private List<OrderItemDto> items;
     private OrderStatus orderStatus;
+    private LocalDateTime createdDate;
+    private String createdBy;
 }
