@@ -11,6 +11,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/v1/orders")
@@ -20,14 +21,15 @@ public class OrderController {
     private final OrderService orderService;
 
     @PostMapping
-    // @PreAuthorize("hasAnyAuthority('user:delete')")
     public ResponseEntity<OrderDto> createOrder(@Valid @RequestBody CreateOrderRequest createOrderRequest){
         log.info("create order request was called");
         return new ResponseEntity<>(orderService.createOrder(createOrderRequest),HttpStatus.CREATED);
     }
 
-//    @GetMapping
-//    public ResponseEntity<String> getOrder(){
-//        return ResponseEntity.ok("adam geldi");
-//    }
+    @GetMapping
+    public ResponseEntity<List<OrderDto>> getAll(@RequestParam(required = false,defaultValue = "0")  int pageNo,
+    @RequestParam(required = false,defaultValue = "10") int pageSize){
+        return ResponseEntity.ok(orderService.getAllOrders(pageNo,pageSize));
+    }
+
 }

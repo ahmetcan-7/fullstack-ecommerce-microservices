@@ -10,9 +10,9 @@ import javax.validation.constraints.NotNull;
 @Getter
 public class CreateOrderAddressRequest {
     @NotNull
-    private String street;
-    @NotNull
-    private String postalCode;
-    @NotNull
     private String city;
+    @NotNull
+    private String district;
+    @NotNull
+    private String addressDetail;
 }

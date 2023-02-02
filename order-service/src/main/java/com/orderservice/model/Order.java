@@ -20,13 +20,12 @@ import java.util.UUID;
 public class Order extends AdvanceBaseModal {
 
     private UUID customerId;
-    private BigDecimal price;
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
 
     @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private OrderAddress address;
 
-    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<OrderItem> items;
 }

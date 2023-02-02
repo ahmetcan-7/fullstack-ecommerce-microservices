@@ -11,8 +11,6 @@ import java.util.UUID;
 @Getter
 public class CreateOrderRequest {
     @NotNull
-    private UUID customerId;
-    @NotNull
     private CreateOrderAddressRequest address;
     @NotNull
     private List<CreateOrderItemRequest> items;

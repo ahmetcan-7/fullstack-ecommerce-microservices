@@ -21,7 +21,6 @@ public class OrderItem extends BaseModel  {
     private Order order;
 
     private UUID productId;
-    private BigDecimal price;
     private Integer quantity;
 
 }

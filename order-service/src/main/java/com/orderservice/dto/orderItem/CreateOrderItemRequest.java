@@ -15,7 +15,5 @@ public class CreateOrderItemRequest {
     @NotNull
     private UUID productId;
     @NotNull
-    private BigDecimal price;
-    @NotNull
     private Integer quantity;
 }

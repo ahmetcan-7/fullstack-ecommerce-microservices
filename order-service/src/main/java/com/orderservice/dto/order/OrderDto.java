@@ -19,7 +19,6 @@ import java.util.UUID;
 public class OrderDto {
     private UUID id;
     private UUID customerId;
-    private BigDecimal price;
     private OrderAddressDto address;
     private List<OrderItemDto> items;
     private OrderStatus orderStatus;

@@ -5,10 +5,12 @@ import com.orderservice.dto.orderItem.OrderItemMapper;
 import com.orderservice.model.Order;
 import com.orderservice.model.OrderStatus;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Component
@@ -22,7 +24,6 @@ public class OrderMapper {
         return OrderDto.builder()
                 .id(order.getId())
                 .customerId(order.getCustomerId())
-                .price(order.getPrice())
                 .orderStatus(order.getOrderStatus())
                 .address(orderAddressMapper.orderAddressToOrderAddressDto(order.getAddress()))
                 .items(order.getItems()
@@ -32,10 +33,9 @@ public class OrderMapper {
                 .build();
     }
 
-    public Order orderRequestToOrder(CreateOrderRequest createOrderRequest, BigDecimal totalPrice){
+    public Order orderRequestToOrder(CreateOrderRequest createOrderRequest){
         return Order.builder()
-                .customerId(createOrderRequest.getCustomerId())
-                .price(totalPrice)
+                .customerId(UUID.fromString((String) SecurityContextHolder.getContext().getAuthentication().getPrincipal()))
                 .orderStatus(OrderStatus.PENDING)
                 .address(orderAddressMapper.orderAddressRequestToOrderAddress(createOrderRequest.getAddress()))
                 .items(createOrderRequest.getItems()

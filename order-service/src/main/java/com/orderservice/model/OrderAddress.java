@@ -6,6 +6,7 @@ import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 @Entity(name = "orderAddresses")
@@ -28,8 +29,7 @@ public class OrderAddress  {
     @JoinColumn(name = "order_id")
     private Order order;
 
-    private String street;
-    private String postalCode;
     private String city;
-
+    private String district;
+    private String addressDetail;
 }

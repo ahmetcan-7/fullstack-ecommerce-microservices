@@ -16,6 +16,5 @@ import java.util.UUID;
 @Builder
 public class OrderItemDto {
     private UUID productId;
-    private BigDecimal price;
     private Integer quantity;
 }

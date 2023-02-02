@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @Builder
 public class OrderAddressDto {
-    private String street;
-    private String postalCode;
     private String city;
+    private String district;
+    private String addressDetail;
 }

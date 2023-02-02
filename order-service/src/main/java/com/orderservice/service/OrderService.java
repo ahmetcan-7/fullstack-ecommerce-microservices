@@ -12,6 +12,10 @@ import com.orderservice.model.Order;
 import com.orderservice.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -27,7 +31,7 @@ public class OrderService {
     private final InventoryServiceClient inventoryServiceClient;
     public OrderDto createOrder(CreateOrderRequest createOrderRequest){
 
-        Order order = orderMapper.orderRequestToOrder(createOrderRequest,getTotalPrice(createOrderRequest));
+        Order order = orderMapper.orderRequestToOrder(createOrderRequest);
         order.getAddress().setOrder(order);
         order.getItems().forEach(item -> item.setOrder(order));
 
@@ -45,16 +49,10 @@ public class OrderService {
         return orderMapper.orderToOrderDto(orderRepository.save(order));
     }
 
-    private BigDecimal getTotalPrice(CreateOrderRequest createOrderRequest) {
-        BigDecimal totalPrice = BigDecimal.ZERO;
-
-        for (CreateOrderItemRequest createOrderItemRequest : createOrderRequest.getItems()) {
-            BigDecimal subtotal = createOrderItemRequest.getPrice()
-                    .multiply(BigDecimal.valueOf(createOrderItemRequest.getQuantity()));
-
-            totalPrice = totalPrice.add(subtotal);
-        }
-
-        return totalPrice;
+    public List<OrderDto> getAllOrders(int pageNo, int pageSize){
+        Pageable paging = PageRequest.of(pageNo, pageSize);
+        Page<Order> orders = orderRepository.findAll(paging);
+        return orders.stream().map(orderMapper::orderToOrderDto).collect(Collectors.toList());
     }
+
 }

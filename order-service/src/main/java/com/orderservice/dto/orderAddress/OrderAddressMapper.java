@@ -8,17 +8,17 @@ public class OrderAddressMapper {
 
     public OrderAddressDto orderAddressToOrderAddressDto(OrderAddress orderAddress){
         return OrderAddressDto.builder()
-                .street(orderAddress.getStreet())
-                .postalCode(orderAddress.getPostalCode())
                 .city(orderAddress.getCity())
+                .addressDetail(orderAddress.getAddressDetail())
+                .district(orderAddress.getDistrict())
                 .build();
     }
 
     public OrderAddress orderAddressRequestToOrderAddress(CreateOrderAddressRequest createOrderAddressRequest){
         return OrderAddress.builder()
-                .street(createOrderAddressRequest.getStreet())
-                .postalCode(createOrderAddressRequest.getPostalCode())
                 .city(createOrderAddressRequest.getCity())
+                .addressDetail(createOrderAddressRequest.getAddressDetail())
+                .district(createOrderAddressRequest.getDistrict())
                 .build();
     }
 }
