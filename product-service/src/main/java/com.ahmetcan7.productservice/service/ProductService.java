@@ -67,6 +67,11 @@ public class ProductService {
                 }));
     }
 
+    public List<ProductDto> getProductsByIds(List<UUID> productIds) {
+        List<Product> products = productRepository.findByIdIn(productIds);
+        return products.stream().map(productMapper::productToProductDto).collect(Collectors.toList());
+    }
+
     @Transactional
     public ProductDto createProduct(CreateProductRequest createProductRequest) {
 

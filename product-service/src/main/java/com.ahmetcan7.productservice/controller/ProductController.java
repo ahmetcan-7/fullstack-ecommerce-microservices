@@ -2,10 +2,7 @@ package com.ahmetcan7.productservice.controller;
 
 
 import com.ahmetcan7.productservice.dto.Pagination;
-import com.ahmetcan7.productservice.dto.product.ProductDto;
-import com.ahmetcan7.productservice.dto.product.CreateProductRequest;
-import com.ahmetcan7.productservice.dto.product.ProductSearchDto;
-import com.ahmetcan7.productservice.dto.product.UpdateProductRequest;
+import com.ahmetcan7.productservice.dto.product.*;
 import com.ahmetcan7.productservice.enumeration.Sort;
 import com.ahmetcan7.productservice.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +24,11 @@ public class ProductController {
     @GetMapping("/{id}")
     public ResponseEntity<ProductDto> getProductById(@PathVariable UUID id){
         return ResponseEntity.ok(productService.getProductById(id));
+    }
+
+    @GetMapping("/findByIds/{productIds}")
+    public ResponseEntity<List<ProductDto>> getProductsByIds(@PathVariable List<UUID> productIds){
+        return ResponseEntity.ok(productService.getProductsByIds(productIds));
     }
 
     @PostMapping

@@ -24,5 +24,4 @@ public class OrderDto {
     private List<OrderItemDto> items;
     private OrderStatus orderStatus;
     private LocalDateTime createdDate;
-    private String createdBy;
 }
