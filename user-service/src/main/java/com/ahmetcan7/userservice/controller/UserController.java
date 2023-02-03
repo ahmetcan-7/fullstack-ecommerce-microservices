@@ -25,6 +25,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.UUID;
 
 import static com.ahmetcan7.userservice.constant.SecurityConstant.AUTHORITIES;
 import static com.ahmetcan7.userservice.constant.SecurityConstant.TOKEN_PREFIX;
@@ -69,6 +70,11 @@ public class UserController {
     public ResponseEntity<MeDto> getMe(@RequestHeader(AUTHORIZATION) String authorizationHeader) {
         String token = authorizationHeader.substring(TOKEN_PREFIX.length());
         return ResponseEntity.ok(userService.getMe(token));
+    }
+
+    @GetMapping("/getById/{userId}")
+    public ResponseEntity<UserCredential> getUserById(@PathVariable UUID userId) {
+        return ResponseEntity.ok(userService.getUserCredentialsById(userId));
     }
 
     @PostMapping("/add")

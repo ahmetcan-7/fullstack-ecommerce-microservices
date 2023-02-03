@@ -244,4 +244,9 @@ public class UserService implements UserDetailsService {
         return userRepository.getById(id);
     }
 
+    public UserCredential getUserCredentialsById(UUID id){
+        User user = userRepository.getById(id);
+        return new UserCredential(user.getId(),user.getFirstName(),user.getLastName(),user.getEmail());
+    }
+
 }
