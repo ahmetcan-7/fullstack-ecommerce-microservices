@@ -43,8 +43,7 @@ public class OrderService {
         InventoryCheckResponse inventoryCheckResponse = inventoryServiceClient.isInStock(inventoryCheckRequests);
 
         if(!inventoryCheckResponse.getIsInStock()){
-          throw new ProductNotInStockException("Product is not in stock with following ids:"
-                  + inventoryCheckResponse.getIsNotInStockProductIds() +", please try again later");
+          throw new ProductNotInStockException(inventoryCheckResponse.getIsNotInStockProductIds().toString());
         }
         // TODO:urun siparis olusunca stoktan azalt
         return orderMapper.orderToOrderDto(orderRepository.save(order));
