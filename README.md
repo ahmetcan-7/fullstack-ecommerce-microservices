@@ -24,3 +24,6 @@ Images
 Front end
 <br>Please visit following git repository: `https://github.com/ahmetcan-7/ecommerce-microservice-FE`
 
+## ER-Diagram
+
+<img src="https://i.ibb.co/RQzL89x/Untitled.jpg" width=400>
