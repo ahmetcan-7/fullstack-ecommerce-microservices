@@ -26,4 +26,4 @@ Front end
 
 ## ER-Diagram
 
-<img src="https://i.ibb.co/RQzL89x/Untitled.jpg" width=400>
+![Untitled](https://user-images.githubusercontent.com/80100428/216981092-1cb77ff5-b5b6-4cee-812f-c6c06727dd90.jpg)
