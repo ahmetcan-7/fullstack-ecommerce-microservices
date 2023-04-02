@@ -4,6 +4,8 @@ import com.ahmetcan7.amqp.RabbitMQMessageProducer;
 import com.ahmetcan7.amqp.dto.DeleteInventoryRequest;
 import com.ahmetcan7.amqp.dto.InventoryRequest;
 import com.ahmetcan7.productservice.dto.Pagination;
+import com.ahmetcan7.productservice.dto.comment.CommentDto;
+import com.ahmetcan7.productservice.dto.comment.CommentMapper;
 import com.ahmetcan7.productservice.dto.product.*;
 import com.ahmetcan7.productservice.enumeration.Sort;
 import com.ahmetcan7.productservice.exception.ProductNotFoundException;
@@ -47,6 +49,7 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final CategoryService categoryService;
     private final ProductMapper productMapper;
+    private final CommentMapper commentMapper;
     private final ProductElasticRepository productElasticRepository;
     private final RabbitMQMessageProducer rabbitMQMessageProducer;
     private final ElasticsearchOperations elasticsearchOperations;
@@ -59,12 +62,29 @@ public class ProductService {
                 products.getTotalElements());
     }
 
-    public ProductDto getProductById(UUID id) {
+    public ProductDto getProductDtoById(UUID id) {
         return productMapper.productToProductDto(productRepository.findById(id)
                 .orElseThrow(()->{
                     log.error("Product with id: {} could not be found!", id);
                     throw new ProductNotFoundException("Product with id " + id + " could not be found!");
                 }));
+    }
+
+    public Product getProductById(UUID id) {
+        return productRepository.findById(id)
+                .orElseThrow(()->{
+                    log.error("Product with id: {} could not be found!", id);
+                    throw new ProductNotFoundException("Product with id " + id + " could not be found!");
+                });
+    }
+
+    public List<CommentDto> getCommentsByProductId(UUID id) {
+        Product product = productRepository.findById(id)
+                .orElseThrow(()->{
+                    log.error("Product with id: {} could not be found!", id);
+                    throw new ProductNotFoundException("Product with id " + id + " could not be found!");
+                });
+        return product.getComments().stream().map(commentMapper::commentToCommentDto).collect(Collectors.toList());
     }
 
     public List<ProductDto> getProductsByIds(List<UUID> productIds) {

@@ -30,6 +30,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/v1/products/**").permitAll()
                 .antMatchers(HttpMethod.GET,"/v1/categories/**").permitAll()
+                .antMatchers(HttpMethod.GET,"/v1/comments/**").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and().httpBasic();

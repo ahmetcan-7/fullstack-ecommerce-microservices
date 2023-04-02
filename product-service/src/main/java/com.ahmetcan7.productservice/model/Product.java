@@ -12,6 +12,7 @@ import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
 
 @Entity(name = "products")
@@ -44,5 +45,8 @@ public class Product extends AdvanceBaseModal{
     @Column(nullable=false, columnDefinition = "BOOLEAN DEFAULT FALSE")
     private boolean deleted;
 
-     private String imageUrl;
+    private String imageUrl;
+
+    @OneToMany(mappedBy = "product",fetch = FetchType.EAGER)
+    private List<Comment> comments;
 }

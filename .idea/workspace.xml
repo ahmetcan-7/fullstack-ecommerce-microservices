@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e11488a-5285-4330-851a-e2464b08619a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/ahmetcan7/notificationservice/constant/EmailConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/ahmetcan7/notificationservice/constant/EmailConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/ProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/ProductDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/product/ProductMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/security/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/service/ProductService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +26,8 @@
       <list>
         <option value="package-info" />
         <option value="AnnotationType" />
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -108,11 +109,11 @@
       <recent name="com.ahmetcan7.productservice.enumeration" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.orderservice.dto" />
+      <recent name="com.orderservice.security" />
       <recent name="com.ahmetcan7.fileservice.constant" />
       <recent name="com.ahmetcan7.notificationservice.service" />
       <recent name="com.ahmetcan7.notificationservice.config" />
-      <recent name="com.ahmetcan7.notificationservice.exception" />
-      <recent name="com.ahmetcan7.notificationservice.constant" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.ProductApplication">
@@ -206,8 +207,8 @@
       <list>
         <item itemvalue="Spring Boot.ProductApplication" />
         <item itemvalue="Spring Boot.UserApplication" />
-        <item itemvalue="Spring Boot.GatewayApplication" />
         <item itemvalue="Spring Boot.EurekaServerApplication" />
+        <item itemvalue="Spring Boot.GatewayApplication" />
         <item itemvalue="Spring Boot.InventoryApplication" />
       </list>
     </recent_temporary>
@@ -296,6 +297,40 @@
       <workItem from="1674129426795" duration="871000" />
       <workItem from="1674130346505" duration="384000" />
       <workItem from="1674136591047" duration="169000" />
+      <workItem from="1674137940171" duration="22000" />
+      <workItem from="1674139333926" duration="664000" />
+      <workItem from="1674223213720" duration="1720000" />
+      <workItem from="1674232812270" duration="373000" />
+      <workItem from="1674234650652" duration="1996000" />
+      <workItem from="1674250867404" duration="203000" />
+      <workItem from="1674468477678" duration="4291000" />
+      <workItem from="1674489181964" duration="14037000" />
+      <workItem from="1674552479183" duration="9823000" />
+      <workItem from="1674639650345" duration="4226000" />
+      <workItem from="1674725141422" duration="2722000" />
+      <workItem from="1674728371562" duration="25000" />
+      <workItem from="1674759620826" duration="4921000" />
+      <workItem from="1674811548033" duration="2309000" />
+      <workItem from="1674899831299" duration="1091000" />
+      <workItem from="1675000748180" duration="2070000" />
+      <workItem from="1675072238813" duration="1628000" />
+      <workItem from="1675162423973" duration="5117000" />
+      <workItem from="1675177847019" duration="1621000" />
+      <workItem from="1675194237014" duration="5618000" />
+      <workItem from="1675247900485" duration="5720000" />
+      <workItem from="1675337499334" duration="5412000" />
+      <workItem from="1675349620599" duration="6006000" />
+      <workItem from="1675427994009" duration="4807000" />
+      <workItem from="1675441234848" duration="3780000" />
+      <workItem from="1675508023073" duration="5536000" />
+      <workItem from="1675524591854" duration="3369000" />
+      <workItem from="1675598832092" duration="2000" />
+      <workItem from="1675599642751" duration="1023000" />
+      <workItem from="1675633625666" duration="695000" />
+      <workItem from="1675858208873" duration="1821000" />
+      <workItem from="1679236520052" duration="949000" />
+      <workItem from="1679740153300" duration="968000" />
+      <workItem from="1680430390887" duration="10776000" />
     </task>
     <servers />
   </component>
@@ -325,6 +360,10 @@
           </properties>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

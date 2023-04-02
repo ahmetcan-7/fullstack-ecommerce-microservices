@@ -2,6 +2,7 @@ package com.ahmetcan7.productservice.controller;
 
 
 import com.ahmetcan7.productservice.dto.Pagination;
+import com.ahmetcan7.productservice.dto.comment.CommentDto;
 import com.ahmetcan7.productservice.dto.product.*;
 import com.ahmetcan7.productservice.enumeration.Sort;
 import com.ahmetcan7.productservice.service.ProductService;
@@ -22,8 +23,13 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductDto> getProductById(@PathVariable UUID id){
-        return ResponseEntity.ok(productService.getProductById(id));
+    public ResponseEntity<ProductDto> getProductDtoById(@PathVariable UUID id){
+        return ResponseEntity.ok(productService.getProductDtoById(id));
+    }
+
+    @GetMapping("/{id}/comments")
+    public ResponseEntity<List<CommentDto>> getCommentsByProductId(@PathVariable UUID id){
+        return ResponseEntity.ok(productService.getCommentsByProductId(id));
     }
 
     @GetMapping("/findByIds/{productIds}")
