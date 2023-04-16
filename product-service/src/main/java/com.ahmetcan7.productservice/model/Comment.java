@@ -29,4 +29,6 @@ public class Comment extends AdvanceBaseModal {
     @ManyToOne()
     @JoinColumn(name = "product_id")
     private Product product;
+
+    private String creator;
 }

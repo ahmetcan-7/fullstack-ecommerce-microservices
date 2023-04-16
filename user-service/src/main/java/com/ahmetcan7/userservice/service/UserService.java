@@ -99,9 +99,12 @@ public class UserService implements UserDetailsService {
     public UserDto validateToken(String token) {
         DecodedJWT decodedJWT =  jwtTokenProvider.decodeToken(token);
         String userId = decodedJWT.getClaim("userId").asString();
+        String username = decodedJWT.getClaim("firstName").asString()
+                + " "
+                + decodedJWT.getClaim("lastName").asString();
         List<GrantedAuthority> authorities = jwtTokenProvider.getAuthorities(decodedJWT);
 
-        return new UserDto(userId,authorities);
+        return new UserDto(userId,authorities,username);
     }
 
     public MeDto getMe(String token) {

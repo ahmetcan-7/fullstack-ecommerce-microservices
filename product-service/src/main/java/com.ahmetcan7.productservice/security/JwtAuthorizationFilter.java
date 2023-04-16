@@ -1,5 +1,6 @@
 package com.ahmetcan7.productservice.security;
 
+import com.ahmetcan7.common.model.UserCredential;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -29,12 +30,14 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
         logHeaders(httpServletRequest);
         String userId=httpServletRequest.getHeader("userId");
         String authoritiesStr = httpServletRequest.getHeader("authorities");
+        String username = httpServletRequest.getHeader("username");
+        UserCredential userCredentials = new UserCredential(username);
         Set<SimpleGrantedAuthority> simpleGrantedAuthorities = new HashSet<>();
         if(validString(authoritiesStr)) {
             simpleGrantedAuthorities=Arrays.stream(authoritiesStr.split(",")).distinct()
                     .filter(this::validString).map(SimpleGrantedAuthority::new).collect(Collectors.toSet());;
         }
-        Authentication authentication = new UsernamePasswordAuthenticationToken(userId, null, simpleGrantedAuthorities);
+        Authentication authentication = new UsernamePasswordAuthenticationToken(userId, userCredentials, simpleGrantedAuthorities);
         SecurityContextHolder.getContext().setAuthentication(authentication);
         filterChain.doFilter(httpServletRequest, httpServletResponse);
 
