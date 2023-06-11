@@ -84,9 +84,11 @@ public class UserController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<String> updateUser(@RequestBody UpdateUserRequest user)  {
-        userService.updateUser(user);
-        return ResponseEntity.ok(UPDATE_USER_RES);
+    public ResponseEntity<LoginResponse> updateUser(@RequestBody UpdateUserRequest user)  {
+        User currentUser = userService.updateUser(user);
+        UserPrincipal userPrincipal = new UserPrincipal(currentUser);
+        LoginResponse loginResponse = authenticationHelper.getLoginResponse(userPrincipal);
+        return ResponseEntity.ok(loginResponse);
     }
 
     @GetMapping("/find/{email}")

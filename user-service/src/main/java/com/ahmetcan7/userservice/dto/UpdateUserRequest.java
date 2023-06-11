@@ -9,8 +9,9 @@ public class UpdateUserRequest {
     private String firstName;
     private String lastName;
     private String password;
-    private String role;
-    private boolean isNonLocked;
-    private boolean isActive;
-    private MultipartFile profileImage;
+    private String profileImageURL;
+    // private String role;
+    // private boolean isNonLocked;
+    // private boolean isActive;
+    // private MultipartFile profileImage;
 }

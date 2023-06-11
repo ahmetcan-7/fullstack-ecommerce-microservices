@@ -1,6 +1,8 @@
 server:
   port: 8084
 spring:
+  main:
+    allow-circular-references: true
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/user

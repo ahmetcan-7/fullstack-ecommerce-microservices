@@ -17,7 +17,6 @@ import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -114,28 +113,29 @@ public class UserService implements UserDetailsService {
         String firstName = decodedJWT.getClaim("firstName").asString();
         String lastName = decodedJWT.getClaim("lastName").asString();
         String email = decodedJWT.getClaim("email").asString();
+        String profileImageURL = decodedJWT.getClaim("profileImageURL").asString();
 
         return MeDto.builder()
                 .firstName(firstName)
                 .lastName(lastName)
                 .email(email)
                 .userId(userId)
+                .profileImageURL(profileImageURL)
                 .roles(roles)
                 .build();
-
     }
 
     public User updateUser(UpdateUserRequest user){
         User currentUser = findUserByEmail(user.getEmail());
         currentUser.setFirstName(user.getFirstName());
         currentUser.setLastName(user.getLastName());
-        currentUser.setActive(user.isActive());
-        currentUser.setNotLocked(user.isNonLocked());
-        currentUser.setRole(getRoleEnumName(user.getRole()).name());
-        currentUser.setAuthorities(getRoleEnumName(user.getRole()).getAuthorities());
-        userRepository.save(currentUser);
-        saveProfileImage(currentUser, user.getProfileImage());
-        return currentUser;
+        currentUser.setProfileImageUrl(user.getProfileImageURL());
+        // currentUser.setActive(user.isActive());
+        // currentUser.setNotLocked(user.isNonLocked());
+        // currentUser.setRole(getRoleEnumName(user.getRole()).name());
+        // currentUser.setAuthorities(getRoleEnumName(user.getRole()).getAuthorities());
+        // saveProfileImage(currentUser, user.getProfileImage());
+        return userRepository.save(currentUser);
     }
 
     public void deleteUser(String email) {

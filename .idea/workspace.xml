@@ -4,17 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e11488a-5285-4330-851a-e2464b08619a" name="Changes" comment="">
+    <list default="true" id="5e11488a-5285-4330-851a-e2464b08619a" name="Changes" comment="Add creator first name and last name when creating comment.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/ahmetcan7/gateway/config/AuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/com/ahmetcan7/gateway/config/AuthFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/ahmetcan7/gateway/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/com/ahmetcan7/gateway/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/comment/CommentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/comment/CommentDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/comment/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/dto/comment/CommentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/model/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/model/Comment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/security/JwtAuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/security/JwtAuthorizationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com.ahmetcan7.productservice/service/CommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/dto/MeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/dto/MeDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/dto/UpdateUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/dto/UpdateUserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/model/UserPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/model/UserPrincipal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/util/JWTTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/util/JWTTokenProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +114,7 @@
       <recent name="com.ahmetcan7.notificationservice.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ProductApplication">
+  <component name="RunManager" selected="Spring Boot.UserApplication">
     <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="eureka-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ahmetcan7.eurekaserver.EurekaServerApplication" />
@@ -205,11 +203,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.ProductApplication" />
         <item itemvalue="Spring Boot.UserApplication" />
         <item itemvalue="Spring Boot.GatewayApplication" />
         <item itemvalue="Spring Boot.EurekaServerApplication" />
         <item itemvalue="Spring Boot.InventoryApplication" />
+        <item itemvalue="Spring Boot.ProductApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -332,6 +330,7 @@
       <workItem from="1679740153300" duration="968000" />
       <workItem from="1680430390887" duration="10994000" />
       <workItem from="1681648206415" duration="4557000" />
+      <workItem from="1686484286824" duration="8280000" />
     </task>
     <servers />
   </component>
