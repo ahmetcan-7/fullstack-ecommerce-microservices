@@ -49,11 +49,27 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
                     .filter((path)->request.getServletPath().equals(path))
                     .collect(Collectors.toList());
 
+            String[] parts = request.getServletPath().split("/");
+
+            StringBuilder removedPath = new StringBuilder();
+            for (int i = 0; i < parts.length - 1; i++) {
+                removedPath.append(parts[i]);
+                removedPath.append("/");
+            }
+
+            if (removedPath.length() > 0) {
+                removedPath.deleteCharAt(removedPath.length() - 1);
+            }
+
+            List<String> publicUrlsWithOnlyMain = Arrays.stream(PUBLIC_URLS_WITH_ONLY_MAIN)
+                    .filter((path)->removedPath.toString().equals(path))
+                    .collect(Collectors.toList());
+
             if (request.getMethod().equalsIgnoreCase(OPTIONS_HTTP_METHOD)) {
                 response.setStatus(OK.value());
             } else {
                 String authorizationHeader = request.getHeader(AUTHORIZATION);
-                if (!publicUrls.isEmpty()) {
+                if (!publicUrls.isEmpty() || !publicUrlsWithOnlyMain.isEmpty()) {
                     filterChain.doFilter(request, response);
                     return;
                 }

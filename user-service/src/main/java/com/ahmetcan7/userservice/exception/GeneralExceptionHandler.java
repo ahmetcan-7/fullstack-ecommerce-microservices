@@ -89,6 +89,11 @@ public class GeneralExceptionHandler extends ResponseEntityExceptionHandler {
         return createHttpResponse(BAD_REQUEST, exception.getMessage());
     }
 
+    @ExceptionHandler(PasswordNotMatchException.class)
+    public ResponseEntity<HttpResponse> passwordNotMatchException(PasswordNotMatchException exception) {
+        return createHttpResponse(BAD_REQUEST, exception.getMessage());
+    }
+
     @ExceptionHandler(EmailNotFoundException.class)
     public ResponseEntity<HttpResponse> emailNotFoundException(EmailNotFoundException exception) {
         return createHttpResponse(BAD_REQUEST, exception.getMessage());

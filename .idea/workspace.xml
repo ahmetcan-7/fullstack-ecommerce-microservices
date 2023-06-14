@@ -6,13 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="5e11488a-5285-4330-851a-e2464b08619a" name="Changes" comment="Add creator first name and last name when creating comment.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/constant/SecurityConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/constant/SecurityConstant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/dto/MeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/dto/MeDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/dto/UpdateUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/dto/UpdateUserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/model/UserPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/model/UserPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/exception/GeneralExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/exception/GeneralExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/filter/JwtAuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/filter/JwtAuthorizationFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/util/JWTTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ahmetcan7/userservice/util/JWTTokenProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -330,7 +328,8 @@
       <workItem from="1679740153300" duration="968000" />
       <workItem from="1680430390887" duration="10994000" />
       <workItem from="1681648206415" duration="4557000" />
-      <workItem from="1686484286824" duration="8280000" />
+      <workItem from="1686484286824" duration="8396000" />
+      <workItem from="1686766867128" duration="8408000" />
     </task>
     <servers />
   </component>

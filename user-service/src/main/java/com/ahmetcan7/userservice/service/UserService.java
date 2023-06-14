@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.tomcat.util.http.fileupload.FileUtils;
+import org.bouncycastle.openssl.PasswordException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -135,6 +136,20 @@ public class UserService implements UserDetailsService {
         // currentUser.setRole(getRoleEnumName(user.getRole()).name());
         // currentUser.setAuthorities(getRoleEnumName(user.getRole()).getAuthorities());
         // saveProfileImage(currentUser, user.getProfileImage());
+        return userRepository.save(currentUser);
+    }
+
+    public User updatePassword(UpdatePasswordRequest newUser,String token){
+        DecodedJWT decodedJWT =  jwtTokenProvider.decodeToken(token);
+        String email = decodedJWT.getClaim("email").asString();
+        User currentUser = findUserByEmail(email);
+
+        if(passwordEncoder.matches(newUser.getCurrentPassword(), currentUser.getPassword())){
+            currentUser.setPassword(encodePassword(newUser.getNewPassword()));
+        }else{
+            throw new PasswordNotMatchException("The current password not correct!");
+        }
+
         return userRepository.save(currentUser);
     }
 

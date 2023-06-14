@@ -91,6 +91,16 @@ public class UserController {
         return ResponseEntity.ok(loginResponse);
     }
 
+    @PutMapping("/updatePassword")
+    public ResponseEntity<LoginResponse> updatePassword(@RequestBody UpdatePasswordRequest user ,
+                                                        @RequestHeader(AUTHORIZATION) String authorizationHeader)  {
+        String token = authorizationHeader.substring(TOKEN_PREFIX.length());
+        User currentUser = userService.updatePassword(user,token);
+        UserPrincipal userPrincipal = new UserPrincipal(currentUser);
+        LoginResponse loginResponse = authenticationHelper.getLoginResponse(userPrincipal);
+        return ResponseEntity.ok(loginResponse);
+    }
+
     @GetMapping("/find/{email}")
     public ResponseEntity<User> getUser(@PathVariable String email) {
         return ResponseEntity.ok(userService.findUserByEmail(email));
